@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import { makeLayout } from 'controller';
+import { makeLayout, render as clientRender } from 'controller';
 import { siteSelection, makeNavigation, sites } from 'my-sites/controller';
 import { list, redirect } from './controller';
 import config from 'config';
@@ -14,7 +14,14 @@ export default function( router ) {
 		return;
 	}
 
-	router( '/types/:type/:status?/:site', siteSelection, makeNavigation, list, makeLayout );
-	router( '/types/:type', siteSelection, sites, makeLayout );
+	router(
+		'/types/:type/:status?/:site',
+		siteSelection,
+		makeNavigation,
+		list,
+		makeLayout,
+		clientRender
+	);
+	router( '/types/:type', siteSelection, sites, makeLayout, clientRender );
 	router( '/types', redirect );
 }
