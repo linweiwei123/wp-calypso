@@ -349,7 +349,7 @@ describe( 'EditorMediaModal', () => {
 			).instance();
 
 			tree.setState( { source: 'external' } );
-			tree.copyExternalAfterLoadingWordPressLibrary = onClose;
+			tree.copyExternal = onClose;
 			tree.confirmSelection();
 
 			// EditorMediaModal will generate transient ID for the media selected
@@ -385,6 +385,7 @@ describe( 'EditorMediaModal', () => {
 				Object.assign( {}, SINGLE_ITEM_MEDIA[ 0 ], { ID: 'media-3', transient: true } ),
 			];
 			process.nextTick( () => {
+				// external media copied
 				expect( onClose ).to.have.been.calledWith( transientItems, 'external' );
 				done();
 			} );
@@ -401,7 +402,7 @@ describe( 'EditorMediaModal', () => {
 			).instance();
 
 			tree.setState( { source: 'external' } );
-			tree.copyExternalAfterLoadingWordPressLibrary = onClose;
+			tree.copyExternal = onClose;
 			tree.confirmSelection();
 
 			// EditorMediaModal will generate transient ID for the media selected
