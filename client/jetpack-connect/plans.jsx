@@ -12,6 +12,7 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
+import { retrievePlan } from './cookies';
 import HelpButton from './help-button';
 import JetpackConnectHappychatButton from './happychat-button';
 import LoggedOutFormLinks from 'components/logged-out-form/links';
@@ -29,7 +30,7 @@ import {
 import { recordTracksEvent } from 'state/analytics/actions';
 import { getCurrentUser } from 'state/current-user/selectors';
 import { addItem } from 'lib/upgrades/actions';
-import { selectPlanInAdvance, goBackToWpAdmin, completeFlow } from 'state/jetpack-connect/actions';
+import { goBackToWpAdmin, completeFlow } from 'state/jetpack-connect/actions';
 import QueryPlans from 'components/data/query-plans';
 import QuerySitePlans from 'components/data/query-site-plans';
 import { isRequestingPlans, getPlanBySlug } from 'state/plans/selectors';
@@ -43,7 +44,6 @@ import {
 import {
 	getFlowType,
 	getSiteSelectedPlan,
-	getGlobalSelectedPlan,
 	isCalypsoStartedConnection,
 } from 'state/jetpack-connect/selectors';
 import { mc } from 'lib/analytics';
@@ -200,8 +200,6 @@ class Plans extends Component {
 	}
 
 	selectFreeJetpackPlan() {
-		// clears whatever we had stored in local cache
-		this.props.selectPlanInAdvance( null, this.props.selectedSiteSlug );
 		this.props.recordTracksEvent( 'calypso_jpc_plans_submit_free', {
 			user: this.props.userId,
 		} );
@@ -216,8 +214,6 @@ class Plans extends Component {
 
 	selectPlan = cartItem => {
 		const checkoutPath = `/checkout/${ this.props.selectedSite.slug }`;
-		// clears whatever we had stored in local cache
-		this.props.selectPlanInAdvance( null, this.props.selectedSiteSlug );
 
 		if ( ! cartItem || cartItem.product_slug === PLAN_JETPACK_FREE ) {
 			return this.selectFreeJetpackPlan();
@@ -297,8 +293,7 @@ export default connect(
 		const selectedSite = getSelectedSite( state );
 		const selectedSiteSlug = selectedSite ? selectedSite.slug : '*';
 
-		const selectedPlan =
-			getSiteSelectedPlan( state, selectedSiteSlug ) || getGlobalSelectedPlan( state );
+		const selectedPlan = getSiteSelectedPlan( state, selectedSiteSlug ) || retrievePlan();
 		const searchPlanBySlug = planSlug => {
 			return getPlanBySlug( state, planSlug );
 		};
@@ -325,7 +320,6 @@ export default connect(
 	{
 		goBackToWpAdmin,
 		completeFlow,
-		selectPlanInAdvance,
 		recordTracksEvent,
 	}
 )( localize( Plans ) );
