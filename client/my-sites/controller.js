@@ -452,7 +452,6 @@ export function jetPackWarning( context, next ) {
 }
 
 export function sites( context, next ) {
-	const { dispatch } = getStore( context );
 	if ( context.query.verified === '1' ) {
 		notices.success(
 			i18n.translate(
@@ -463,8 +462,13 @@ export function sites( context, next ) {
 	/**
 	 * Sites is rendered on #primary but it doesn't expect a sidebar to exist
 	 */
-	removeSidebar( context );
-	dispatch( setLayoutFocus( 'content' ) );
+	context.store.dispatch( setLayoutFocus( 'content' ) );
+	context.store.dispatch(
+		setSection( {
+			group: 'sites',
+			secondary: false,
+		} )
+	);
 
 	context.primary = createSitesComponent( context );
 	next();
