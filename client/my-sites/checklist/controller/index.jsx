@@ -10,9 +10,9 @@ import React from 'react';
  * Internal Dependencies
  */
 
-import { renderWithReduxStore } from 'lib/react-helpers';
 import Show from '../show';
 
-export function show( context ) {
-	renderWithReduxStore( <Show />, 'primary', context.store );
+export function show( context, next ) {
+	context.primary = <Show />;
+	next();
 }

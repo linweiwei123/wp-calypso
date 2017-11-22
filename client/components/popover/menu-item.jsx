@@ -26,7 +26,7 @@ export default class PopoverMenuItem extends Component {
 		onMouseOver: noop,
 	};
 
-	handleMouseOver = ( event ) => {
+	handleMouseOver = event => {
 		const { focusOnHover } = this.props;
 
 		if ( focusOnHover ) {
