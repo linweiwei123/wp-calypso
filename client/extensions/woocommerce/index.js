@@ -197,14 +197,10 @@ function addStorePage( storePage, storeNavigation ) {
 }
 
 function createStoreNavigation( context, next, storePage ) {
-	renderWithReduxStore(
-		React.createElement( StoreSidebar, {
-			path: context.path,
-			page: storePage,
-		} ),
-		document.getElementById( 'secondary' ),
-		context.store
-	);
+	context.secondary = React.createElement( StoreSidebar, {
+		path: context.path,
+		page: storePage,
+	} );
 
 	next();
 }
