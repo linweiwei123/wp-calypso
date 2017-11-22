@@ -57,20 +57,10 @@ export default function() {
 	page( '/jetpack/connect/store/:interval', controller.plansLanding, makeLayout, clientRender );
 
 	page( '/jetpack/connect/vaultpress', '/jetpack/connect/store' );
-	page(
-		'/jetpack/connect/vaultpress/:interval',
-		redirectToStoreWithInterval,
-		makeLayout,
-		clientRender
-	);
+	page( '/jetpack/connect/vaultpress/:interval', redirectToStoreWithInterval );
 
 	page( '/jetpack/connect/akismet', '/jetpack/connect/store' );
-	page(
-		'/jetpack/connect/akismet/:interval',
-		redirectToStoreWithInterval,
-		makeLayout,
-		clientRender
-	);
+	page( '/jetpack/connect/akismet/:interval', redirectToStoreWithInterval );
 
 	page(
 		'/jetpack/connect/:locale?',
