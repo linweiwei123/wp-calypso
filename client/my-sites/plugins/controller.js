@@ -111,7 +111,7 @@ function getCategoryForPluginsBrowser( context ) {
 	return context.params.category;
 }
 
-function renderPluginsBrowser( context, next ) {
+function renderPluginsBrowser( context ) {
 	const searchTerm = context.query.s;
 	const site = getSelectedSite( context.store.getState() );
 	const category = getCategoryForPluginsBrowser( context );
@@ -132,7 +132,6 @@ function renderPluginsBrowser( context, next ) {
 		category,
 		search: searchTerm,
 	} );
-	next();
 }
 
 function renderPluginWarnings( context, next ) {
@@ -179,13 +178,15 @@ const controller = {
 		context.params.pluginFilter = filter;
 		notices.clearNotices( 'notices' );
 		renderPluginList( context, basePath );
+		next();
 	},
 
-	plugin( context ) {
+	plugin( context, next ) {
 		const siteUrl = route.getSiteFragment( context.path );
 
 		notices.clearNotices( 'notices' );
 		renderSinglePlugin( context, siteUrl );
+		next();
 	},
 
 	// If the "plugin" part of the route is actually a site or a valid category, render the
@@ -206,8 +207,9 @@ const controller = {
 		next();
 	},
 
-	browsePlugins( context ) {
+	browsePlugins( context, next ) {
 		renderPluginsBrowser( context );
+		next();
 	},
 
 	upload( context, next ) {
@@ -236,12 +238,14 @@ const controller = {
 		next();
 	},
 
-	setupPlugins( context ) {
+	setupPlugins( context, next ) {
 		renderProvisionPlugins( context );
+		next();
 	},
 
-	eligibility( context ) {
+	eligibility( context, next ) {
 		renderPluginWarnings( context );
+		next();
 	},
 
 	resetHistory() {
