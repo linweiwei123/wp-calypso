@@ -129,11 +129,13 @@ class MediaLibraryExternalHeader extends React.Component {
 			<Card className="media-library__header">
 				{ 'pexels' === source && this.renderPexelsAttribution() }
 
-				<Button compact disabled={ this.state.fetching } onClick={ this.handleClick }>
-					<Gridicon icon="refresh" size={ 24 } />
+				{ 'pexels' !== source && (
+					<Button compact disabled={ this.state.fetching } onClick={ this.handleClick }>
+						<Gridicon icon="refresh" size={ 24 } />
 
-					{ translate( 'Refresh' ) }
-				</Button>
+						{ translate( 'Refresh' ) }
+					</Button>
+				) }
 
 				{ canCopy && this.renderCopyButton() }
 

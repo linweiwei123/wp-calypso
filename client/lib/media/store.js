@@ -121,7 +121,6 @@ MediaStore.dispatchToken = Dispatcher.register( function( payload ) {
 			} else {
 				receiveSingle( action.siteId, action.data, action.id );
 			}
-
 			MediaStore.emit( 'change' );
 			break;
 

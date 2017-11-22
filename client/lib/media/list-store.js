@@ -126,6 +126,13 @@ function isQuerySame( siteId, query ) {
 	);
 }
 
+function sourceHasDate( source ) {
+	if ( 'pexels' === source ) {
+		return false;
+	}
+	return true;
+}
+
 MediaListStore.isItemMatchingQuery = function( siteId, item ) {
 	var query, matches;
 
@@ -291,7 +298,9 @@ MediaListStore.dispatchToken = Dispatcher.register( function( payload ) {
 			}
 
 			receivePage( action.siteId, action.data.media );
-			sortItemsByDate( action.siteId );
+			if ( action.query && sourceHasDate( action.query.source ) ) {
+				sortItemsByDate( action.siteId );
+			}
 			MediaListStore.emit( 'change' );
 			break;
 

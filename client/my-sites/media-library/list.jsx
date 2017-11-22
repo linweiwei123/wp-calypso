@@ -233,8 +233,17 @@ export class MediaLibraryList extends React.Component {
 		return null;
 	};
 
+	sourceIsUngrouped( source ) {
+		if ( 'pexels' === source ) {
+			return true;
+		}
+		return false;
+	}
+
 	render() {
 		var onFetchNextPage;
+		let getItemGroup = this.getItemGroup;
+		let getGroupLabel = this.getGroupLabel;
 
 		if ( this.props.filterRequiresUpgrade ) {
 			return <ListPlanUpgradeNudge filter={ this.props.filter } site={ this.props.site } />;
@@ -255,11 +264,17 @@ export class MediaLibraryList extends React.Component {
 			this.props.mediaOnFetchNextPage();
 		}.bind( this );
 
+		// some sources aren't grouped beyond anything but the source
+		if ( this.sourceIsUngrouped( this.props.source ) ) {
+			getItemGroup = () => this.props.source;
+			getGroupLabel = () => '';
+		}
+
 		return (
 			<SortedGrid
 				ref={ this.setListContext }
-				getItemGroup={ this.getItemGroup }
-				getGroupLabel={ this.getGroupLabel }
+				getItemGroup={ getItemGroup }
+				getGroupLabel={ getGroupLabel }
 				context={ this.props.scrollable ? this.state.listContext : false }
 				items={ this.props.media || [] }
 				itemsPerRow={ this.getItemsPerRow() }
