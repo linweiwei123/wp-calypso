@@ -202,8 +202,10 @@ export class DomainDetailsForm extends PureComponent {
 		);
 	}
 
-	handleContactDetailsChange = ( newContactDetails ) => {
-		this.props.updateContactDetailsCache( newContactDetails );
+	handleContactDetailsChange = ( name, value ) => {
+		this.props.updateContactDetailsCache( {
+			[ name ]: value,
+		} );
 	};
 
 	renderDomainContactDetailsFields() {
