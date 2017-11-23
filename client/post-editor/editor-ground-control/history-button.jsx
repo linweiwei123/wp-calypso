@@ -2,65 +2,48 @@
 /**
  * External dependencies
  */
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { localize } from 'i18n-calypso';
+import { flow } from 'lodash';
 
 /**
  * Internal dependencies
  */
-import {
-	NESTED_SIDEBAR_NONE,
-	NESTED_SIDEBAR_REVISIONS,
-	NestedSidebarPropType,
-} from 'post-editor/editor-sidebar/constants';
+import { closePostRevisionsDialog, openPostRevisionsDialog } from 'state/posts/revisions/actions';
 
-class HistoryButton extends PureComponent {
-	toggleShowing = () => {
-		const {
-			isSidebarOpened,
-			nestedSidebar,
-			selectRevision,
-			setNestedSidebar,
-			toggleSidebar,
-		} = this.props;
+import EditorRevisionsDialog from 'post-editor/editor-revisions/dialog';
 
-		// hide revisions if visible
-		if ( nestedSidebar === NESTED_SIDEBAR_REVISIONS ) {
-			setNestedSidebar( NESTED_SIDEBAR_NONE );
-			return;
-		}
-
-		selectRevision( null );
-		setNestedSidebar( NESTED_SIDEBAR_REVISIONS );
-
-		// open the sidebar when closed
-		if ( ! isSidebarOpened ) {
-			toggleSidebar();
-		}
-	};
-
-	render() {
-		return (
-			<div className="editor-ground-control__history">
-				<button
-					className="editor-ground-control__save button is-link"
-					onClick={ this.toggleShowing }
-				>
-					{ this.props.translate( 'History' ) }
-				</button>
-			</div>
-		);
-	}
-}
+const HistoryButton = ( { loadRevision, postId, siteId, closeDialog, openDialog, translate } ) => (
+	<div className="editor-ground-control__history">
+		<button className="editor-ground-control__history-button button is-link" onClick={ openDialog }>
+			{ translate( 'History' ) }
+		</button>
+		<EditorRevisionsDialog
+			onClose={ closeDialog }
+			loadRevision={ loadRevision }
+			postId={ postId }
+			siteId={ siteId }
+		/>
+	</div>
+);
 
 HistoryButton.PropTypes = {
-	isSidebarOpened: PropTypes.bool,
-	nestedSidebar: NestedSidebarPropType,
-	selectRevision: PropTypes.func,
-	setNestedSidebar: PropTypes.func,
-	toggleSidebar: PropTypes.func,
+	loadRevision: PropTypes.func.isRequired,
+
+	// connected to dispatch
+	closePostRevisionsDialog: PropTypes.func.isRequired,
+	openPostRevisionsDialog: PropTypes.func.isRequired,
+
+	// localize
 	translate: PropTypes.func,
 };
 
-export default localize( HistoryButton );
+export default flow(
+	localize,
+	connect( null, {
+		closeDialog: closePostRevisionsDialog,
+		openDialog: openPostRevisionsDialog,
+	} )
+)( HistoryButton );

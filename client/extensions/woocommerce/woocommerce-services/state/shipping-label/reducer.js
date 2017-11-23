@@ -41,6 +41,8 @@ import {
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_REPRINT_DIALOG_READY,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_REPRINT_DIALOG,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CONFIRM_REPRINT,
+	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_DETAILS_DIALOG,
+	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_DETAILS_DIALOG,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_PACKAGE,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_ITEM_MOVE,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_MOVE_ITEM,
@@ -57,6 +59,9 @@ import {
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_EMAIL_DETAILS,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_FULFILL_ORDER,
 } from '../action-types';
+import {
+	WOOCOMMERCE_ORDER_UPDATE_SUCCESS,
+} from 'woocommerce/state/action-types';
 import getBoxDimensions from 'woocommerce/woocommerce-services/lib/utils/get-box-dimensions';
 import initializeLabelsState from 'woocommerce/woocommerce-services/lib/initialize-labels-state';
 
@@ -71,10 +76,10 @@ const generateUniqueBoxId = ( keyBase, boxIds ) => {
 const reducers = {};
 
 reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_INIT ] =
-	( state, { formData, labelsData, paperSize, storeOptions, paymentMethod, numPaymentMethods, enabled } ) => {
+	( state, actionData ) => {
 		return {
 			...state,
-			...initializeLabelsState( formData, labelsData, paperSize, storeOptions, paymentMethod, numPaymentMethods, enabled ),
+			...initializeLabelsState( omit( actionData, 'type', 'siteId' ) ),
 		};
 	};
 
@@ -401,10 +406,6 @@ reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_ADD_ITEMS ] = ( state, { targetPac
 reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_ADD_PACKAGE ] = ( state ) => {
 	const newPackages = { ...state.form.packages.selected };
 	const packageKeys = Object.keys( newPackages );
-	const boxesKeys = Object.keys( state.form.packages.all );
-	if ( ! boxesKeys.length ) {
-		return state;
-	}
 
 	const addedPackageId = generateUniqueBoxId( 'client_custom_', packageKeys );
 	const openedPackageId = addedPackageId;
@@ -469,11 +470,9 @@ reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_REMOVE_PACKAGE ] = ( state, { pack
 	};
 };
 
-reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_PACKAGE_TYPE ] = ( state, { packageId, boxTypeId } ) => {
+reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_PACKAGE_TYPE ] = ( state, { box, packageId, boxTypeId } ) => {
 	const newPackages = { ...state.form.packages.selected };
 	const oldPackage = newPackages[ packageId ];
-
-	const box = state.form.packages.all[ boxTypeId ];
 	const weight = round(
 		oldPackage.isUserSpecifiedWeight
 			? oldPackage.weight
@@ -722,7 +721,6 @@ reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_REFUND_RESPONSE ] = ( state, { res
 		refundDialog: null,
 		labels: [ ...state.labels ],
 	};
-	newState.refundDialog = null;
 	newState.labels[ labelIndex ] = labelData;
 
 	return newState;
@@ -762,6 +760,25 @@ reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CONFIRM_REPRINT ] = ( state ) => {
 			isFetching: true,
 		},
 	};
+};
+
+reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_DETAILS_DIALOG ] = ( state, { labelId } ) => {
+	return { ...state,
+		detailsDialog: {
+			labelId,
+		},
+	};
+};
+
+reducers[ WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_DETAILS_DIALOG ] = ( state ) => {
+	return { ...state,
+		detailsDialog: null,
+	};
+};
+
+// Reset the state when the order changes
+reducers[ WOOCOMMERCE_ORDER_UPDATE_SUCCESS ] = () => {
+	return initializeLabelsState();
 };
 
 export default keyedReducer( 'orderId', ( state = initializeLabelsState(), action ) => {

@@ -1,31 +1,31 @@
+/** @format */
+
 /**
  * External dependencies
- *
- * @format
  */
-
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { get } from 'lodash';
 
 /**
  * Internal dependencies
  */
-import { localize } from 'i18n-calypso';
 import {
-	HAPPYCHAT_CHAT_STATUS_ASSIGNING,
-	HAPPYCHAT_CHAT_STATUS_PENDING,
-	HAPPYCHAT_CHAT_STATUS_MISSED,
 	HAPPYCHAT_CHAT_STATUS_ABANDONED,
-	getHappychatStatus,
-} from 'state/happychat/selectors';
-import getHappychatConnectionStatus from 'state/happychat/selectors/get-happychat-connection-status';
-import isHappychatServerReachable from 'state/happychat/selectors/is-happychat-server-reachable';
+	HAPPYCHAT_CHAT_STATUS_ASSIGNING,
+	HAPPYCHAT_CHAT_STATUS_MISSED,
+	HAPPYCHAT_CHAT_STATUS_PENDING,
+	HAPPYCHAT_CONNECTION_STATUS_CONNECTING,
+	HAPPYCHAT_CONNECTION_STATUS_DISCONNECTED,
+	HAPPYCHAT_CONNECTION_STATUS_RECONNECTING,
+	HAPPYCHAT_CONNECTION_STATUS_UNAUTHORIZED,
+	HAPPYCHAT_CONNECTION_STATUS_UNINITIALIZED,
+} from 'state/happychat/constants';
 
 /*
  * Renders any notices about the chat session to the user
  */
-class Notices extends Component {
+export class Notices extends Component {
 	statusNotice() {
 		const { isServerReachable, connectionStatus, chatStatus, translate } = this.props;
 
@@ -36,15 +36,23 @@ class Notices extends Component {
 		}
 
 		switch ( connectionStatus ) {
-			case 'uninitialized':
+			case HAPPYCHAT_CONNECTION_STATUS_UNINITIALIZED:
 				return translate( 'Waiting to connect you with a Happiness Engineer…' );
-			case 'connecting':
+			case HAPPYCHAT_CONNECTION_STATUS_CONNECTING:
 				return translate( 'Connecting you with a Happiness Engineer…' );
-			case 'reconnecting':
-			// Fall through to the same notice as `disconnected`
-			case 'disconnected':
+			case HAPPYCHAT_CONNECTION_STATUS_RECONNECTING:
+			case HAPPYCHAT_CONNECTION_STATUS_DISCONNECTED:
 				return translate(
 					"We're having trouble connecting to chat. Please bear with us while we try to reconnect…"
+				);
+			case HAPPYCHAT_CONNECTION_STATUS_UNAUTHORIZED:
+				return translate(
+					'Chat is not available at the moment. For help, please contact us in {{link}}Support{{/link}}',
+					{
+						components: {
+							link: <a href="https://wordpress.com/help/contact" />,
+						},
+					}
 				);
 		}
 
@@ -75,10 +83,9 @@ class Notices extends Component {
 	}
 }
 
-const mapState = state => ( {
-	isServerReachable: isHappychatServerReachable( state ),
-	chatStatus: getHappychatStatus( state ),
-	connectionStatus: getHappychatConnectionStatus( state ),
-} );
-
-export default localize( connect( mapState )( Notices ) );
+Notices.propTypes = {
+	chatStatus: PropTypes.string,
+	connectionStatus: PropTypes.string,
+	isServerReachable: PropTypes.bool,
+	translate: PropTypes.func,
+};

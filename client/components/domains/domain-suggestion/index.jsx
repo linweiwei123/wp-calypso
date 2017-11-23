@@ -1,7 +1,7 @@
+/** @format */
+
 /**
  * External dependencies
- *
- * @format
  */
 
 import PropTypes from 'prop-types';
@@ -13,6 +13,7 @@ import Gridicon from 'gridicons';
  * Internal dependencies
  */
 import DomainProductPrice from 'components/domains/domain-product-price';
+import Button from 'components/button';
 
 class DomainSuggestion extends React.Component {
 	static propTypes = {
@@ -20,13 +21,14 @@ class DomainSuggestion extends React.Component {
 		buttonClasses: PropTypes.string,
 		extraClasses: PropTypes.string,
 		onButtonClick: PropTypes.func.isRequired,
-		priceRule: PropTypes.string.isRequired,
+		priceRule: PropTypes.string,
 		price: PropTypes.string,
 		domain: PropTypes.string,
+		hidePrice: PropTypes.bool,
 	};
 
 	render() {
-		const { price, isAdded, extraClasses, children, priceRule } = this.props;
+		const { hidePrice, price, isAdded, extraClasses, children, priceRule } = this.props;
 		const classes = classNames(
 			'domain-suggestion',
 			'card',
@@ -47,9 +49,15 @@ class DomainSuggestion extends React.Component {
 			>
 				<div className="domain-suggestion__content">
 					{ children }
-					<DomainProductPrice rule={ priceRule } price={ price } />
+					{ ! hidePrice && <DomainProductPrice rule={ priceRule } price={ price } /> }
 				</div>
-				<div className="domain-suggestion__action">{ this.props.buttonContent }</div>
+				<Button
+					borderless
+					onClick={ this.props.onButtonClick }
+					className="domain-suggestion__action"
+				>
+					{ this.props.buttonContent }
+				</Button>
 				<Gridicon className="domain-suggestion__chevron" icon="chevron-right" />
 			</div>
 		);

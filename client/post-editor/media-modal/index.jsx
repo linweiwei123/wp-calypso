@@ -1,7 +1,7 @@
+/** @format */
+
 /**
  * External dependencies
- *
- * @format
  */
 
 import React, { Component } from 'react';
@@ -34,6 +34,7 @@ import MediaModalGallery from './gallery';
 import MediaActions from 'lib/media/actions';
 import MediaUtils from 'lib/media/utils';
 import Dialog from 'components/dialog';
+import CloseOnEscape from 'components/close-on-escape';
 import accept from 'lib/accept';
 import { getMediaModalView } from 'state/ui/media-modal/selectors';
 import { getSite } from 'state/sites/selectors';
@@ -162,14 +163,14 @@ export class EditorMediaModal extends Component {
 				// Copy the selected item from the external source. Note we pass the actual media data as we need this to generate
 				// transient placeholders. This is done after the state changes so our transients and external items appear
 				// in the WordPress library that we've just switched to
-				MediaActions.addExternal( site.ID, selectedMedia, originalSource );
+				MediaActions.addExternal( site, selectedMedia, originalSource );
 			}
 		);
 	}
 
 	copyExternal( selectedMedia, originalSource ) {
 		const { site } = this.props;
-		MediaActions.addExternal( site.ID, selectedMedia, originalSource );
+		MediaActions.addExternal( site, selectedMedia, originalSource );
 	}
 
 	confirmSelection = () => {
@@ -603,7 +604,9 @@ export class EditorMediaModal extends Component {
 				onClose={ this.onClose }
 				additionalClassNames="editor-media-modal"
 				shouldCloseOnOverlayClick={ this.shouldClose() }
+				shouldCloseOnEsc={ false }
 			>
+				<CloseOnEscape onEscape={ this.onClose } />
 				{ this.renderContent() }
 			</Dialog>
 		);

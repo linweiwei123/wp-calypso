@@ -1,36 +1,31 @@
-/**
- * 	External dependencies
- *
- * @format
- */
+/** @format */
 
+/**
+ * External dependencies
+ */
 import React from 'react';
 import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { assign, isArray, isEmpty } from 'lodash';
-import { connect } from 'react-redux';
 
 /**
- *	Internal dependencies
+ * Internal dependencies
  */
 import { first, when, forEach } from './functional';
 import autoscroll from './autoscroll';
 import Emojify from 'components/emojify';
 import scrollbleed from './scrollbleed';
-import { translate } from 'i18n-calypso';
-import { getCurrentUser } from 'state/current-user/selectors';
-import { getHappychatTimeline } from 'state/happychat/selectors';
-import getHappychatConnectionStatus from 'state/happychat/selectors/get-happychat-connection-status';
-import { isExternal, addSchemeIfMissing, setUrlScheme } from 'lib/url';
+import { addSchemeIfMissing, setUrlScheme } from './url';
 
 import debugFactory from 'debug';
 const debug = debugFactory( 'calypso:happychat:timeline' );
 
 const linksNotEmpty = ( { links } ) => ! isEmpty( links );
 
-const messageParagraph = ( { message, key } ) => (
+const messageParagraph = ( { message, key, twemojiUrl } ) => (
 	<p key={ key }>
-		<Emojify>{ message }</Emojify>
+		<Emojify twemojiUrl={ twemojiUrl }>{ message }</Emojify>
 	</p>
 );
 
@@ -38,7 +33,7 @@ const messageParagraph = ( { message, key } ) => (
  * Given a message and array of links contained within that message, returns the message
  * with clickable links inside of it.
  */
-const messageWithLinks = ( { message, key, links } ) => {
+const messageWithLinks = ( { message, key, links, isExternalUrl } ) => {
 	const children = links.reduce(
 		( { parts, last }, [ url, startIndex, length ] ) => {
 			const text = url;
@@ -47,7 +42,7 @@ const messageWithLinks = ( { message, key, links } ) => {
 			let target = null;
 
 			href = addSchemeIfMissing( href, 'http' );
-			if ( isExternal( href ) ) {
+			if ( isExternalUrl( href ) ) {
 				rel = 'noopener noreferrer';
 				target = '_blank';
 			} else if ( typeof window !== 'undefined' ) {
@@ -92,7 +87,7 @@ const messageText = when( linksNotEmpty, messageWithLinks, messageParagraph );
  * Group messages based on user so when any user sends multiple messages they will be grouped
  * within the same message bubble until it reaches a message from a different user.
  */
-const renderGroupedMessages = ( { item, isCurrentUser }, index ) => {
+const renderGroupedMessages = ( { item, isCurrentUser, twemojiUrl, isExternalUrl }, index ) => {
 	const [ event, ...rest ] = item;
 	return (
 		<div
@@ -107,8 +102,12 @@ const renderGroupedMessages = ( { item, isCurrentUser }, index ) => {
 					name: event.name,
 					key: event.id,
 					links: event.links,
+					twemojiUrl,
+					isExternalUrl,
 				} ) }
-				{ rest.map( ( { message, id: key, links } ) => messageText( { message, key, links } ) ) }
+				{ rest.map( ( { message, id: key, links } ) =>
+					messageText( { message, key, links, twemojiUrl, isExternalUrl } )
+				) }
 			</div>
 		</div>
 	);
@@ -149,7 +148,7 @@ const groupMessages = messages => {
 	return grouped.groups.concat( [ grouped.group ] );
 };
 
-const welcomeMessage = ( { currentUserEmail } ) => (
+const welcomeMessage = ( { currentUserEmail, translate } ) => (
 	<div className="happychat__welcome">
 		<p>
 			{ translate(
@@ -167,9 +166,11 @@ const timelineHasContent = ( { timeline } ) => isArray( timeline ) && ! isEmpty(
 const renderTimeline = ( {
 	timeline,
 	isCurrentUser,
+	isExternalUrl,
 	onScrollContainer,
 	scrollbleedLock,
 	scrollbleedUnlock,
+	twemojiUrl,
 } ) => (
 	<div
 		className="happychat__conversation"
@@ -181,6 +182,8 @@ const renderTimeline = ( {
 			renderGroupedTimelineItem( {
 				item,
 				isCurrentUser: isCurrentUser( item[ 0 ] ),
+				isExternalUrl,
+				twemojiUrl,
 			} )
 		) }
 	</div>
@@ -192,9 +195,20 @@ export const Timeline = createReactClass( {
 	displayName: 'Timeline',
 	mixins: [ autoscroll, scrollbleed ],
 
+	propTypes: {
+		currentUserEmail: PropTypes.string,
+		isCurrentUser: PropTypes.func,
+		isExternalUrl: PropTypes.func,
+		onScrollContainer: PropTypes.func,
+		timeline: PropTypes.array,
+		translate: PropTypes.func,
+		twemojiUrl: PropTypes.string,
+	},
+
 	getDefaultProps() {
 		return {
 			onScrollContainer: () => {},
+			isExternalUrl: () => true,
 		};
 	},
 
@@ -213,17 +227,3 @@ export const Timeline = createReactClass( {
 		);
 	},
 } );
-
-const mapProps = state => {
-	const current_user = getCurrentUser( state );
-	return {
-		connectionStatus: getHappychatConnectionStatus( state ),
-		timeline: getHappychatTimeline( state ),
-		isCurrentUser: ( { user_id, source } ) => {
-			return user_id.toString() === current_user.ID.toString() && source === 'customer';
-		},
-		currentUserEmail: current_user.email,
-	};
-};
-
-export default connect( mapProps )( Timeline );

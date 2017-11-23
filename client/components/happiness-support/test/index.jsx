@@ -13,7 +13,7 @@ import { spy } from 'sinon';
  */
 import { HappinessSupport } from '..';
 import HappychatButton from 'components/happychat/button';
-import HappychatConnection from 'components/happychat/connection';
+import HappychatConnection from 'components/happychat/connection-connected';
 import support from 'lib/url/support';
 
 describe( 'HappinessSupport', () => {
@@ -36,7 +36,7 @@ describe( 'HappinessSupport', () => {
 		const content = wrapper.find( 'p.happiness-support__text' );
 		expect( content ).to.have.length( 1 );
 		expect( content.props().children ).to.equal(
-			'Translated: {{strong}}Need help?{{/strong}} A Happiness Engineer can answer questions about your site, your account or how to do just about anything.' // eslint-disable-line max-len
+			'Translated: {{strong}}Need help?{{/strong}} A Happiness Engineer can answer questions about your site, your account, or how to do just about anything.' // eslint-disable-line max-len
 		);
 	} );
 

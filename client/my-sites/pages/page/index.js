@@ -1,13 +1,12 @@
+/** @format */
+
 /**
  * External dependencies
- *
- * @format
  */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import createFragment from 'react-addons-create-fragment';
 import { localize } from 'i18n-calypso';
 import pageRouter from 'page';
 import { connect } from 'react-redux';
@@ -27,6 +26,7 @@ import utils from 'lib/posts/utils';
 import classNames from 'classnames';
 import MenuSeparator from 'components/popover/menu-separator';
 import PageCardInfo from '../page-card-info';
+import { preload } from 'sections-preload';
 import { getSite, hasStaticFrontPage, isSitePreviewable } from 'state/sites/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { isFrontPage, isPostsPage } from 'state/pages/selectors';
@@ -36,6 +36,10 @@ import { setLayoutFocus } from 'state/ui/layout-focus/actions';
 import { getPreviewURL } from 'lib/posts/utils';
 
 const recordEvent = partial( recordGoogleEvent, 'Pages' );
+
+function preloadEditor() {
+	preload( 'post-editor' );
+}
 
 class Page extends Component {
 	static propTypes = {
@@ -183,7 +187,7 @@ class Page extends Component {
 		}
 
 		return (
-			<PopoverMenuItem onClick={ this.editPage }>
+			<PopoverMenuItem onClick={ this.editPage } onMouseOver={ preloadEditor }>
 				<Gridicon icon="pencil" size={ 18 } />
 				{ this.props.translate( 'Edit' ) }
 			</PopoverMenuItem>
@@ -200,26 +204,22 @@ class Page extends Component {
 		}
 
 		if ( this.props.page.status !== 'trash' ) {
-			return createFragment( {
-				separator: <MenuSeparator />,
-				item: (
-					<PopoverMenuItem className="page__trash-item" onClick={ this.updateStatusTrash }>
-						<Gridicon icon="trash" size={ 18 } />
-						{ this.props.translate( 'Trash' ) }
-					</PopoverMenuItem>
-				),
-			} );
+			return [
+				<MenuSeparator key="separator" />,
+				<PopoverMenuItem key="item" className="page__trash-item" onClick={ this.updateStatusTrash }>
+					<Gridicon icon="trash" size={ 18 } />
+					{ this.props.translate( 'Trash' ) }
+				</PopoverMenuItem>,
+			];
 		}
 
-		return createFragment( {
-			separator: <MenuSeparator />,
-			item: (
-				<PopoverMenuItem className="page__delete-item" onClick={ this.updateStatusDelete }>
-					<Gridicon icon="trash" size={ 18 } />
-					{ this.props.translate( 'Delete' ) }
-				</PopoverMenuItem>
-			),
-		} );
+		return [
+			<MenuSeparator key="separator" />,
+			<PopoverMenuItem key="item" className="page__delete-item" onClick={ this.updateStatusDelete }>
+				<Gridicon icon="trash" size={ 18 } />
+				{ this.props.translate( 'Delete' ) }
+			</PopoverMenuItem>,
+		];
 	}
 
 	getCopyItem() {
@@ -405,11 +405,9 @@ class Page extends Component {
 						className="page__title"
 						href={ canEdit ? helpers.editLinkForPage( page, site ) : page.URL }
 						title={
-							canEdit ? (
-								translate( 'Edit %(title)s', { textOnly: true, args: { title: page.title } } )
-							) : (
-								translate( 'View %(title)s', { textOnly: true, args: { title: page.title } } )
-							)
+							canEdit
+								? translate( 'Edit %(title)s', { textOnly: true, args: { title: page.title } } )
+								: translate( 'View %(title)s', { textOnly: true, args: { title: page.title } } )
 						}
 						onClick={ this.props.recordPageTitle }
 					>

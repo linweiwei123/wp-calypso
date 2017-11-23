@@ -62,6 +62,12 @@ const sections = [
 		secondary: true,
 	},
 	{
+		name: 'concierge',
+		paths: [ '/me/concierge' ],
+		module: 'me/concierge',
+		group: 'me',
+	},
+	{
 		name: 'media',
 		paths: [ '/media' ],
 		module: 'my-sites/media',
@@ -166,6 +172,13 @@ const sections = [
 		secondary: true,
 		group: 'sites',
 	},
+	{
+		name: 'checklist',
+		paths: [ '/checklist' ],
+		module: 'my-sites/checklist',
+		secondary: true,
+		group: 'checklist',
+	},
 	// Since we're using find() and startsWith() on paths, 'themes' needs to go before 'theme',
 	// or it'll be falsely associated with the latter section.
 	{
@@ -262,6 +275,7 @@ sections.push( {
 	module: 'reader/full-post',
 	secondary: false,
 	group: 'reader',
+	css: 'reader-full-post',
 } );
 
 sections.push( {

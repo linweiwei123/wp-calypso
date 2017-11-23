@@ -5,8 +5,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import config from 'config';
-import debugFactory from 'debug';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
 import { localize } from 'i18n-calypso';
@@ -19,9 +17,6 @@ import ActivityIcon from './activity-icon';
 import EllipsisMenu from 'components/ellipsis-menu';
 import FoldableCard from 'components/foldable-card';
 import PopoverMenuItem from 'components/popover/menu-item';
-import { recordTracksEvent as recordTracksEventAction } from 'state/analytics/actions';
-
-const debug = debugFactory( 'calypso:activity-log:item' );
 
 const stopPropagation = event => event.stopPropagation();
 
@@ -29,8 +24,9 @@ class ActivityLogItem extends Component {
 	static propTypes = {
 		applySiteOffset: PropTypes.func.isRequired,
 		disableRestore: PropTypes.bool.isRequired,
+		disableBackup: PropTypes.bool.isRequired,
 		hideRestore: PropTypes.bool,
-		requestRestore: PropTypes.func.isRequired,
+		requestDialog: PropTypes.func.isRequired,
 		siteId: PropTypes.number.isRequired,
 
 		log: PropTypes.shape( {
@@ -53,9 +49,6 @@ class ActivityLogItem extends Component {
 			actorWpcomId: PropTypes.number.isRequired,
 		} ).isRequired,
 
-		// connect
-		recordTracksEvent: PropTypes.func.isRequired,
-
 		// localize
 		moment: PropTypes.func.isRequired,
 		translate: PropTypes.func.isRequired,
@@ -63,25 +56,13 @@ class ActivityLogItem extends Component {
 
 	static defaultProps = {
 		disableRestore: false,
+		disableBackup: false,
 	};
 
-	handleClickRestore = () => {
-		const { log, requestRestore } = this.props;
-		requestRestore( log.activityId, 'item' );
-	};
+	handleClickRestore = () =>
+		this.props.requestDialog( this.props.log.activityId, 'item', 'restore' );
 
-	handleOpen = () => {
-		const { log, recordTracksEvent } = this.props;
-		const { activityGroup, activityName, activityTs } = log;
-
-		debug( 'opened log', log );
-
-		recordTracksEvent( 'calypso_activitylog_item_expand', {
-			group: activityGroup,
-			name: activityName,
-			timestamp: activityTs,
-		} );
-	};
+	handleClickBackup = () => this.props.requestDialog( this.props.log.activityId, 'item', 'backup' );
 
 	//
 	// TODO: Descriptions are temporarily disabled and this method is not called.
@@ -119,10 +100,16 @@ class ActivityLogItem extends Component {
 		);
 	}
 
-	renderSummary() {
-		const { disableRestore, hideRestore, translate } = this.props;
+	renderItemAction() {
+		const {
+			disableRestore,
+			disableBackup,
+			hideRestore,
+			translate,
+			log: { activityIsRewindable },
+		} = this.props;
 
-		if ( hideRestore ) {
+		if ( hideRestore || ! activityIsRewindable ) {
 			return null;
 		}
 
@@ -135,6 +122,13 @@ class ActivityLogItem extends Component {
 						onClick={ this.handleClickRestore }
 					>
 						{ translate( 'Rewind to this point' ) }
+					</PopoverMenuItem>
+					<PopoverMenuItem
+						disabled={ disableBackup }
+						icon="cloud-download"
+						onClick={ this.handleClickBackup }
+					>
+						{ translate( 'Download backup' ) }
 					</PopoverMenuItem>
 				</EllipsisMenu>
 			</div>
@@ -153,10 +147,10 @@ class ActivityLogItem extends Component {
 
 	render() {
 		const { className, log } = this.props;
-		const { activityIcon, activityStatus } = log;
+		const { activityIcon, activityIsDiscarded, activityStatus } = log;
 
 		const classes = classNames( 'activity-log-item', className, {
-			'is-discarded': config( 'env' ) === 'development' && Math.random() > 0.8,
+			'is-discarded': activityIsDiscarded,
 		} );
 
 		return (
@@ -167,17 +161,13 @@ class ActivityLogItem extends Component {
 				</div>
 				<FoldableCard
 					className="activity-log-item__card"
-					clickableHeader
-					expandedSummary={ this.renderSummary() }
+					expandedSummary={ this.renderItemAction() }
 					header={ this.renderHeader() }
-					onClick={ this.handleOpen }
-					summary={ this.renderSummary() }
+					summary={ this.renderItemAction() }
 				/>
 			</div>
 		);
 	}
 }
 
-export default connect( null, {
-	recordTracksEvent: recordTracksEventAction,
-} )( localize( ActivityLogItem ) );
+export default connect()( localize( ActivityLogItem ) );

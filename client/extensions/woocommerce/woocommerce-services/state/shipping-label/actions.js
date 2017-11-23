@@ -3,7 +3,7 @@
  * External dependencies
  */
 import { translate } from 'i18n-calypso';
-import { every, fill, find, first, flatten, isEmpty, isEqual, map, noop, pick, some } from 'lodash';
+import { every, fill, find, first, flatten, includes, isEmpty, isEqual, map, noop, pick, some } from 'lodash';
 
 /**
  * Internal dependencies
@@ -19,6 +19,7 @@ import { getPrintURL } from 'woocommerce/woocommerce-services/lib/pdf-label-util
 import { getShippingLabel, getFormErrors, shouldFulfillOrder, shouldEmailDetails } from './selectors';
 import { createNote } from 'woocommerce/state/sites/orders/notes/actions';
 import { updateOrder } from 'woocommerce/state/sites/orders/actions';
+import { getAllPackageDefinitions } from 'woocommerce/woocommerce-services/state/packages/selectors';
 
 import {
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_INIT,
@@ -48,6 +49,8 @@ import {
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_REPRINT_DIALOG_READY,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_REPRINT_DIALOG,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CONFIRM_REPRINT,
+	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_DETAILS_DIALOG,
+	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_DETAILS_DIALOG,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_PACKAGE,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_ITEM_MOVE,
 	WOOCOMMERCE_SERVICES_SHIPPING_LABEL_MOVE_ITEM,
@@ -71,18 +74,12 @@ export const fetchLabelsData = ( orderId, siteId ) => ( dispatch ) => {
 	dispatch( { type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_IS_FETCHING, orderId, siteId, isFetching: true } );
 
 	api.get( siteId, api.url.orderLabels( orderId ) )
-		.then( ( { formData, labelsData, paperSize, storeOptions, paymentMethod, numPaymentMethods, enabled } ) => {
+		.then( ( data ) => {
 			dispatch( {
 				type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_INIT,
 				siteId,
 				orderId,
-				formData,
-				labelsData,
-				paperSize,
-				storeOptions,
-				paymentMethod,
-				numPaymentMethods,
-				enabled,
+				...data,
 			} );
 		} )
 		.catch( ( error ) => {
@@ -119,7 +116,7 @@ const getNextErroneousStep = ( form, errors, currentStep ) => {
 				return 'destination';
 			}
 		case 'packages':
-			if ( hasNonEmptyLeaves( errors.packages ) || ! form.packages.all || ! Object.keys( form.packages.all ).length ) {
+			if ( hasNonEmptyLeaves( errors.packages ) ) {
 				return 'packages';
 			}
 		case 'rates':
@@ -179,14 +176,13 @@ const getLabelRates = ( orderId, siteId, dispatch, getState, handleResponse ) =>
 
 export const openPrintingFlow = ( orderId, siteId ) => (
 	dispatch,
-	getState,
-	getErrors = getFormErrors
+	getState
 ) => {
 	const state = getShippingLabel( getState(), orderId, siteId );
 	const storeOptions = state.storeOptions;
 	let form = state.form;
 	const { origin, destination } = form;
-	const errors = getErrors( getState(), orderId, siteId );
+	const errors = getFormErrors( getState(), orderId, siteId );
 	const promisesQueue = [];
 
 	if ( ! origin.ignoreValidation &&
@@ -225,7 +221,6 @@ export const openPrintingFlow = ( orderId, siteId ) => (
 			form.destination.isNormalized &&
 			isEqual( form.destination.values, form.destination.normalized ) &&
 			isEmpty( form.rates.available ) &&
-			form.packages.all && Object.keys( form.packages.all ).length &&
 			! hasNonEmptyLeaves( errors.packages )
 		) {
 			return getLabelRates( orderId, siteId, dispatch, getState, expandStepAfterAction );
@@ -487,14 +482,18 @@ export const removePackage = ( orderId, siteId, packageId ) => {
 	};
 };
 
-export const setPackageType = ( orderId, siteId, packageId, boxTypeId ) => {
-	return {
+export const setPackageType = ( orderId, siteId, packageId, boxTypeId ) => ( dispatch, getState ) => {
+	const allBoxes = getAllPackageDefinitions( getState(), siteId );
+	const box = allBoxes[ boxTypeId ];
+
+	dispatch( {
 		type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_SET_PACKAGE_TYPE,
 		siteId,
 		orderId,
 		packageId,
 		boxTypeId,
-	};
+		box,
+	} );
 };
 
 export const savePackages = ( orderId, siteId ) => {
@@ -571,6 +570,20 @@ const getPDFFileName = ( orderId, isReprint = false ) => {
 	return `order-#${ orderId }-label` + ( isReprint ? '-reprint' : '' ) + '.pdf';
 };
 
+// retireves the single label status, and retries up to 3 times on timeout
+const labelStatusTask = ( orderId, siteId, labelId, retryCount ) => {
+	return api.get( siteId, api.url.labelStatus( orderId, labelId ) )
+		.then( ( statusResponse ) => statusResponse.label )
+		.catch( ( pollError ) => {
+			if ( ! includes( pollError, 'cURL error 28' ) || retryCount >= 3 ) {
+				throw pollError;
+			}
+			return new Promise( ( resolve ) => {
+				setTimeout( () => resolve( labelStatusTask( orderId, siteId, labelId, retryCount + 1 ) ), 1000 );
+			} );
+		} );
+};
+
 const pollForLabelsPurchase = ( orderId, siteId, dispatch, getState, labels ) => {
 	const errorLabel = find( labels, { status: 'PURCHASE_ERROR' } );
 	if ( errorLabel ) {
@@ -580,10 +593,7 @@ const pollForLabelsPurchase = ( orderId, siteId, dispatch, getState, labels ) =>
 
 	if ( ! every( labels, { status: 'PURCHASED' } ) ) {
 		setTimeout( () => {
-			const statusTasks = labels.map( ( label ) => (
-				api.get( siteId, api.url.labelStatus( orderId, label.label_id ) )
-					.then( ( statusResponse ) => statusResponse.label )
-			) );
+			const statusTasks = labels.map( ( label ) => labelStatusTask( orderId, siteId, label.label_id, 0 ) );
 
 			Promise.all( statusTasks )
 				.then( ( pollResponse ) => pollForLabelsPurchase( orderId, siteId, dispatch, getState, pollResponse ) )
@@ -762,7 +772,7 @@ export const fetchLabelsStatus = ( orderId, siteId ) => ( dispatch, getState ) =
 		};
 		const setIsSaving = ( saving ) => {
 			if ( ! saving ) {
-				dispatch( { type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_STATUS_RESPONSE, labelId, response, error } );
+				dispatch( { type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_STATUS_RESPONSE, orderId, siteId, labelId, response, error } );
 				if ( error ) {
 					dispatch( NoticeActions.errorNotice( error.toString() ) );
 				}
@@ -856,4 +866,17 @@ export const updatePaperSize = ( orderId, siteId, value ) => ( dispatch, getStat
 	if ( shippingLabel.reprintDialog != null ) {
 		dispatch( openReprintDialog( orderId, siteId, shippingLabel.reprintDialog.labelId ) );
 	}
+};
+
+export const openDetailsDialog = ( orderId, siteId, labelId ) => {
+	return {
+		type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_OPEN_DETAILS_DIALOG,
+		labelId,
+		siteId,
+		orderId,
+	};
+};
+
+export const closeDetailsDialog = ( orderId, siteId ) => {
+	return { type: WOOCOMMERCE_SERVICES_SHIPPING_LABEL_CLOSE_DETAILS_DIALOG, orderId, siteId };
 };

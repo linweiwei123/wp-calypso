@@ -1,7 +1,7 @@
+/** @format */
+
 /**
  * External dependencies
- *
- * @format
  */
 
 import React, { Component } from 'react';
@@ -17,7 +17,7 @@ import Button from 'components/button';
 import isHappychatAvailable from 'state/happychat/selectors/is-happychat-available';
 import support from 'lib/url/support';
 import HappychatButton from 'components/happychat/button';
-import HappychatConnection from 'components/happychat/connection';
+import HappychatConnection from 'components/happychat/connection-connected';
 import { recordTracksEvent } from 'state/analytics/actions';
 
 export class HappinessSupport extends Component {
@@ -109,7 +109,7 @@ export class HappinessSupport extends Component {
 
 				<p className="happiness-support__text">
 					{ translate(
-						'{{strong}}Need help?{{/strong}} A Happiness Engineer can answer questions about your site, your account or how to do just about anything.', // eslint-disable-line max-len
+						'{{strong}}Need help?{{/strong}} A Happiness Engineer can answer questions about your site, your account, or how to do just about anything.', // eslint-disable-line max-len
 						{
 							components: {
 								strong: <strong />,
@@ -120,11 +120,9 @@ export class HappinessSupport extends Component {
 
 				<div className="happiness-support__buttons">
 					{ showLiveChatButton && <HappychatConnection /> }
-					{ showLiveChatButton && liveChatAvailable ? (
-						this.renderLiveChatButton()
-					) : (
-						this.renderContactButton()
-					) }
+					{ showLiveChatButton && liveChatAvailable
+						? this.renderLiveChatButton()
+						: this.renderContactButton() }
 					{ this.renderSupportButton() }
 				</div>
 			</div>
