@@ -41,11 +41,7 @@ import {
 	isRtl,
 	isSiteAutomatedTransfer,
 } from 'state/selectors';
-import {
-	getFlowType,
-	getSiteSelectedPlan,
-	isCalypsoStartedConnection,
-} from 'state/jetpack-connect/selectors';
+import { getFlowType, isCalypsoStartedConnection } from 'state/jetpack-connect/selectors';
 import { mc } from 'lib/analytics';
 import { isCurrentPlanPaid, isJetpackSite } from 'state/sites/selectors';
 
@@ -293,7 +289,7 @@ export default connect(
 		const selectedSite = getSelectedSite( state );
 		const selectedSiteSlug = selectedSite ? selectedSite.slug : '*';
 
-		const selectedPlan = getSiteSelectedPlan( state, selectedSiteSlug ) || retrievePlan();
+		const selectedPlan = retrievePlan();
 		const searchPlanBySlug = planSlug => {
 			return getPlanBySlug( state, planSlug );
 		};
