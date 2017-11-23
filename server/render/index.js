@@ -60,7 +60,9 @@ export function getCacheKey( context ) {
 		return pathname;
 	}
 
-	return pathname + '?' + qs.stringify( cachedQueryParams, { sort: ( a, b ) => a.localCompare( b ) } );
+	return (
+		pathname + '?' + qs.stringify( cachedQueryParams, { sort: ( a, b ) => a.localeCompare( b ) } )
+	);
 }
 
 /**
@@ -69,7 +71,6 @@ export function getCacheKey( context ) {
 *
 * @param {object} context - React element to be rendered to html
 * @param {string} key - (optional) custom key
-* @return {string} The rendered Layout
 */
 export function renderLayout( context ) {
 	try {
