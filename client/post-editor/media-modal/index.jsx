@@ -158,15 +158,9 @@ export class EditorMediaModal extends Component {
 				search: undefined,
 			},
 			() => {
-<<<<<<< HEAD
-				// Copy the selected item from the external source. Note we pass the actual media data as we need this to generate
-				// transient placeholders. This is done after the state changes so our transients and external items appear
-				// in the WordPress library that we've just switched to
-				MediaActions.addExternal( site, selectedMedia, originalSource );
-=======
 				// Copy the selected item from the external source. Note we pass the actual media data as
 				// we need this to generate transient placeholders.
-				MediaActions.addExternal( site.ID, selectedMedia, originalSource );
+				MediaActions.addExternal( site, selectedMedia, originalSource );
 				// If we only have a single image, call onClose with the selectedMedia so that the insert
 				// happens as soon as the external media has been added.
 				if (
@@ -180,19 +174,10 @@ export class EditorMediaModal extends Component {
 				}
 				// if we have more than one, or we're not dealing with images, at this point we'll be in the WordPress library
 				// so the user can do whatever they need to do with the new media
->>>>>>> Date grouping optional by source. Removed refresh button. New transient image behaviour.
 			}
 		);
 	}
 
-<<<<<<< HEAD
-	copyExternal( selectedMedia, originalSource ) {
-		const { site } = this.props;
-		MediaActions.addExternal( site, selectedMedia, originalSource );
-	}
-
-=======
->>>>>>> Date grouping optional by source. Removed refresh button. New transient image behaviour.
 	confirmSelection = () => {
 		const { view, mediaLibrarySelectedItems } = this.props;
 
