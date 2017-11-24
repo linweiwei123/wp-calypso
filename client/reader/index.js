@@ -52,7 +52,7 @@ export default function() {
 		page( '/read/feed', '/' );
 
 		// Feed stream
-		page( '/read/*', preloadReaderBundle, initAbTests, makeLayout, clientRender );
+		page( '/read/*', preloadReaderBundle, initAbTests );
 		page( '/read/blog/feed/:feed_id', legacyRedirects );
 		page( '/read/feeds/:feed_id/posts', incompleteUrlRedirects );
 		page(

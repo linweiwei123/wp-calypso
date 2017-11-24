@@ -236,7 +236,7 @@ export default function() {
 		clientRender
 	);
 
-	page( '/store/*', notFoundError, makeLayout, clientRender );
+	page( '/store/*', notFoundError );
 }
 
 // TODO: This could probably be done in a better way through the same mechanisms
