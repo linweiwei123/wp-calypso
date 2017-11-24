@@ -33,6 +33,17 @@ export const menuItems = [
 ];
 
 if ( config.isEnabled( 'external-media' ) ) {
+	menuItems.push( {
+		name: 'insert_from_google',
+		item: (
+			<GridiconButton
+				icon="add-image"
+				label={ i18n.translate( 'Media from Google' ) }
+				e2e="google-media"
+			/>
+		),
+		cmd: 'googleAddMedia',
+	} );
 	if ( config.isEnabled( 'external-stock-images' ) ) {
 		menuItems.push( {
 			name: 'insert_from_pexels',
@@ -46,17 +57,6 @@ if ( config.isEnabled( 'external-media' ) ) {
 			cmd: 'pexelsAddMedia',
 		} );
 	}
-	menuItems.push( {
-		name: 'insert_from_google',
-		item: (
-			<GridiconButton
-				icon="add-image"
-				label={ i18n.translate( 'Media from Google' ) }
-				e2e="google-media"
-			/>
-		),
-		cmd: 'googleAddMedia',
-	} );
 }
 
 menuItems.push( {

@@ -506,16 +506,6 @@ export class EditorHtmlToolbar extends Component {
 					<span data-e2e-insert-type="media">{ translate( 'Media' ) }</span>
 				</div>
 
-				{ config.isEnabled( 'external-stock-images' ) && (
-					<div
-						className="editor-html-toolbar__insert-content-dropdown-item"
-						onClick={ this.openPexelsModal }
-					>
-						<Gridicon icon="add-image" />
-						<span data-e2e-insert-type="pexels">{ translate( 'Stock images from Pexels' ) }</span>
-					</div>
-				) }
-
 				{ config.isEnabled( 'external-media' ) && (
 					<div
 						className="editor-html-toolbar__insert-content-dropdown-item"
@@ -523,6 +513,16 @@ export class EditorHtmlToolbar extends Component {
 					>
 						<Gridicon icon="add-image" />
 						<span data-e2e-insert-type="google-media">{ translate( 'Media from Google' ) }</span>
+					</div>
+				) }
+
+				{ config.isEnabled( 'external-stock-images' ) && (
+					<div
+						className="editor-html-toolbar__insert-content-dropdown-item"
+						onClick={ this.openPexelsModal }
+					>
+						<Gridicon icon="add-image" />
+						<span data-e2e-insert-type="pexels">{ translate( 'Stock images from Pexels' ) }</span>
 					</div>
 				) }
 

@@ -114,7 +114,7 @@ class MediaLibraryExternalHeader extends React.Component {
 	renderPexelsAttribution() {
 		return (
 			<span className="media-library__pexels-attribution">
-				Stock images provided by{' '}
+				Stock images provided by
 				<a href="http://www.pexels.com/" rel="noopener noreferrer" target="_blank">
 					Pexels
 				</a>
