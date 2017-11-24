@@ -147,30 +147,35 @@ export class EditorMediaModal extends Component {
 		};
 	}
 
-	copyExternalAfterLoadingWordPressLibrary( selectedMedia, originalSource ) {
+	copyExternal( selectedMedia, originalSource ) {
 		const { site } = this.props;
-
 		// Trigger the action to clear pointers/selected items
 		MediaActions.sourceChanged( site.ID );
-
-		// Change our state back to WordPress
+		// Change our state back to WordPress, as we're copying the external media to our WordPress library
 		this.setState(
 			{
 				source: '',
 				search: undefined,
 			},
 			() => {
-				// Copy the selected item from the external source. Note we pass the actual media data as we need this to generate
-				// transient placeholders. This is done after the state changes so our transients and external items appear
-				// in the WordPress library that we've just switched to
+				// Copy the selected item from the external source. Note we pass the actual media data as
+				// we need this to generate transient placeholders.
 				MediaActions.addExternal( site, selectedMedia, originalSource );
+				// If we only have a single image, call onClose with the selectedMedia so that the insert
+				// happens as soon as the external media has been added.
+				if (
+					selectedMedia.length === 1 &&
+					MediaUtils.getMimePrefix( selectedMedia[ 0 ] ) === 'image'
+				) {
+					this.props.onClose( {
+						type: 'media',
+						items: selectedMedia,
+					} );
+				}
+				// if we have more than one, or we're not dealing with images, at this point we'll be in the WordPress library
+				// so the user can do whatever they need to do with the new media
 			}
 		);
-	}
-
-	copyExternal( selectedMedia, originalSource ) {
-		const { site } = this.props;
-		MediaActions.addExternal( site, selectedMedia, originalSource );
 	}
 
 	confirmSelection = () => {
@@ -184,18 +189,7 @@ export class EditorMediaModal extends Component {
 			const itemsWithTransientId = mediaLibrarySelectedItems.map( item =>
 				Object.assign( {}, item, { ID: uniqueId( 'media-' ), transient: true } )
 			);
-			if (
-				itemsWithTransientId.length === 1 &&
-				MediaUtils.getMimePrefix( itemsWithTransientId[ 0 ] ) === 'image'
-			) {
-				this.copyExternal( itemsWithTransientId, this.state.source );
-				this.props.onClose( {
-					type: 'media',
-					items: itemsWithTransientId,
-				} );
-			} else {
-				this.copyExternalAfterLoadingWordPressLibrary( itemsWithTransientId, this.state.source );
-			}
+			this.copyExternal( itemsWithTransientId, this.state.source );
 		} else {
 			const value = mediaLibrarySelectedItems.length
 				? {
