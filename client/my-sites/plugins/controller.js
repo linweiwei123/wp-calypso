@@ -134,7 +134,7 @@ function renderPluginsBrowser( context ) {
 	} );
 }
 
-function renderPluginWarnings( context, next ) {
+function renderPluginWarnings( context ) {
 	const state = context.store.getState();
 	const site = getSelectedSite( state );
 	const pluginSlug = decodeURIComponent( context.params.plugin );
@@ -143,10 +143,9 @@ function renderPluginWarnings( context, next ) {
 		siteSlug: site.slug,
 		pluginSlug,
 	} );
-	next();
 }
 
-function renderProvisionPlugins( context, next ) {
+function renderProvisionPlugins( context ) {
 	const state = context.store.getState();
 	const section = getSection( state );
 	const site = getSelectedSite( state );
@@ -161,7 +160,6 @@ function renderProvisionPlugins( context, next ) {
 	context.primary = React.createElement( PlanSetup, {
 		whitelist: context.query.only || false,
 	} );
-	next();
 }
 
 const controller = {
@@ -200,7 +198,7 @@ const controller = {
 			plugin &&
 			( ( siteUrl && plugin === siteUrl.toString() ) || includes( allowedCategoryNames, plugin ) )
 		) {
-			controller.browsePlugins( context );
+			controller.browsePlugins( context, next );
 			return;
 		}
 

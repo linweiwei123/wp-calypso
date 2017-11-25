@@ -96,7 +96,7 @@ export default function() {
 			makeNavigation,
 			ifSimpleSiteThenRedirectTo( '/plugins' ),
 			pluginsController.plugins,
-			sites,
+			// sites,
 			makeLayout,
 			clientRender
 		);
@@ -107,7 +107,7 @@ export default function() {
 			makeNavigation,
 			pluginsController.jetpackCanUpdate,
 			pluginsController.plugins,
-			sites,
+			// sites,
 			makeLayout,
 			clientRender
 		);
