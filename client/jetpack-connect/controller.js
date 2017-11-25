@@ -51,16 +51,6 @@ const removeSidebar = context => {
 	);
 };
 
-const jetpackNewSiteSelector = ( context, next ) => {
-	removeSidebar( context );
-	context.primary = React.createElement( JetpackNewSite, {
-		path: context.path,
-		context: context,
-		locale: context.params.locale,
-	} );
-	next();
-};
-
 export default {
 	redirectWithoutLocaleifLoggedIn( context, next ) {
 		if ( userModule.get() && i18nUtils.getLocaleFromPath( context.path ) ) {
@@ -85,9 +75,18 @@ export default {
 		next();
 	},
 
-	newSite( context ) {
+	newSite( context, next ) {
 		analytics.pageView.record( '/jetpack/new', 'Add a new site (Jetpack)' );
-		jetpackNewSiteSelector( context );
+
+		removeSidebar( context );
+
+		context.primary = React.createElement( JetpackNewSite, {
+			path: context.path,
+			context: context,
+			locale: context.params.locale,
+		} );
+
+		next();
 	},
 
 	connect( context, next ) {
