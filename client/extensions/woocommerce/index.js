@@ -171,29 +171,36 @@ const getStorePages = () => {
 };
 
 function addStorePage( storePage, storeNavigation ) {
-	page( storePage.path, siteSelection, storeNavigation, function( context, next ) {
-		const component = React.createElement( storePage.container, { params: context.params } );
-		const appProps =
-			( storePage.documentTitle && { documentTitle: storePage.documentTitle } ) || {};
+	page(
+		storePage.path,
+		siteSelection,
+		storeNavigation,
+		( context, next ) => {
+			const component = React.createElement( storePage.container, { params: context.params } );
+			const appProps =
+				( storePage.documentTitle && { documentTitle: storePage.documentTitle } ) || {};
 
-		let analyticsPath = storePage.path;
-		const { filter } = context.params;
-		if ( filter ) {
-			analyticsPath = analyticsPath.replace( ':filter', filter );
-		}
+			let analyticsPath = storePage.path;
+			const { filter } = context.params;
+			if ( filter ) {
+				analyticsPath = analyticsPath.replace( ':filter', filter );
+			}
 
-		let analyticsPageTitle = 'Store';
-		if ( storePage.documentTitle ) {
-			analyticsPageTitle += ` > ${ storePage.documentTitle }`;
-		} else {
-			analyticsPageTitle += ' > Dashboard';
-		}
+			let analyticsPageTitle = 'Store';
+			if ( storePage.documentTitle ) {
+				analyticsPageTitle += ` > ${ storePage.documentTitle }`;
+			} else {
+				analyticsPageTitle += ' > Dashboard';
+			}
 
-		analytics.pageView.record( analyticsPath, analyticsPageTitle );
+			analytics.pageView.record( analyticsPath, analyticsPageTitle );
 
-		context.primary = React.createElement( App, appProps, component );
-		next();
-	} );
+			context.primary = React.createElement( App, appProps, component );
+			next();
+		},
+		makeLayout,
+		clientRender
+	);
 }
 
 function createStoreNavigation( context, next, storePage ) {
@@ -236,7 +243,7 @@ export default function() {
 		clientRender
 	);
 
-	page( '/store/*', notFoundError );
+	page( '/store/*', notFoundError, makeLayout, clientRender );
 }
 
 // TODO: This could probably be done in a better way through the same mechanisms
