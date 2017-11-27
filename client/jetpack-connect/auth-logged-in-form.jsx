@@ -135,7 +135,7 @@ class LoggedInForm extends Component {
 
 		// For SSO, WooCommerce Services, and JPO users, do not display plans page
 		// Instead, redirect back to admin as soon as we're connected
-		if ( nextProps.isSso( nextProps ) || this.isWoo( nextProps ) || this.isFromJpo( nextProps ) ) {
+		if ( this.isSso( nextProps ) || this.isWoo( nextProps ) || this.isFromJpo( nextProps ) ) {
 			if ( ! isRedirectingToWpAdmin && authorizeSuccess ) {
 				return goBackToWpAdmin( redirectAfterAuth );
 			}
