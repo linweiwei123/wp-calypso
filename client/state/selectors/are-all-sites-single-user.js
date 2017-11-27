@@ -4,8 +4,8 @@
  * Internal dependencies
  */
 
-import createSelector from 'lib/create-selector';
-import { isSingleUserSite } from 'state/sites/selectors';
+import createSelector from 'client/lib/create-selector';
+import { isSingleUserSite } from 'client/state/sites/selectors';
 
 /**
  * Returns true if every site of the current user is a single user site

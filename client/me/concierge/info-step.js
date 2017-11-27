@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import CompactCard from 'components/card/compact';
+import Button from 'client/components/button';
+import CompactCard from 'client/components/card/compact';
 import PrimaryHeader from './primary-header';
 
 class InfoStep extends Component {

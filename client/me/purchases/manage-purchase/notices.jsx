@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 /**
  * Internal Dependencies
  */
-import { recordTracksEvent } from 'state/analytics/actions';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 import config from 'config';
 import {
 	canExplicitRenew,
@@ -25,12 +25,12 @@ import {
 	isRedeemable,
 	isRenewable,
 	showCreditCardExpiringWarning,
-} from 'lib/purchases';
+} from 'client/lib/purchases';
 import { getPurchase, getSelectedSite } from '../utils';
-import Notice from 'components/notice';
-import NoticeAction from 'components/notice/notice-action';
-import { isMonthly } from 'lib/plans/constants';
-import TrackComponentView from 'lib/analytics/track-component-view';
+import Notice from 'client/components/notice';
+import NoticeAction from 'client/components/notice/notice-action';
+import { isMonthly } from 'client/lib/plans/constants';
+import TrackComponentView from 'client/lib/analytics/track-component-view';
 
 const eventProperties = warning => ( { warning, position: 'individual-purchase' } );
 

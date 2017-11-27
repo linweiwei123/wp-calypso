@@ -11,13 +11,13 @@ import { assign, find, isEmpty } from 'lodash';
 /**
  * Internal dependencies
  */
-import wpcom from 'lib/wp';
-import Site from 'lib/site';
-import JetpackSite from 'lib/site/jetpack';
-import Searchable from 'lib/mixins/searchable';
-import Emitter from 'lib/mixins/emitter';
-import { isPlan } from 'lib/products-values';
-import userUtils from 'lib/user/utils';
+import wpcom from 'client/lib/wp';
+import Site from 'client/lib/site';
+import JetpackSite from 'client/lib/site/jetpack';
+import Searchable from 'client/lib/mixins/searchable';
+import Emitter from 'client/lib/mixins/emitter';
+import { isPlan } from 'client/lib/products-values';
+import userUtils from 'client/lib/user/utils';
 import { markCollisions } from './utils';
 const debug = debugModule( 'calypso:sites-list' );
 

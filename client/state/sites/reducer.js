@@ -39,9 +39,9 @@ import {
 	SITES_UPDATE,
 	THEME_ACTIVATE_SUCCESS,
 	WORDADS_SITE_APPROVE_REQUEST_SUCCESS,
-} from 'state/action-types';
+} from 'client/state/action-types';
 import { sitesSchema } from './schema';
-import { combineReducers, createReducer, keyedReducer } from 'state/utils';
+import { combineReducers, createReducer, keyedReducer } from 'client/state/utils';
 
 /**
  * Constants

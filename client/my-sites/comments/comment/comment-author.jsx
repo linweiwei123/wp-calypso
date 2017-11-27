@@ -13,14 +13,14 @@ import { get, isEqual } from 'lodash';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import Emojify from 'components/emojify';
-import ExternalLink from 'components/external-link';
-import Gravatar from 'components/gravatar';
-import CommentPostLink from 'my-sites/comments/comment/comment-post-link';
-import { decodeEntities } from 'lib/formatting';
-import { urlToDomainAndPath } from 'lib/url';
-import { getSiteComment } from 'state/selectors';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
+import Emojify from 'client/components/emojify';
+import ExternalLink from 'client/components/external-link';
+import Gravatar from 'client/components/gravatar';
+import CommentPostLink from 'client/my-sites/comments/comment/comment-post-link';
+import { decodeEntities } from 'client/lib/formatting';
+import { urlToDomainAndPath } from 'client/lib/url';
+import { getSiteComment } from 'client/state/selectors';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'client/state/ui/selectors';
 
 export class CommentAuthor extends Component {
 	static propTypes = {

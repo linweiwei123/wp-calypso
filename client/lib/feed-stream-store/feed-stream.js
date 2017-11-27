@@ -20,13 +20,13 @@ import debugFactory from 'debug';
 /**
  * Internal Dependencies
  */
-import Emitter from 'lib/mixins/emitter';
-import FeedPostStore from 'lib/feed-post-store';
+import Emitter from 'client/lib/mixins/emitter';
+import FeedPostStore from 'client/lib/feed-post-store';
 import * as FeedStreamActions from './actions';
 import { action as ActionTypes } from './constants';
-import PollerPool from 'lib/data-poller';
-import { setLastStoreId } from 'reader/controller-helper';
-import * as stats from 'reader/stats';
+import PollerPool from 'client/lib/data-poller';
+import { setLastStoreId } from 'client/reader/controller-helper';
+import * as stats from 'client/reader/stats';
 import { keyToString, keysAreEqual } from './post-key';
 
 const debug = debugFactory( 'calypso:feed-store:post-list-store' );

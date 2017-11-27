@@ -7,7 +7,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { navigation, siteSelection, sites } from 'my-sites/controller';
+import { navigation, siteSelection, sites } from 'client/my-sites/controller';
 import plansController from './controller';
 import currentPlanController from './current-plan/controller';
 

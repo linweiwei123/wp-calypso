@@ -4,8 +4,8 @@
  * Internal dependencies
  */
 
-import { makeLayout } from 'controller';
-import { siteSelection, makeNavigation, sites } from 'my-sites/controller';
+import { makeLayout } from 'client/controller';
+import { siteSelection, makeNavigation, sites } from 'client/my-sites/controller';
 import { list, redirect } from './controller';
 import config from 'config';
 

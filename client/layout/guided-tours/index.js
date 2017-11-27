@@ -12,18 +12,22 @@ import { defer } from 'lodash';
 /**
  * Internal dependencies
  */
-import { tracks } from 'lib/analytics';
-import AllTours from 'layout/guided-tours/config';
-import QueryPreferences from 'components/data/query-preferences';
-import RootChild from 'components/root-child';
-import { getGuidedTourState } from 'state/ui/guided-tours/selectors';
-import { getLastAction } from 'state/ui/action-log/selectors';
-import { getInitialQueryArguments, getSectionName, isSectionLoading } from 'state/ui/selectors';
+import { tracks } from 'client/lib/analytics';
+import AllTours from 'client/layout/guided-tours/config';
+import QueryPreferences from 'client/components/data/query-preferences';
+import RootChild from 'client/components/root-child';
+import { getGuidedTourState } from 'client/state/ui/guided-tours/selectors';
+import { getLastAction } from 'client/state/ui/action-log/selectors';
+import {
+	getInitialQueryArguments,
+	getSectionName,
+	isSectionLoading,
+} from 'client/state/ui/selectors';
 import {
 	nextGuidedTourStep,
 	quitGuidedTour,
 	resetGuidedToursHistory,
-} from 'state/ui/guided-tours/actions';
+} from 'client/state/ui/guided-tours/actions';
 
 class GuidedTours extends Component {
 	shouldComponentUpdate( nextProps ) {

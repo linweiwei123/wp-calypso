@@ -19,8 +19,8 @@ import {
 import UsAddressFieldset from './us-address-fieldset';
 import EuAddressFieldset from './eu-address-fieldset';
 import UkAddressFieldset from './uk-address-fieldset';
-import { Input, HiddenInput } from 'my-sites/domains/components/form';
-import { abtest } from 'lib/abtest';
+import { Input, HiddenInput } from 'client/my-sites/domains/components/form';
+import { abtest } from 'client/lib/abtest';
 
 export class RegionAddressFieldsets extends Component {
 	static propTypes = {

@@ -24,9 +24,14 @@ import {
 	updateZonesList,
 } from '../';
 import { fromApi } from '../utils';
-import { http } from 'state/data-layer/wpcom-http/actions';
-import { errorNotice, removeNotice, successNotice } from 'state/notices/actions';
-import { requestError, requestZones, updateZone, updateZones } from 'zoninator/state/zones/actions';
+import { http } from 'client/state/data-layer/wpcom-http/actions';
+import { errorNotice, removeNotice, successNotice } from 'client/state/notices/actions';
+import {
+	requestError,
+	requestZones,
+	updateZone,
+	updateZones,
+} from 'client/extensions/zoninator/state/zones/actions';
 
 const apiResponse = {
 	data: [

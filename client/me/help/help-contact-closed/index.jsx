@@ -10,7 +10,7 @@ import i18n, { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import FormSectionHeading from 'components/forms/form-section-heading';
+import FormSectionHeading from 'client/components/forms/form-section-heading';
 
 // In the translated dates 7am UTC is 12am/midnight PT
 const closedStartDate = i18n.moment( 'Thu, 23 Nov 2017 00:00:00 +0000' );

@@ -14,7 +14,7 @@ import {
 	STATUS_INITIALIZING,
 	STATUS_READY,
 	STATUS_UNINITIALIZED,
-} from 'state/help/directly/constants';
+} from 'client/state/help/directly/constants';
 
 describe( 'isDirectlyReady()', () => {
 	test( 'should be false when uninitialized', () => {

@@ -10,7 +10,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { navigation, sites, siteSelection } from 'my-sites/controller';
+import { navigation, sites, siteSelection } from 'client/my-sites/controller';
 import { renderSetupWizard, renderTab } from './app/controller';
 import { Tabs } from './constants';
 import JobListings from './components/settings/job-listings';

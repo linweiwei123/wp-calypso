@@ -11,11 +11,11 @@ import createReactClass from 'create-react-class';
 import Gridicon from 'gridicons';
 
 // Internal dependencies
-import Button from 'components/button';
-import observe from 'lib/mixins/data-observe';
-import eventRecorder from 'me/event-recorder';
-import PopoverMenu from 'components/popover/menu';
-import PopoverMenuItem from 'components/popover/menu-item';
+import Button from 'client/components/button';
+import observe from 'client/lib/mixins/data-observe';
+import eventRecorder from 'client/me/event-recorder';
+import PopoverMenu from 'client/components/popover/menu';
+import PopoverMenuItem from 'client/components/popover/menu-item';
 
 const AddProfileLinksButtons = createReactClass( {
 	displayName: 'AddProfileLinksButtons',

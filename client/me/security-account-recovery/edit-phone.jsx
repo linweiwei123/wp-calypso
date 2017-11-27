@@ -12,9 +12,9 @@ import { isEmpty } from 'lodash';
 /**
  * Internal dependencies
  */
-import FormFieldset from 'components/forms/form-fieldset';
-import FormPhoneInput from 'components/forms/form-phone-input';
-import FormInputValidation from 'components/forms/form-input-validation';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormPhoneInput from 'client/components/forms/form-phone-input';
+import FormInputValidation from 'client/components/forms/form-input-validation';
 import Buttons from './buttons';
 
 /**

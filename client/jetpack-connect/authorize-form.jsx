@@ -12,12 +12,12 @@ import { get, includes } from 'lodash';
 /**
  * Internal dependencies
  */
-import Main from 'components/main';
-import LoggedOutFormLinks from 'components/logged-out-form/links';
-import { getAuthorizationRemoteQueryData } from 'state/jetpack-connect/selectors';
-import { getCurrentUserId } from 'state/current-user/selectors';
-import { recordTracksEvent, setTracksAnonymousUserId } from 'state/analytics/actions';
-import EmptyContent from 'components/empty-content';
+import Main from 'client/components/main';
+import LoggedOutFormLinks from 'client/components/logged-out-form/links';
+import { getAuthorizationRemoteQueryData } from 'client/state/jetpack-connect/selectors';
+import { getCurrentUserId } from 'client/state/current-user/selectors';
+import { recordTracksEvent, setTracksAnonymousUserId } from 'client/state/analytics/actions';
+import EmptyContent from 'client/components/empty-content';
 import MainWrapper from './main-wrapper';
 import HelpButton from './help-button';
 import JetpackConnectHappychatButton from './happychat-button';

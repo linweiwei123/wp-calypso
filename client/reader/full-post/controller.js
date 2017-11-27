@@ -10,10 +10,10 @@ import { defer } from 'lodash';
 /**
  * Internal Dependencies
  */
-import FeedError from 'reader/feed-error';
-import { setPageTitle, trackPageLoad } from 'reader/controller-helper';
-import AsyncLoad from 'components/async-load';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import FeedError from 'client/reader/feed-error';
+import { setPageTitle, trackPageLoad } from 'client/reader/controller-helper';
+import AsyncLoad from 'client/components/async-load';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const analyticsPageTitle = 'Reader';
 

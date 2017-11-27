@@ -12,7 +12,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import LocaleSuggestions from 'components/locale-suggestions';
+import LocaleSuggestions from 'client/components/locale-suggestions';
 import { JETPACK_CONNECT_AUTHORIZE_LOGGED_OUT } from './lib/authorize-form';
 import { LoggedOutFormTestComponent as LoggedOutForm } from '../auth-logged-out-form';
 

@@ -14,7 +14,7 @@ import {
 	ANALYTICS_MULTI_TRACK,
 	ANALYTICS_STAT_BUMP,
 	ANALYTICS_TRACKS_ANONID_SET,
-} from 'state/action-types';
+} from 'client/state/action-types';
 
 describe( 'middleware', () => {
 	describe( 'actions', () => {

@@ -9,7 +9,7 @@ import { setError } from '../status/wc-api/actions';
 import {
 	WOOCOMMERCE_CURRENCIES_REQUEST,
 	WOOCOMMERCE_CURRENCIES_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 import { areCurrenciesLoaded, areCurrenciesLoading } from './selectors';
 
 export const fetchCurrencies = siteId => ( dispatch, getState ) => {

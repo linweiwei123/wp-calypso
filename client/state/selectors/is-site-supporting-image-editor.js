@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import { isJetpackModuleActive } from 'state/sites/selectors';
+import { isJetpackModuleActive } from 'client/state/sites/selectors';
 import { isPrivateSite } from './';
 
 /**

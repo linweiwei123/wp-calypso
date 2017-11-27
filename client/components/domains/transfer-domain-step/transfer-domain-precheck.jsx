@@ -13,11 +13,11 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import Card from 'components/card';
-import FormattedHeader from 'components/formatted-header';
-import { checkInboundTransferStatus } from 'lib/domains';
-import support from 'lib/url/support';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
+import FormattedHeader from 'client/components/formatted-header';
+import { checkInboundTransferStatus } from 'client/lib/domains';
+import support from 'client/lib/url/support';
 
 class TransferDomainPrecheck extends React.PureComponent {
 	static propTypes = {

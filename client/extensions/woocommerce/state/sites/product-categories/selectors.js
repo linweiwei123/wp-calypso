@@ -9,7 +9,7 @@ import { get, find, isArray } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 
 /**
  * Gets product categories from API data.

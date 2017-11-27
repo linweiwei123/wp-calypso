@@ -12,9 +12,9 @@ import { Provider as ReduxProvider } from 'react-redux';
 /**
  * Internal Dependencies
  */
-import { sectionify } from 'lib/route/path';
-import analytics from 'lib/analytics';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
+import { sectionify } from 'client/lib/route/path';
+import analytics from 'client/lib/analytics';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
 
 export function customize( context ) {
 	const CustomizeComponent = require( 'my-sites/customize/main' ),

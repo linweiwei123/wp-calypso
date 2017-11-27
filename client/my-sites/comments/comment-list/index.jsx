@@ -22,26 +22,30 @@ import {
 	likeComment,
 	replyComment,
 	unlikeComment,
-} from 'state/comments/actions';
-import { removeNotice, successNotice } from 'state/notices/actions';
-import Comment from 'my-sites/comments/comment';
-import CommentDetail from 'blocks/comment-detail';
-import CommentDetailPlaceholder from 'blocks/comment-detail/comment-detail-placeholder';
-import CommentListHeader from 'my-sites/comments/comment-list/comment-list-header';
-import CommentNavigation from 'my-sites/comments/comment-navigation';
-import EmptyContent from 'components/empty-content';
-import Pagination from 'components/pagination';
-import QuerySiteCommentsList from 'components/data/query-site-comments-list';
-import QuerySiteCommentsTree from 'components/data/query-site-comments-tree';
-import QuerySiteSettings from 'components/data/query-site-settings';
-import { getSiteCommentsTree, getSiteSetting, isCommentsTreeInitialized } from 'state/selectors';
+} from 'client/state/comments/actions';
+import { removeNotice, successNotice } from 'client/state/notices/actions';
+import Comment from 'client/my-sites/comments/comment';
+import CommentDetail from 'client/blocks/comment-detail';
+import CommentDetailPlaceholder from 'client/blocks/comment-detail/comment-detail-placeholder';
+import CommentListHeader from 'client/my-sites/comments/comment-list/comment-list-header';
+import CommentNavigation from 'client/my-sites/comments/comment-navigation';
+import EmptyContent from 'client/components/empty-content';
+import Pagination from 'client/components/pagination';
+import QuerySiteCommentsList from 'client/components/data/query-site-comments-list';
+import QuerySiteCommentsTree from 'client/components/data/query-site-comments-tree';
+import QuerySiteSettings from 'client/components/data/query-site-settings';
+import {
+	getSiteCommentsTree,
+	getSiteSetting,
+	isCommentsTreeInitialized,
+} from 'client/state/selectors';
 import {
 	bumpStat,
 	composeAnalytics,
 	recordTracksEvent,
 	withAnalytics,
-} from 'state/analytics/actions';
-import { isJetpackMinimumVersion, isJetpackSite } from 'state/sites/selectors';
+} from 'client/state/analytics/actions';
+import { isJetpackMinimumVersion, isJetpackSite } from 'client/state/sites/selectors';
 import { COMMENTS_PER_PAGE, NEWEST_FIRST } from '../constants';
 
 export class CommentList extends Component {

@@ -13,28 +13,28 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { abtest } from 'lib/abtest';
+import { abtest } from 'client/lib/abtest';
 import { isEnabled } from 'config';
-import { getEditorPath } from 'state/ui/editor/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getNormalizedPost } from 'state/posts/selectors';
-import { isSingleUserSite } from 'state/sites/selectors';
-import { areAllSitesSingleUser, canCurrentUserEditPost } from 'state/selectors';
+import { getEditorPath } from 'client/state/ui/editor/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getNormalizedPost } from 'client/state/posts/selectors';
+import { isSingleUserSite } from 'client/state/sites/selectors';
+import { areAllSitesSingleUser, canCurrentUserEditPost } from 'client/state/selectors';
 import {
 	isSharePanelOpen,
 	isMultiSelectEnabled,
 	isPostSelected,
-} from 'state/ui/post-type-list/selectors';
-import { hideSharePanel, togglePostSelection } from 'state/ui/post-type-list/actions';
-import ExternalLink from 'components/external-link';
-import FormInputCheckbox from 'components/forms/form-checkbox';
-import PostTime from 'blocks/post-time';
-import PostStatus from 'blocks/post-status';
-import PostShare from 'blocks/post-share';
-import PostTypeListPostThumbnail from 'my-sites/post-type-list/post-thumbnail';
-import PostActionsEllipsisMenu from 'my-sites/post-type-list/post-actions-ellipsis-menu';
-import PostTypeSiteInfo from 'my-sites/post-type-list/post-type-site-info';
-import PostTypePostAuthor from 'my-sites/post-type-list/post-type-post-author';
+} from 'client/state/ui/post-type-list/selectors';
+import { hideSharePanel, togglePostSelection } from 'client/state/ui/post-type-list/actions';
+import ExternalLink from 'client/components/external-link';
+import FormInputCheckbox from 'client/components/forms/form-checkbox';
+import PostTime from 'client/blocks/post-time';
+import PostStatus from 'client/blocks/post-status';
+import PostShare from 'client/blocks/post-share';
+import PostTypeListPostThumbnail from 'client/my-sites/post-type-list/post-thumbnail';
+import PostActionsEllipsisMenu from 'client/my-sites/post-type-list/post-actions-ellipsis-menu';
+import PostTypeSiteInfo from 'client/my-sites/post-type-list/post-type-site-info';
+import PostTypePostAuthor from 'client/my-sites/post-type-list/post-type-post-author';
 
 class PostItem extends React.Component {
 	hideCurrentSharePanel = () => {

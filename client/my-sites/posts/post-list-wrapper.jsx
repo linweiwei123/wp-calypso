@@ -10,10 +10,10 @@ import React from 'react';
  * Internal dependencies
  */
 import PostList from './post-list';
-import PostTypeList from 'my-sites/post-type-list';
+import PostTypeList from 'client/my-sites/post-type-list';
 import config from 'config';
-import { abtest } from 'lib/abtest';
-import { mapPostStatus } from 'lib/route/path';
+import { abtest } from 'client/lib/abtest';
+import { mapPostStatus } from 'client/lib/route/path';
 
 class PostListWrapper extends React.Component {
 	constructor( props ) {

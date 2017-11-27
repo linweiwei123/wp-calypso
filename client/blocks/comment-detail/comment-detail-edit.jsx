@@ -13,13 +13,13 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import FormButton from 'components/forms/form-button';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormLabel from 'components/forms/form-label';
-import FormTextarea from 'components/forms/form-textarea';
-import FormTextInput from 'components/forms/form-text-input';
-import { getSiteSlug } from 'state/sites/selectors';
-import InfoPopover from 'components/info-popover';
+import FormButton from 'client/components/forms/form-button';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormLabel from 'client/components/forms/form-label';
+import FormTextarea from 'client/components/forms/form-textarea';
+import FormTextInput from 'client/components/forms/form-text-input';
+import { getSiteSlug } from 'client/state/sites/selectors';
+import InfoPopover from 'client/components/info-popover';
 
 export class CommentDetailEdit extends Component {
 	static propTypes = {

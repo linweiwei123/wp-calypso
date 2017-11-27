@@ -4,9 +4,9 @@
  * Internal dependencies
  */
 
-import { SIGNUP_COMPLETE_RESET, SIGNUP_STEPS_JPO_CONNECT_SET } from 'state/action-types';
+import { SIGNUP_COMPLETE_RESET, SIGNUP_STEPS_JPO_CONNECT_SET } from 'client/state/action-types';
 
-import { createReducer } from 'state/utils';
+import { createReducer } from 'client/state/utils';
 import { jpoConnectSchema } from './schema';
 
 export default createReducer(

@@ -12,9 +12,9 @@ import { includes, memoize } from 'lodash';
 /**
  * Internal dependencies
  */
-import postNormalizer from 'lib/post-normalizer';
+import postNormalizer from 'client/lib/post-normalizer';
 /* eslint-disable no-restricted-imports */
-import sitesFactory from 'lib/sites-list';
+import sitesFactory from 'client/lib/sites-list';
 const sites = sitesFactory();
 /* eslint-enable no-restricted-imports */
 import { getFeaturedImageId } from './utils-ssr-ready';

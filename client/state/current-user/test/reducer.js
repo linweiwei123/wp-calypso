@@ -19,8 +19,8 @@ import {
 	SITE_PLANS_FETCH_COMPLETED,
 	SITES_RECEIVE,
 	SITES_UPDATE,
-} from 'state/action-types';
-import { withSchemaValidation } from 'state/utils';
+} from 'client/state/action-types';
+import { withSchemaValidation } from 'client/state/utils';
 import { useSandbox } from 'test/helpers/use-sinon';
 const capabilities = withSchemaValidation( unwrappedCapabilities.schema, unwrappedCapabilities );
 

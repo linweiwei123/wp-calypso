@@ -11,9 +11,9 @@ import { noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import Emojify from 'components/emojify';
-import Gravatar from 'components/gravatar';
-import SiteIcon from 'blocks/site-icon';
+import Emojify from 'client/components/emojify';
+import Gravatar from 'client/components/gravatar';
+import SiteIcon from 'client/blocks/site-icon';
 
 export const CommentDetailPost = ( {
 	commentId,

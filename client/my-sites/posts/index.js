@@ -9,7 +9,7 @@ import page from 'page';
 /**
  * Internal Dependencies
  */
-import { navigation, siteSelection } from 'my-sites/controller';
+import { navigation, siteSelection } from 'client/my-sites/controller';
 import postsController from './controller';
 
 export default function() {

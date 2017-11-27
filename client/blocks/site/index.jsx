@@ -13,9 +13,9 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import SiteIcon from 'blocks/site-icon';
-import SiteIndicator from 'my-sites/site-indicator';
-import { getSite } from 'state/sites/selectors';
+import SiteIcon from 'client/blocks/site-icon';
+import SiteIndicator from 'client/my-sites/site-indicator';
+import { getSite } from 'client/state/sites/selectors';
 
 class Site extends React.Component {
 	static defaultProps = {
@@ -95,25 +95,21 @@ class Site extends React.Component {
 					data-tip-target={ this.props.tipTarget }
 					target={ this.props.externalLink && '_blank' }
 					title={
-						this.props.homeLink ? (
-							translate( 'View site %(domain)s', {
-								args: { domain: site.domain },
-							} )
-						) : (
-							site.domain
-						)
+						this.props.homeLink
+							? translate( 'View site %(domain)s', {
+									args: { domain: site.domain },
+								} )
+							: site.domain
 					}
 					onClick={ this.onSelect }
 					onMouseEnter={ this.onMouseEnter }
 					onMouseLeave={ this.onMouseLeave }
 					aria-label={
-						this.props.homeLink ? (
-							translate( 'View site %(domain)s', {
-								args: { domain: site.domain },
-							} )
-						) : (
-							site.domain
-						)
+						this.props.homeLink
+							? translate( 'View site %(domain)s', {
+									args: { domain: site.domain },
+								} )
+							: site.domain
 					}
 				>
 					<SiteIcon site={ site } size={ this.props.compact ? 24 : 32 } />

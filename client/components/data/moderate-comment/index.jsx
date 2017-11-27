@@ -16,9 +16,9 @@ import {
 	composeAnalytics,
 	recordTracksEvent,
 	withAnalytics,
-} from 'state/analytics/actions';
-import { changeCommentStatus, deleteComment } from 'state/comments/actions';
-import { getSiteComment } from 'state/selectors';
+} from 'client/state/analytics/actions';
+import { changeCommentStatus, deleteComment } from 'client/state/comments/actions';
+import { getSiteComment } from 'client/state/selectors';
 
 class ModerateComment extends Component {
 	static propTypes = {

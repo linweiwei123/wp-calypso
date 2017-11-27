@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { recordTracksEvent } from 'state/analytics/actions';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 
 class DomainSuggestionsExample extends React.Component {
 	static propTypes = {

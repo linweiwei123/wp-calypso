@@ -6,13 +6,13 @@
 
 import { omit } from 'lodash';
 import React from 'react';
-import { setSection } from 'state/ui/actions';
+import { setSection } from 'client/state/ui/actions';
 
 /**
  * Internal Dependencies
  */
 import MainComponent from './main';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 export default {
 	unsubscribe( context ) {

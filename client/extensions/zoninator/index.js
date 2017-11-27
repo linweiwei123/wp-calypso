@@ -9,7 +9,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { navigation, sites, siteSelection } from 'my-sites/controller';
+import { navigation, sites, siteSelection } from 'client/my-sites/controller';
 import { renderTab } from './app/controller';
 import ZoneCreator from './components/settings/zone-creator';
 import Zone from './components/settings/zone';

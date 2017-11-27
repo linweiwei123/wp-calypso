@@ -7,7 +7,7 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import { SIGNUP_STEPS_JPO_CONNECT_SET } from 'state/action-types';
+import { SIGNUP_STEPS_JPO_CONNECT_SET } from 'client/state/action-types';
 
 /**
  * Module constants

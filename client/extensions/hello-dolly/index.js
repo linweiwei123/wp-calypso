@@ -11,8 +11,8 @@ import React from 'react';
  * Internal dependencies
  */
 import HelloDollyPage from './hello-dolly-page';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import { navigation, siteSelection } from 'my-sites/controller';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import { navigation, siteSelection } from 'client/my-sites/controller';
 
 const render = context => {
 	renderWithReduxStore( <HelloDollyPage />, document.getElementById( 'primary' ), context.store );

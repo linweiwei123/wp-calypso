@@ -11,12 +11,12 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import PopoverMenuItem from 'components/popover/menu-item';
-import { bumpStat as bumpAnalyticsStat } from 'state/analytics/actions';
+import PopoverMenuItem from 'client/components/popover/menu-item';
+import { bumpStat as bumpAnalyticsStat } from 'client/state/analytics/actions';
 import { bumpStatGenerator } from './utils';
-import { getPost } from 'state/posts/selectors';
-import { canCurrentUserEditPost } from 'state/selectors';
-import { getEditorPath } from 'state/ui/editor/selectors';
+import { getPost } from 'client/state/posts/selectors';
+import { canCurrentUserEditPost } from 'client/state/selectors';
+import { getEditorPath } from 'client/state/ui/editor/selectors';
 
 function PostActionsEllipsisMenuEdit( { translate, canEdit, status, editUrl, bumpStat } ) {
 	if ( 'trash' === status || ! canEdit ) {

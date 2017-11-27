@@ -13,8 +13,8 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import DocumentHead from 'components/data/document-head';
-import { getDocumentHeadCappedUnreadCount } from 'state/document-head/selectors';
+import DocumentHead from 'client/components/data/document-head';
+import { getDocumentHeadCappedUnreadCount } from 'client/state/document-head/selectors';
 
 class UpdateNotice extends React.PureComponent {
 	static propTypes = {

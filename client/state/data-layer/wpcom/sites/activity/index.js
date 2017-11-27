@@ -9,11 +9,11 @@ import { translate } from 'i18n-calypso';
  * Internal dependencies
  */
 import fromApi from './from-api';
-import { ACTIVITY_LOG_REQUEST } from 'state/action-types';
-import { activityLogUpdate } from 'state/activity-log/actions';
-import { dispatchRequestEx } from 'state/data-layer/wpcom-http/utils';
-import { http } from 'state/data-layer/wpcom-http/actions';
-import { errorNotice } from 'state/notices/actions';
+import { ACTIVITY_LOG_REQUEST } from 'client/state/action-types';
+import { activityLogUpdate } from 'client/state/activity-log/actions';
+import { dispatchRequestEx } from 'client/state/data-layer/wpcom-http/utils';
+import { http } from 'client/state/data-layer/wpcom-http/actions';
+import { errorNotice } from 'client/state/notices/actions';
 
 export const handleActivityLogRequest = action => {
 	const { params = {}, siteId } = action;

@@ -10,8 +10,8 @@ import { localize, moment } from 'i18n-calypso';
  * Internal dependencies
  */
 import CalendarCard from './calendar-card';
-import CompactCard from 'components/card/compact';
-import HeaderCake from 'components/header-cake';
+import CompactCard from 'client/components/card/compact';
+import HeaderCake from 'client/components/header-cake';
 
 const generateMockData = () => {
 	// This is a temporary function to simulate the data that will be gathered from Redux.

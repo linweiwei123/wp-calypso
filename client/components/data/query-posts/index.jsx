@@ -14,8 +14,8 @@ import debug from 'debug';
 /**
  * Internal dependencies
  */
-import { isRequestingSitePostsForQuery, isRequestingSitePost } from 'state/posts/selectors';
-import { requestSitePosts, requestSitePost } from 'state/posts/actions';
+import { isRequestingSitePostsForQuery, isRequestingSitePost } from 'client/state/posts/selectors';
+import { requestSitePosts, requestSitePost } from 'client/state/posts/actions';
 
 /**
  * Module variables

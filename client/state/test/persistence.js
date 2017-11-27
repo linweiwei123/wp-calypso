@@ -2,8 +2,8 @@
 /**
  * Internal dependencies
  */
-import { DESERIALIZE, SERIALIZE } from 'state/action-types';
-import { createReduxStore, reducer } from 'state';
+import { DESERIALIZE, SERIALIZE } from 'client/state/action-types';
+import { createReduxStore, reducer } from 'client/state';
 
 describe( 'persistence', () => {
 	test( 'initial state should serialize and deserialize without errors', () => {

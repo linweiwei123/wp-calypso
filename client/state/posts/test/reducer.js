@@ -10,7 +10,7 @@ import deepFreeze from 'deep-freeze';
  * Internal dependencies
  */
 import reducer, { items, queryRequests, queries, siteRequests, edits } from '../reducer';
-import PostQueryManager from 'lib/query-manager/post';
+import PostQueryManager from 'client/lib/query-manager/post';
 import {
 	EDITOR_START,
 	EDITOR_STOP,
@@ -31,7 +31,7 @@ import {
 	POSTS_REQUEST_SUCCESS,
 	SERIALIZE,
 	DESERIALIZE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 import { useSandbox } from 'test/helpers/use-sinon';
 
 describe( 'reducer', () => {

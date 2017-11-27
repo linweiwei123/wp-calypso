@@ -9,10 +9,10 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getSiteSlug } from 'state/sites/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { getPreference } from 'state/preferences/selectors';
-import { getActionLog } from 'state/ui/action-log/selectors';
+import { getSiteSlug } from 'client/state/sites/selectors';
+import { getEditedPost } from 'client/state/posts/selectors';
+import { getPreference } from 'client/state/preferences/selectors';
+import { getActionLog } from 'client/state/ui/action-log/selectors';
 
 /**
  * Returns the current editor post ID, or `null` if a new post.

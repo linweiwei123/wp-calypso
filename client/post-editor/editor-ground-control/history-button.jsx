@@ -11,9 +11,12 @@ import { flow } from 'lodash';
 /**
  * Internal dependencies
  */
-import { closePostRevisionsDialog, openPostRevisionsDialog } from 'state/posts/revisions/actions';
+import {
+	closePostRevisionsDialog,
+	openPostRevisionsDialog,
+} from 'client/state/posts/revisions/actions';
 
-import EditorRevisionsDialog from 'post-editor/editor-revisions/dialog';
+import EditorRevisionsDialog from 'client/post-editor/editor-revisions/dialog';
 
 const HistoryButton = ( { loadRevision, postId, siteId, closeDialog, openDialog, translate } ) => (
 	<div className="editor-ground-control__history">

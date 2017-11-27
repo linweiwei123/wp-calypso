@@ -14,27 +14,27 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import EmptyContent from 'components/empty-content';
+import Button from 'client/components/button';
+import EmptyContent from 'client/components/empty-content';
 import EmailedLoginLinkExpired from './emailed-login-link-expired';
 import config from 'config';
-import userFactory from 'lib/user';
-import { login } from 'lib/paths';
+import userFactory from 'client/lib/user';
+import { login } from 'client/lib/paths';
 import { localize } from 'i18n-calypso';
-import { LINK_EXPIRED_PAGE } from 'state/login/magic-login/constants';
+import { LINK_EXPIRED_PAGE } from 'client/state/login/magic-login/constants';
 import {
 	fetchMagicLoginAuthenticate,
 	showMagicLoginLinkExpiredPage,
-} from 'state/login/magic-login/actions';
+} from 'client/state/login/magic-login/actions';
 import {
 	getMagicLoginCurrentView,
 	getMagicLoginRequestAuthError,
 	getMagicLoginRequestedAuthSuccessfully,
 	isFetchingMagicLoginAuth,
-} from 'state/selectors';
-import { getTwoFactorNotificationSent, isTwoFactorEnabled } from 'state/login/selectors';
-import { getCurrentUser } from 'state/current-user/selectors';
-import { recordTracksEvent } from 'state/analytics/actions';
+} from 'client/state/selectors';
+import { getTwoFactorNotificationSent, isTwoFactorEnabled } from 'client/state/login/selectors';
+import { getCurrentUser } from 'client/state/current-user/selectors';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 
 const user = userFactory();
 

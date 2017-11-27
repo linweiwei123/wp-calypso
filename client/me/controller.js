@@ -13,12 +13,12 @@ import i18n from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import analytics from 'lib/analytics';
-import route from 'lib/route';
-import userSettings from 'lib/user-settings';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
-import { setSection } from 'state/ui/actions';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import analytics from 'client/lib/analytics';
+import route from 'client/lib/route';
+import userSettings from 'client/lib/user-settings';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
+import { setSection } from 'client/state/ui/actions';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const ANALYTICS_PAGE_TITLE = 'Me';
 

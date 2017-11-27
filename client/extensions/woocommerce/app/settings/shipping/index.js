@@ -12,9 +12,9 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import config from 'config';
-import Main from 'components/main';
-import LabelSettings from 'woocommerce/woocommerce-services/views/label-settings';
-import Packages from 'woocommerce/woocommerce-services/views/packages';
+import Main from 'client/components/main';
+import LabelSettings from 'client/extensions/woocommerce/woocommerce-services/views/label-settings';
+import Packages from 'client/extensions/woocommerce/woocommerce-services/views/packages';
 import ShippingHeader from './shipping-header';
 import ShippingOrigin from './shipping-origin';
 import ShippingZoneList from './shipping-zone-list';

@@ -11,14 +11,17 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { recordEvent } from 'lib/posts/stats';
-import postUtils from 'lib/posts/utils';
-import siteUtils from 'lib/site/utils';
-import Button from 'components/button';
+import { recordEvent } from 'client/lib/posts/stats';
+import postUtils from 'client/lib/posts/utils';
+import siteUtils from 'client/lib/site/utils';
+import Button from 'client/components/button';
 import { localize } from 'i18n-calypso';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/ui/editor/selectors';
-import { isEditedPostPrivate, isPrivateEditedPostPasswordValid } from 'state/posts/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getEditorPostId } from 'client/state/ui/editor/selectors';
+import {
+	isEditedPostPrivate,
+	isPrivateEditedPostPasswordValid,
+} from 'client/state/posts/selectors';
 
 export const getPublishButtonStatus = ( site, post, savedPost ) => {
 	if (

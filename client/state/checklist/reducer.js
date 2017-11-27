@@ -3,8 +3,8 @@
 /**
  * Internal dependencies
  */
-import { combineReducers, createReducer } from 'state/utils';
-import { SITE_CHECKLIST_RECEIVE } from 'state/action-types';
+import { combineReducers, createReducer } from 'client/state/utils';
+import { SITE_CHECKLIST_RECEIVE } from 'client/state/action-types';
 import { items as itemSchemas } from './schema';
 
 export const items = createReducer(

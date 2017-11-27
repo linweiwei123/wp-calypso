@@ -11,8 +11,8 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { CountrySelect, Input } from 'my-sites/domains/components/form';
-import { forDomainRegistrations as countriesListForDomainRegistrations } from 'lib/countries-list';
+import { CountrySelect, Input } from 'client/my-sites/domains/components/form';
+import { forDomainRegistrations as countriesListForDomainRegistrations } from 'client/lib/countries-list';
 
 const countriesList = countriesListForDomainRegistrations();
 

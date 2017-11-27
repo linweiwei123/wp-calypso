@@ -14,7 +14,7 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import { recordGoogleEvent as recordGoogleEventAction } from 'state/analytics/actions';
+import { recordGoogleEvent as recordGoogleEventAction } from 'client/state/analytics/actions';
 
 class StatsPeriodNavigation extends PureComponent {
 	static propTypes = {

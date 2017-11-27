@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import FormFieldset from 'components/forms/form-fieldset';
-import FormInputValidation from 'components/forms/form-input-validation';
-import FormLabel from 'components/forms/form-label';
-import FormTextInput from 'components/forms/form-text-input';
-import FormSettingExplanation from 'components/forms/form-setting-explanation';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormInputValidation from 'client/components/forms/form-input-validation';
+import FormLabel from 'client/components/forms/form-label';
+import FormTextInput from 'client/components/forms/form-text-input';
+import FormSettingExplanation from 'client/components/forms/form-setting-explanation';
 import { translate } from 'i18n-calypso';
 
 // Get reed of this, this should not be visible to the user - he does not need this.

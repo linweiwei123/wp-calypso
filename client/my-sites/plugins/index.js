@@ -7,11 +7,11 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { navigation, siteSelection, sites } from 'my-sites/controller';
+import { navigation, siteSelection, sites } from 'client/my-sites/controller';
 import config from 'config';
 import pluginsController from './controller';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { getSelectedSite } from 'state/ui/selectors';
+import { recordTracksEvent } from 'client/state/analytics/actions';
+import { getSelectedSite } from 'client/state/ui/selectors';
 
 const ifSimpleSiteThenRedirectTo = path => ( context, next ) => {
 	const site = getSelectedSite( context.store.getState() );

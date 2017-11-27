@@ -9,7 +9,7 @@ import { expect } from 'chai';
  * Internal dependencies
  */
 import reducer from '../reducer';
-import { SIGNUP_COMPLETE_RESET, SIGNUP_STEPS_JPO_CONNECT_SET } from 'state/action-types';
+import { SIGNUP_COMPLETE_RESET, SIGNUP_STEPS_JPO_CONNECT_SET } from 'client/state/action-types';
 
 describe( 'reducer', () => {
 	test( 'should set connect to the given object', () => {

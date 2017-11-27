@@ -13,15 +13,15 @@ import { noop } from 'lodash';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import AutoDirection from 'components/auto-direction';
-import Button from 'components/button';
+import AutoDirection from 'client/components/auto-direction';
+import Button from 'client/components/button';
 import CommentDetailActions from './comment-detail-actions';
-import Emojify from 'components/emojify';
-import Gravatar from 'components/gravatar';
-import FormCheckbox from 'components/forms/form-checkbox';
-import { stripHTML, decodeEntities } from 'lib/formatting';
-import { urlToDomainAndPath } from 'lib/url';
-import viewport from 'lib/viewport';
+import Emojify from 'client/components/emojify';
+import Gravatar from 'client/components/gravatar';
+import FormCheckbox from 'client/components/forms/form-checkbox';
+import { stripHTML, decodeEntities } from 'client/lib/formatting';
+import { urlToDomainAndPath } from 'client/lib/url';
+import viewport from 'client/lib/viewport';
 
 const getRelativeTimePeriod = ( commentDate, moment ) => {
 	if (

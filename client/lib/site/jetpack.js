@@ -4,10 +4,10 @@
  * Internal dependencies
  */
 
-import Site from 'lib/site';
+import Site from 'client/lib/site';
 import inherits from 'inherits';
-import versionCompare from 'lib/version-compare';
-import SiteUtils from 'lib/site/utils';
+import versionCompare from 'client/lib/version-compare';
+import SiteUtils from 'client/lib/site/utils';
 import config from 'config';
 
 inherits( JetpackSite, Site );

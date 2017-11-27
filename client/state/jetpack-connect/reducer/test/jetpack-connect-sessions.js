@@ -3,7 +3,7 @@
  * Internal dependencies
  */
 import jetpackConnectSessions from '../jetpack-connect-sessions';
-import { DESERIALIZE, JETPACK_CONNECT_CHECK_URL } from 'state/action-types';
+import { DESERIALIZE, JETPACK_CONNECT_CHECK_URL } from 'client/state/action-types';
 
 import { useSandbox } from 'test/helpers/use-sinon';
 

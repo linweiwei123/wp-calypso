@@ -13,22 +13,22 @@ import { get, includes, isUndefined, map } from 'lodash';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import ButtonGroup from 'components/button-group';
-import ControlItem from 'components/segmented-control/item';
-import Count from 'components/count';
+import Button from 'client/components/button';
+import ButtonGroup from 'client/components/button-group';
+import ControlItem from 'client/components/segmented-control/item';
+import Count from 'client/components/count';
 import CommentNavigationTab from './comment-navigation-tab';
-import FormCheckbox from 'components/forms/form-checkbox';
-import { isJetpackMinimumVersion, isJetpackSite } from 'state/sites/selectors';
-import NavItem from 'components/section-nav/item';
-import NavTabs from 'components/section-nav/tabs';
-import Search from 'components/search';
-import SectionNav from 'components/section-nav';
-import SegmentedControl from 'components/segmented-control';
-import UrlSearch from 'lib/url-search';
+import FormCheckbox from 'client/components/forms/form-checkbox';
+import { isJetpackMinimumVersion, isJetpackSite } from 'client/state/sites/selectors';
+import NavItem from 'client/components/section-nav/item';
+import NavTabs from 'client/components/section-nav/tabs';
+import Search from 'client/components/search';
+import SectionNav from 'client/components/section-nav';
+import SegmentedControl from 'client/components/segmented-control';
+import UrlSearch from 'client/lib/url-search';
 import { isEnabled } from 'config';
-import { bumpStat, composeAnalytics, recordTracksEvent } from 'state/analytics/actions';
-import { getSiteComment } from 'state/selectors';
+import { bumpStat, composeAnalytics, recordTracksEvent } from 'client/state/analytics/actions';
+import { getSiteComment } from 'client/state/selectors';
 import { NEWEST_FIRST, OLDEST_FIRST } from '../constants';
 
 const bulkActions = {

@@ -8,8 +8,8 @@ import { some } from 'lodash';
 /**
  * Internal dependencies
  */
-import createSelector from 'lib/create-selector';
-import { isPlan } from 'lib/products-values';
+import createSelector from 'client/lib/create-selector';
+import { isPlan } from 'client/lib/products-values';
 
 /**
  * Whether the user currently has any paid plans

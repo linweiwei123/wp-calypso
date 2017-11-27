@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import safeImageUrl from 'lib/safe-image-url';
+import safeImageUrl from 'client/lib/safe-image-url';
 import { getMediaItem } from './';
 
 /**

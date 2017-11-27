@@ -10,12 +10,12 @@ import { each, isNaN, startsWith } from 'lodash';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import route, { addQueryArgs } from 'lib/route';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import route, { addQueryArgs } from 'client/lib/route';
 import CommentsManagement from './main';
-import CommentView from 'my-sites/comment/main';
-import { removeNotice } from 'state/notices/actions';
-import { getNotices } from 'state/notices/selectors';
+import CommentView from 'client/my-sites/comment/main';
+import { removeNotice } from 'client/state/notices/actions';
+import { getNotices } from 'client/state/notices/selectors';
 
 const mapPendingStatusToUnapproved = status => ( 'pending' === status ? 'unapproved' : status );
 

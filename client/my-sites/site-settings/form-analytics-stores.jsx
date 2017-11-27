@@ -10,8 +10,8 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import CompactFormToggle from 'components/forms/form-toggle/compact';
-import FormLegend from 'components/forms/form-legend';
+import CompactFormToggle from 'client/components/forms/form-toggle/compact';
+import FormLegend from 'client/components/forms/form-legend';
 
 class FormAnalyticsStores extends Component {
 	handleToggleChange = name => () => {

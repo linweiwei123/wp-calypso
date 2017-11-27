@@ -10,7 +10,7 @@ import page from 'page';
  * Internal dependencies
  */
 import config from 'config';
-import meController from 'me/controller';
+import meController from 'client/me/controller';
 import controller from './controller';
 
 export default function() {

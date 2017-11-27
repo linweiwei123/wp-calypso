@@ -10,13 +10,13 @@ const debug = debugFactory( 'calypso:two-step-authorization' );
 /**
  * Internal Dependencies
  */
-import emitter from 'lib/mixins/emitter';
-import userSettings from 'lib/user-settings';
-import applicationPasswords from 'lib/application-passwords-data';
-import connectedApplications from 'lib/connected-applications-data';
-import profileLinks from 'lib/user-profile-links';
-import analytics from 'lib/analytics';
-import wp from 'lib/wp';
+import emitter from 'client/lib/mixins/emitter';
+import userSettings from 'client/lib/user-settings';
+import applicationPasswords from 'client/lib/application-passwords-data';
+import connectedApplications from 'client/lib/connected-applications-data';
+import profileLinks from 'client/lib/user-profile-links';
+import analytics from 'client/lib/analytics';
+import wp from 'client/lib/wp';
 
 const wpcom = wp.undocumented();
 

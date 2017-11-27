@@ -15,7 +15,7 @@ import {
 	WOOCOMMERCE_PRODUCT_CATEGORIES_REQUEST,
 	WOOCOMMERCE_PRODUCT_CATEGORIES_REQUEST_SUCCESS,
 	WOOCOMMERCE_ERROR_SET,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 
 describe( 'actions', () => {
 	describe( '#fetchProductCategories()', () => {

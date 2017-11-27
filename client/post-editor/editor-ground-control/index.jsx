@@ -14,15 +14,17 @@ import Gridicon from 'gridicons';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import Card from 'components/card';
-import Site from 'blocks/site';
-import postUtils from 'lib/posts/utils';
-import siteUtils from 'lib/site/utils';
-import { recordEvent, recordStat } from 'lib/posts/stats';
-import EditorPublishButton, { getPublishButtonStatus } from 'post-editor/editor-publish-button';
-import Button from 'components/button';
-import EditorPostType from 'post-editor/editor-post-type';
-import HistoryButton from 'post-editor/editor-ground-control/history-button';
+import Card from 'client/components/card';
+import Site from 'client/blocks/site';
+import postUtils from 'client/lib/posts/utils';
+import siteUtils from 'client/lib/site/utils';
+import { recordEvent, recordStat } from 'client/lib/posts/stats';
+import EditorPublishButton, {
+	getPublishButtonStatus,
+} from 'client/post-editor/editor-publish-button';
+import Button from 'client/components/button';
+import EditorPostType from 'client/post-editor/editor-post-type';
+import HistoryButton from 'client/post-editor/editor-ground-control/history-button';
 
 export class EditorGroundControl extends PureComponent {
 	static propTypes = {

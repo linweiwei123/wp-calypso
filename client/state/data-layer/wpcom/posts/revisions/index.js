@@ -9,14 +9,14 @@ import { flow, map, mapKeys, mapValues, omit, pick } from 'lodash';
 /**
  * Internal dependencies
  */
-import { POST_REVISIONS_REQUEST } from 'state/action-types';
-import { dispatchRequest } from 'state/data-layer/wpcom-http/utils';
-import { http } from 'state/data-layer/wpcom-http/actions';
+import { POST_REVISIONS_REQUEST } from 'client/state/action-types';
+import { dispatchRequest } from 'client/state/data-layer/wpcom-http/utils';
+import { http } from 'client/state/data-layer/wpcom-http/actions';
 import {
 	receivePostRevisions,
 	receivePostRevisionsSuccess,
 	receivePostRevisionsFailure,
-} from 'state/posts/revisions/actions';
+} from 'client/state/posts/revisions/actions';
 
 /**
  * Normalize a WP REST API Post Revisions resource for consumption in Calypso

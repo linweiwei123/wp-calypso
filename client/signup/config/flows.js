@@ -10,10 +10,10 @@ import i18n from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { abtest } from 'lib/abtest';
+import { abtest } from 'client/lib/abtest';
 import config from 'config';
 import stepConfig from './steps';
-import userFactory from 'lib/user';
+import userFactory from 'client/lib/user';
 
 const user = userFactory();
 

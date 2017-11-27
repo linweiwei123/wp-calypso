@@ -12,10 +12,10 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import { getSelectedSite, getSelectedSiteId } from 'state/ui/selectors';
-import { getPreviewCustomizations } from 'state/preview/selectors';
-import { updateCustomizations } from 'state/preview/actions';
-import { requestSitePosts } from 'state/posts/actions';
+import { getSelectedSite, getSelectedSiteId } from 'client/state/ui/selectors';
+import { getPreviewCustomizations } from 'client/state/preview/selectors';
+import { updateCustomizations } from 'client/state/preview/actions';
+import { requestSitePosts } from 'client/state/posts/actions';
 
 const debug = debugFactory( 'calypso:design-tool-data' );
 

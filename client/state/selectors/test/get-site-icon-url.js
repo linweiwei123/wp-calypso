@@ -9,7 +9,7 @@ import { expect } from 'chai';
  * Internal dependencies
  */
 import { getSiteIconUrl } from '../';
-import MediaQueryManager from 'lib/query-manager/media';
+import MediaQueryManager from 'client/lib/query-manager/media';
 
 describe( 'getSiteIconUrl()', () => {
 	test( 'should return null if neither the site nor site settings are known', () => {

@@ -13,11 +13,11 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { login } from 'lib/paths';
-import Card from 'components/card';
-import RedirectWhenLoggedIn from 'components/redirect-when-logged-in';
-import { hideMagicLoginRequestForm } from 'state/login/magic-login/actions';
-import { recordPageView } from 'state/analytics/actions';
+import { login } from 'client/lib/paths';
+import Card from 'client/components/card';
+import RedirectWhenLoggedIn from 'client/components/redirect-when-logged-in';
+import { hideMagicLoginRequestForm } from 'client/state/login/magic-login/actions';
+import { recordPageView } from 'client/state/analytics/actions';
 import Gridicon from 'gridicons';
 
 class EmailedLoginLinkSuccessfully extends React.Component {

@@ -9,7 +9,7 @@ import { expect } from 'chai';
  * Internal dependencies
  */
 import { isTransientMedia } from '../';
-import MediaQueryManager from 'lib/query-manager/media';
+import MediaQueryManager from 'client/lib/query-manager/media';
 
 describe( 'isTransientMedia()', () => {
 	test( 'should return false if the media is not known', () => {

@@ -16,25 +16,25 @@ import qs from 'qs';
  * Internal dependencies
  */
 import config from 'config';
-import FormsButton from 'components/forms/form-button';
-import FormInputValidation from 'components/forms/form-input-validation';
-import Card from 'components/card';
-import FormPasswordInput from 'components/forms/form-password-input';
-import FormTextInput from 'components/forms/form-text-input';
-import { getCurrentQueryArguments } from 'state/ui/selectors';
-import { getCurrentUserId } from 'state/current-user/selectors';
-import { getCurrentOAuth2Client } from 'state/ui/oauth2-clients/selectors';
-import { loginUser, formUpdate } from 'state/login/actions';
-import { preventWidows } from 'lib/formatting';
-import { recordTracksEvent } from 'state/analytics/actions';
+import FormsButton from 'client/components/forms/form-button';
+import FormInputValidation from 'client/components/forms/form-input-validation';
+import Card from 'client/components/card';
+import FormPasswordInput from 'client/components/forms/form-password-input';
+import FormTextInput from 'client/components/forms/form-text-input';
+import { getCurrentQueryArguments } from 'client/state/ui/selectors';
+import { getCurrentUserId } from 'client/state/current-user/selectors';
+import { getCurrentOAuth2Client } from 'client/state/ui/oauth2-clients/selectors';
+import { loginUser, formUpdate } from 'client/state/login/actions';
+import { preventWidows } from 'client/lib/formatting';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 import {
 	getRequestError,
 	isFormDisabled,
 	getSocialAccountIsLinking,
 	getSocialAccountLinkEmail,
 	getSocialAccountLinkService,
-} from 'state/login/selectors';
-import Notice from 'components/notice';
+} from 'client/state/login/selectors';
+import Notice from 'client/components/notice';
 import SocialLoginForm from './social';
 
 export class LoginForm extends Component {

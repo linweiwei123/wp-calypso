@@ -13,10 +13,10 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import wpcom from 'lib/wp';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { receiveDeletedSite, receiveSite } from 'state/sites/actions';
-import Dispatcher from 'dispatcher';
+import wpcom from 'client/lib/wp';
+import { recordTracksEvent } from 'client/state/analytics/actions';
+import { receiveDeletedSite, receiveSite } from 'client/state/sites/actions';
+import Dispatcher from 'client/dispatcher';
 import {
 	JETPACK_CONNECT_CHECK_URL,
 	JETPACK_CONNECT_CHECK_URL_RECEIVE,
@@ -45,12 +45,12 @@ import {
 	SITE_REQUEST,
 	SITE_REQUEST_SUCCESS,
 	SITE_REQUEST_FAILURE,
-} from 'state/action-types';
-import userFactory from 'lib/user';
+} from 'client/state/action-types';
+import userFactory from 'client/lib/user';
 import config from 'config';
-import addQueryArgs from 'lib/route/add-query-args';
-import { externalRedirect } from 'lib/route/path';
-import { urlToSlug } from 'lib/url';
+import addQueryArgs from 'client/lib/route/add-query-args';
+import { externalRedirect } from 'client/lib/route/path';
+import { urlToSlug } from 'client/lib/url';
 import { JPC_PLANS_PAGE } from './constants';
 
 /**

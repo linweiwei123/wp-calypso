@@ -11,7 +11,7 @@ import Gridicon from 'gridicons';
  * Internal dependencies
  */
 import { translate } from 'i18n-calypso';
-import FollowButton from 'reader/follow-button';
+import FollowButton from 'client/reader/follow-button';
 import { getLinkProps } from './helper';
 import { recordFollowToggle, recordSiteClick } from './stats';
 

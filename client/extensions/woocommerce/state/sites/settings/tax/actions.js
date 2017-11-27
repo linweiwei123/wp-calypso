@@ -5,7 +5,7 @@
  */
 
 import { areTaxSettingsLoaded, areTaxSettingsLoading } from './selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import request from '../../request';
 import { setError } from '../../status/wc-api/actions';
 import {
@@ -13,7 +13,7 @@ import {
 	WOOCOMMERCE_SETTINGS_TAX_BATCH_REQUEST_SUCCESS,
 	WOOCOMMERCE_SETTINGS_TAX_REQUEST,
 	WOOCOMMERCE_SETTINGS_TAX_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 
 export const fetchTaxSettings = siteId => ( dispatch, getState ) => {
 	if ( areTaxSettingsLoaded( getState(), siteId ) || areTaxSettingsLoading( getState(), siteId ) ) {

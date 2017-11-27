@@ -9,8 +9,8 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { renderWithReduxStore } from 'lib/react-helpers';
-import SecurityMain from 'my-sites/site-settings/settings-security/main';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import SecurityMain from 'client/my-sites/site-settings/settings-security/main';
 
 export default {
 	security( context ) {

@@ -11,13 +11,13 @@ import { connect } from 'react-redux';
  * Internal dependencies
  */
 
-import Card from 'components/card';
-import Checklist from 'components/checklist';
-import Main from 'components/main';
-import DocumentHead from 'components/data/document-head';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getSiteChecklist } from 'state/selectors';
-import QuerySiteChecklist from 'components/data/query-site-checklist';
+import Card from 'client/components/card';
+import Checklist from 'client/components/checklist';
+import Main from 'client/components/main';
+import DocumentHead from 'client/components/data/document-head';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getSiteChecklist } from 'client/state/selectors';
+import QuerySiteChecklist from 'client/components/data/query-site-checklist';
 import { onboardingTasks } from '../onboardingChecklist';
 
 class ChecklistShow extends PureComponent {

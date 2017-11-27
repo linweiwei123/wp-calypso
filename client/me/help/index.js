@@ -6,7 +6,7 @@
 
 import page from 'page';
 import config from 'config';
-import meController from 'me/controller';
+import meController from 'client/me/controller';
 import helpController from './controller';
 
 export default function() {

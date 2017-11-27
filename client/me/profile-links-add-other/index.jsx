@@ -10,11 +10,11 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import FormButton from 'components/forms/form-button';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormTextInput from 'components/forms/form-text-input';
-import Notice from 'components/notice';
-import { recordGoogleEvent } from 'state/analytics/actions';
+import FormButton from 'client/components/forms/form-button';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormTextInput from 'client/components/forms/form-text-input';
+import Notice from 'client/components/notice';
+import { recordGoogleEvent } from 'client/state/analytics/actions';
 
 class ProfileLinksAddOther extends React.Component {
 	state = {

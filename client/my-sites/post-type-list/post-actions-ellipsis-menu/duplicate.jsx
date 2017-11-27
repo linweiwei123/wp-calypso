@@ -12,14 +12,14 @@ import { includes } from 'lodash';
 /**
  * Internal dependencies
  */
-import PopoverMenuItem from 'components/popover/menu-item';
-import { getPost } from 'state/posts/selectors';
-import { canCurrentUserEditPost } from 'state/selectors';
-import { getEditorDuplicatePostPath } from 'state/ui/editor/selectors';
+import PopoverMenuItem from 'client/components/popover/menu-item';
+import { getPost } from 'client/state/posts/selectors';
+import { canCurrentUserEditPost } from 'client/state/selectors';
+import { getEditorDuplicatePostPath } from 'client/state/ui/editor/selectors';
 import { isEnabled } from 'config';
-import { bumpStat, recordTracksEvent } from 'state/analytics/actions';
+import { bumpStat, recordTracksEvent } from 'client/state/analytics/actions';
 import { bumpStatGenerator } from './utils';
-import { abtest } from 'lib/abtest';
+import { abtest } from 'client/lib/abtest';
 
 function PostActionsEllipsisMenuDuplicate( {
 	translate,

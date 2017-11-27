@@ -12,12 +12,12 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import analytics from 'lib/analytics';
+import analytics from 'client/lib/analytics';
 import App from './app';
 import Dashboard from './app/dashboard';
-import EmptyContent from 'components/empty-content';
-import { navigation, siteSelection, sites } from 'my-sites/controller';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import EmptyContent from 'client/components/empty-content';
+import { navigation, siteSelection, sites } from 'client/my-sites/controller';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import installActionHandlers from './state/data-layer';
 import Order from './app/order';
 import OrderCreate from './app/order/order-create';

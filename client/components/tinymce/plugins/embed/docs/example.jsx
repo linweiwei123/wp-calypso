@@ -10,8 +10,8 @@ import { noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import Card from 'components/card';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
 import EmbedDialog from '../dialog';
 
 export default class EmbedDialogExample extends PureComponent {

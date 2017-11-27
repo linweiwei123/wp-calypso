@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 import { shifts } from '../reducer';
-import { CONCIERGE_SHIFTS_REQUEST, CONCIERGE_SHIFTS_UPDATE } from 'state/action-types';
+import { CONCIERGE_SHIFTS_REQUEST, CONCIERGE_SHIFTS_UPDATE } from 'client/state/action-types';
 
 describe( 'concierge/shifts/reducer', () => {
 	const mockShifts = [ { description: 'shift1' }, { description: 'shift2' } ];

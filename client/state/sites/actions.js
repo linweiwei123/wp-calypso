@@ -9,7 +9,7 @@ import { omit } from 'lodash';
 /**
  * Internal dependencies
  */
-import wpcom from 'lib/wp';
+import wpcom from 'client/lib/wp';
 import {
 	SITE_DELETE,
 	SITE_DELETE_FAILURE,
@@ -24,7 +24,7 @@ import {
 	SITES_REQUEST_SUCCESS,
 	SITES_REQUEST_FAILURE,
 	SITES_UPDATE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 
 /**
  * Returns an action object to be used in signalling that a site has been

@@ -13,15 +13,15 @@ import { isEmpty } from 'lodash';
  * Internal Dependencies
  */
 import config from 'config';
-import route from 'lib/route';
-import analytics from 'lib/analytics';
+import route from 'client/lib/route';
+import analytics from 'client/lib/analytics';
 import SignupComponent from './main';
 import utils from './utils';
-import userModule from 'lib/user';
-import { setLayoutFocus } from 'state/ui/layout-focus/actions';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import userModule from 'client/lib/user';
+import { setLayoutFocus } from 'client/state/ui/layout-focus/actions';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import store from 'store';
-import SignupProgressStore from 'lib/signup/progress-store';
+import SignupProgressStore from 'client/lib/signup/progress-store';
 
 const user = userModule();
 

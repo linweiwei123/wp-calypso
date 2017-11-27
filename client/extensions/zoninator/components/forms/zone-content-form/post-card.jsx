@@ -13,9 +13,9 @@ import { flowRight } from 'lodash';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import SectionHeader from 'components/section-header';
-import { getEditorPath } from 'state/ui/editor/selectors';
+import Button from 'client/components/button';
+import SectionHeader from 'client/components/section-header';
+import { getEditorPath } from 'client/state/ui/editor/selectors';
 
 class PostCard extends Component {
 	static propTypes = {

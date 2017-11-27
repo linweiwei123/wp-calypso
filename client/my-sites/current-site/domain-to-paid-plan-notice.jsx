@@ -13,13 +13,13 @@ import { endsWith, noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getSelectedSite } from 'state/ui/selectors';
-import { isEligibleForDomainToPaidPlanUpsell } from 'state/selectors';
-import Notice from 'components/notice';
-import NoticeAction from 'components/notice/notice-action';
-import TrackComponentView from 'lib/analytics/track-component-view';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { isDomainOnlySite } from 'state/selectors';
+import { getSelectedSite } from 'client/state/ui/selectors';
+import { isEligibleForDomainToPaidPlanUpsell } from 'client/state/selectors';
+import Notice from 'client/components/notice';
+import NoticeAction from 'client/components/notice/notice-action';
+import TrackComponentView from 'client/lib/analytics/track-component-view';
+import { recordTracksEvent } from 'client/state/analytics/actions';
+import { isDomainOnlySite } from 'client/state/selectors';
 
 const impressionEventName = 'calypso_upgrade_nudge_impression';
 const clickEventName = 'calypso_upgrade_nudge_cta_click';

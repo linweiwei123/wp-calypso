@@ -12,25 +12,28 @@ import React, { Component } from 'react';
 /**
  * Internal dependencies
  */
-import ActionHeader from 'woocommerce/components/action-header';
-import Button from 'components/button';
-import { clearOrderEdits, editOrder } from 'woocommerce/state/ui/orders/actions';
-import { fetchNotes } from 'woocommerce/state/sites/orders/notes/actions';
-import { fetchOrder, updateOrder } from 'woocommerce/state/sites/orders/actions';
-import { getSelectedSiteWithFallback } from 'woocommerce/state/sites/selectors';
-import { getLink } from 'woocommerce/lib/nav-utils';
+import ActionHeader from 'client/extensions/woocommerce/components/action-header';
+import Button from 'client/components/button';
+import { clearOrderEdits, editOrder } from 'client/extensions/woocommerce/state/ui/orders/actions';
+import { fetchNotes } from 'client/extensions/woocommerce/state/sites/orders/notes/actions';
+import { fetchOrder, updateOrder } from 'client/extensions/woocommerce/state/sites/orders/actions';
+import { getSelectedSiteWithFallback } from 'client/extensions/woocommerce/state/sites/selectors';
+import { getLink } from 'client/extensions/woocommerce/lib/nav-utils';
 import {
 	isCurrentlyEditingOrder,
 	getOrderEdits,
 	getOrderWithEdits,
-} from 'woocommerce/state/ui/orders/selectors';
-import { isOrderUpdating, getOrder } from 'woocommerce/state/sites/orders/selectors';
-import LabelsSetupNotice from 'woocommerce/woocommerce-services/components/labels-setup-notice';
-import Main from 'components/main';
+} from 'client/extensions/woocommerce/state/ui/orders/selectors';
+import {
+	isOrderUpdating,
+	getOrder,
+} from 'client/extensions/woocommerce/state/sites/orders/selectors';
+import LabelsSetupNotice from 'client/extensions/woocommerce/woocommerce-services/components/labels-setup-notice';
+import Main from 'client/components/main';
 import OrderCustomer from './order-customer';
 import OrderDetails from './order-details';
 import OrderActivityLog from './order-activity-log';
-import { ProtectFormGuard } from 'lib/protect-form';
+import { ProtectFormGuard } from 'client/lib/protect-form';
 
 class Order extends Component {
 	componentDidMount() {

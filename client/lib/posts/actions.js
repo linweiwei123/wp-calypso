@@ -11,17 +11,17 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import wpcom from 'lib/wp';
+import wpcom from 'client/lib/wp';
 import PostsStore from './posts-store';
 import PostEditStore from './post-edit-store';
 import postListStoreFactory from './post-list-store-factory';
-import PreferencesStore from 'lib/preferences/store';
-import sitesFactory from 'lib/sites-list';
+import PreferencesStore from 'client/lib/preferences/store';
+import sitesFactory from 'client/lib/sites-list';
 import utils from './utils';
-import versionCompare from 'lib/version-compare';
-import Dispatcher from 'dispatcher';
+import versionCompare from 'client/lib/version-compare';
+import Dispatcher from 'client/dispatcher';
 import { recordSaveEvent } from './stats';
-import { normalizeTermsForApi } from 'state/posts/utils';
+import { normalizeTermsForApi } from 'client/state/posts/utils';
 
 const sites = sitesFactory();
 const debug = debugFactory( 'calypso:posts' );

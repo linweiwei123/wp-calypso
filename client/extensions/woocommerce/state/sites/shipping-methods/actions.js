@@ -9,7 +9,7 @@ import { setError } from '../status/wc-api/actions';
 import {
 	WOOCOMMERCE_SHIPPING_METHODS_REQUEST,
 	WOOCOMMERCE_SHIPPING_METHODS_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 import { areShippingMethodsLoaded, areShippingMethodsLoading } from './selectors';
 
 export const fetchShippingMethodsSuccess = ( siteId, data ) => {

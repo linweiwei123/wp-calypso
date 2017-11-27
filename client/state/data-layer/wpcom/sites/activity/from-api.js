@@ -7,7 +7,7 @@ import { get, map } from 'lodash';
 /**
  * Internal dependencies
  */
-import { makeParser } from 'state/data-layer/wpcom-http/utils';
+import { makeParser } from 'client/state/data-layer/wpcom-http/utils';
 import apiResponseSchema from './schema';
 
 /**

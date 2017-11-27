@@ -11,8 +11,8 @@ import {
 	SERIALIZE,
 	DESERIALIZE,
 	NOTIFICATIONS_PANEL_TOGGLE,
-} from 'state/action-types';
-import { combineReducers, createReducer } from 'state/utils';
+} from 'client/state/action-types';
+import { combineReducers, createReducer } from 'client/state/utils';
 import editor from './editor/reducer';
 import dropZone from './drop-zone/reducer';
 import guidedTour from './guided-tours/reducer';

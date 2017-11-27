@@ -16,7 +16,7 @@ import url from 'url';
  */
 import config from 'config';
 import DocsComponent from './main';
-import { login } from 'lib/paths';
+import { login } from 'client/lib/paths';
 import SingleDocComponent from './doc';
 import DesignAssetsComponent from './design';
 import Blocks from './design/blocks';
@@ -25,9 +25,9 @@ import Typography from './design/typography';
 import DevWelcome from './welcome';
 import Sidebar from './sidebar';
 import FormStateExamplesComponent from './form-state-examples';
-import EmptyContent from 'components/empty-content';
+import EmptyContent from 'client/components/empty-content';
 import WizardComponent from './wizard-component';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const devdocs = {
 	/*

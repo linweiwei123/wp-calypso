@@ -12,8 +12,8 @@ import { flow } from 'lodash';
 /**
  * Internal dependencies
  */
-import { receiveSiteUpdates, receiveSite } from 'state/sites/actions';
-import { getSite } from 'state/sites/selectors';
+import { receiveSiteUpdates, receiveSite } from 'client/state/sites/actions';
+import { getSite } from 'client/state/sites/selectors';
 
 /**
  * Redux store enhancer which binds to the application-wide sites-list

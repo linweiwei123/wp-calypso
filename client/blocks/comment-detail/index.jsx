@@ -15,21 +15,21 @@ import ReactDom from 'react-dom';
 /**
  * Internal dependencies
  */
-import Card from 'components/card';
-import QueryComment from 'components/data/query-comment';
-import QueryPosts from 'components/data/query-posts';
+import Card from 'client/components/card';
+import QueryComment from 'client/components/data/query-comment';
+import QueryPosts from 'client/components/data/query-posts';
 import CommentDetailComment from './comment-detail-comment';
 import CommentDetailEdit from './comment-detail-edit';
 import CommentDetailHeader from './comment-detail-header';
 import CommentDetailPost from './comment-detail-post';
 import CommentDetailReply from './comment-detail-reply';
-import { decodeEntities, stripHTML } from 'lib/formatting';
-import { getPostCommentsTree } from 'state/comments/selectors';
-import { getSitePost } from 'state/posts/selectors';
-import getSiteComment from 'state/selectors/get-site-comment';
-import { isJetpackMinimumVersion, isJetpackSite } from 'state/sites/selectors';
-import { bumpStat, composeAnalytics, recordTracksEvent } from 'state/analytics/actions';
-import { getSelectedSiteSlug } from 'state/ui/selectors';
+import { decodeEntities, stripHTML } from 'client/lib/formatting';
+import { getPostCommentsTree } from 'client/state/comments/selectors';
+import { getSitePost } from 'client/state/posts/selectors';
+import getSiteComment from 'client/state/selectors/get-site-comment';
+import { isJetpackMinimumVersion, isJetpackSite } from 'client/state/sites/selectors';
+import { bumpStat, composeAnalytics, recordTracksEvent } from 'client/state/analytics/actions';
+import { getSelectedSiteSlug } from 'client/state/ui/selectors';
 import config from 'config';
 
 /**

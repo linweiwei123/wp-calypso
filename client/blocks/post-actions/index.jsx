@@ -16,14 +16,14 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import config from 'config';
-import { recordGoogleEvent } from 'state/analytics/actions';
-import PostRelativeTimeStatus from 'my-sites/post-relative-time-status';
-import CommentButton from 'blocks/comment-button';
-import LikeButton from 'my-sites/post-like-button';
-import PostTotalViews from 'my-sites/posts/post-total-views';
-import { canCurrentUser } from 'state/selectors';
-import { isJetpackModuleActive, isJetpackSite, getSiteSlug } from 'state/sites/selectors';
-import { getEditorPath } from 'state/ui/editor/selectors';
+import { recordGoogleEvent } from 'client/state/analytics/actions';
+import PostRelativeTimeStatus from 'client/my-sites/post-relative-time-status';
+import CommentButton from 'client/blocks/comment-button';
+import LikeButton from 'client/my-sites/post-like-button';
+import PostTotalViews from 'client/my-sites/posts/post-total-views';
+import { canCurrentUser } from 'client/state/selectors';
+import { isJetpackModuleActive, isJetpackSite, getSiteSlug } from 'client/state/sites/selectors';
+import { getEditorPath } from 'client/state/ui/editor/selectors';
 
 const getContentLink = ( state, siteId, post ) => {
 	let contentLinkURL = post.URL;

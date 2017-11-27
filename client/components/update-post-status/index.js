@@ -14,8 +14,8 @@ import { flow, once } from 'lodash';
  * Internal dependencies
  */
 import UpdateTemplate from './update-template';
-import PostActions from 'lib/posts/actions';
-import { recordGoogleEvent } from 'state/analytics/actions';
+import PostActions from 'client/lib/posts/actions';
+import { recordGoogleEvent } from 'client/state/analytics/actions';
 
 const RESET_TIMEOUT_MS = 1200;
 

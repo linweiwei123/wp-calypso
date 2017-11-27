@@ -13,8 +13,8 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import resizeImageUrl from 'lib/resize-image-url';
-import { getNormalizedPost } from 'state/posts/selectors';
+import resizeImageUrl from 'client/lib/resize-image-url';
+import { getNormalizedPost } from 'client/state/posts/selectors';
 
 function PostTypeListPostThumbnail( { thumbnail } ) {
 	const classes = classnames( 'post-type-list__post-thumbnail-wrapper', {

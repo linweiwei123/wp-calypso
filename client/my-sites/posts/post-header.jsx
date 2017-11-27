@@ -12,8 +12,8 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import SiteIcon from 'blocks/site-icon';
-import { getSiteSlug, getSiteTitle } from 'state/sites/selectors';
+import SiteIcon from 'client/blocks/site-icon';
+import { getSiteSlug, getSiteTitle } from 'client/state/sites/selectors';
 
 class PostHeader extends PureComponent {
 	static defaultProps = {

@@ -8,15 +8,12 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import Count from 'components/count';
-import Button from 'components/button';
-import Card from 'components/card';
+import Count from 'client/components/count';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
 import { localize } from 'i18n-calypso';
 import { isEnabled } from 'config';
-import {
-	isMultiSelectEnabled,
-	getSelectedPostsCount,
-} from 'state/ui/post-type-list/selectors';
+import { isMultiSelectEnabled, getSelectedPostsCount } from 'client/state/ui/post-type-list/selectors';
 
 class PostTypeBulkEditBar extends React.Component {
 	onEdit() {

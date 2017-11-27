@@ -9,8 +9,8 @@ import {
 	THEME_TRANSFER_INITIATE_FAILURE,
 	THEME_TRANSFER_INITIATE_REQUEST,
 	THEME_TRANSFER_INITIATE_SUCCESS,
-} from 'state/action-types';
-import { pauseAll, resumePaused } from 'lib/data-poller';
+} from 'client/state/action-types';
+import { pauseAll, resumePaused } from 'client/lib/data-poller';
 
 const pauseFetching = () => {
 	pauseAll();

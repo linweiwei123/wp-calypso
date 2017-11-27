@@ -13,12 +13,12 @@ import { pickBy, map } from 'lodash';
  * Internal dependencies
  */
 import config from 'config';
-import FormButton from 'components/forms/form-button';
-import Notice from 'components/notice';
+import FormButton from 'client/components/forms/form-button';
+import Notice from 'client/components/notice';
 import ProfileLinksAddWordPressSite from './site';
-import { getPublicSites } from 'state/selectors';
-import { getSite } from 'state/sites/selectors';
-import { recordGoogleEvent } from 'state/analytics/actions';
+import { getPublicSites } from 'client/state/selectors';
+import { getSite } from 'client/state/sites/selectors';
+import { recordGoogleEvent } from 'client/state/analytics/actions';
 
 const addProfileLinks = ( inputs, userProfileLinks, callback ) => ( dispatch, getState ) => {
 	const links = pickBy(

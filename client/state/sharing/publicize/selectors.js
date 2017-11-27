@@ -9,9 +9,9 @@ import { filter, get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { canCurrentUser } from 'state/selectors';
-import { getCurrentUserId } from 'state/current-user/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { canCurrentUser } from 'client/state/selectors';
+import { getCurrentUserId } from 'client/state/current-user/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 
 /**
  * Returns an array of known connections for the given site ID.

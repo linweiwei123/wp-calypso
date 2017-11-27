@@ -10,10 +10,10 @@ import i18n from 'i18n-calypso';
 /**
  * Internal Dependencies
  */
-import { abtest } from 'lib/abtest';
-import route from 'lib/route';
-import feedLookup from 'lib/feed-lookup';
-import feedStreamFactory from 'lib/feed-stream-store';
+import { abtest } from 'client/lib/abtest';
+import route from 'client/lib/route';
+import feedLookup from 'client/lib/feed-lookup';
+import feedStreamFactory from 'client/lib/feed-stream-store';
 import {
 	ensureStoreLoading,
 	trackPageLoad,
@@ -21,13 +21,13 @@ import {
 	trackScrollPage,
 	setPageTitle,
 } from './controller-helper';
-import FeedError from 'reader/feed-error';
-import StreamComponent from 'reader/following/main';
-import { getPrettyFeedUrl, getPrettySiteUrl } from 'reader/route';
-import { recordTrack } from 'reader/stats';
-import { preload } from 'sections-preload';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import AsyncLoad from 'components/async-load';
+import FeedError from 'client/reader/feed-error';
+import StreamComponent from 'client/reader/following/main';
+import { getPrettyFeedUrl, getPrettySiteUrl } from 'client/reader/route';
+import { recordTrack } from 'client/reader/stats';
+import { preload } from 'client/sections-preload';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import AsyncLoad from 'client/components/async-load';
 
 const analyticsPageTitle = 'Reader';
 

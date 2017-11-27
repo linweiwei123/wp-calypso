@@ -16,7 +16,7 @@ import {
 	transformOrderForApi,
 } from './utils';
 import { areOrdersLoaded, areOrdersLoading, isOrderLoaded, isOrderLoading } from './selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import request from '../request';
 import { setError } from '../status/wc-api/actions';
 import {
@@ -26,8 +26,8 @@ import {
 	statusWaitingPayment,
 	statusWaitingFulfillment,
 	statusFinished,
-} from 'woocommerce/lib/order-status';
-import { successNotice, errorNotice } from 'state/notices/actions';
+} from 'client/extensions/woocommerce/lib/order-status';
+import { successNotice, errorNotice } from 'client/state/notices/actions';
 import { translate } from 'i18n-calypso';
 import {
 	WOOCOMMERCE_ORDER_REQUEST,
@@ -39,7 +39,7 @@ import {
 	WOOCOMMERCE_ORDERS_REQUEST,
 	WOOCOMMERCE_ORDERS_REQUEST_FAILURE,
 	WOOCOMMERCE_ORDERS_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 
 export const fetchOrders = ( siteId, requestedQuery = {} ) => ( dispatch, getState ) => {
 	const state = getState();

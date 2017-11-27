@@ -15,22 +15,22 @@ import { flow, noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import CompactCard from 'components/card/compact';
-import Gravatar from 'components/gravatar';
+import CompactCard from 'client/components/card/compact';
+import Gravatar from 'client/components/gravatar';
 import Gridicon from 'gridicons';
-import Notice from 'components/notice';
-import NoticeAction from 'components/notice/notice-action';
-import PopoverMenu from 'components/popover/menu';
-import PopoverMenuItem from 'components/popover/menu-item';
-import PostRelativeTimeStatus from 'my-sites/post-relative-time-status';
-import SiteIcon from 'blocks/site-icon';
-import actions from 'lib/posts/actions';
+import Notice from 'client/components/notice';
+import NoticeAction from 'client/components/notice/notice-action';
+import PopoverMenu from 'client/components/popover/menu';
+import PopoverMenuItem from 'client/components/popover/menu-item';
+import PostRelativeTimeStatus from 'client/my-sites/post-relative-time-status';
+import SiteIcon from 'client/blocks/site-icon';
+import actions from 'client/lib/posts/actions';
 import photon from 'photon';
-import touchDetect from 'lib/touch-detect';
-import updatePostStatus from 'components/update-post-status';
-import utils from 'lib/posts/utils';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getSite } from 'state/sites/selectors';
+import touchDetect from 'client/lib/touch-detect';
+import updatePostStatus from 'client/components/update-post-status';
+import utils from 'client/lib/posts/utils';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getSite } from 'client/state/sites/selectors';
 
 class Draft extends Component {
 	static propTypes = {

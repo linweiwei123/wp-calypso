@@ -10,11 +10,11 @@ import i18n from 'i18n-calypso';
 /**
  * Internal Dependencies
  */
-import analytics from 'lib/analytics';
+import analytics from 'client/lib/analytics';
 import titlecase from 'to-title-case';
-import { getSiteFragment, sectionify } from 'lib/route';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { getSiteFragment, sectionify } from 'client/lib/route';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import WPSuperCache from './main';
 
 export function settings( context ) {

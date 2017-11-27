@@ -10,17 +10,17 @@ import i18n from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import analytics from 'lib/analytics';
-import { login } from 'lib/paths';
-import route from 'lib/route';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
+import analytics from 'client/lib/analytics';
+import { login } from 'client/lib/paths';
+import route from 'client/lib/route';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
 import config from 'config';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import HelpComponent from './main';
 import CoursesComponent from './help-courses';
 import ContactComponent from './help-contact';
-import support from 'lib/url/support';
-import userUtils from 'lib/user/utils';
+import support from 'client/lib/url/support';
+import userUtils from 'client/lib/user/utils';
 
 export default {
 	loggedOut( context, next ) {

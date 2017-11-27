@@ -10,8 +10,8 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { userCan } from 'lib/site/utils';
-import MediaLibraryListItem from 'my-sites/media-library/list-item';
+import { userCan } from 'client/lib/site/utils';
+import MediaLibraryListItem from 'client/my-sites/media-library/list-item';
 import EditorMediaModalGalleryCaption from './caption';
 import EditorMediaModalGalleryRemoveButton from './remove-button';
 

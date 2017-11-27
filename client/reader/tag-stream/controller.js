@@ -8,17 +8,17 @@ import { trim } from 'lodash';
 /**
  * Internal dependencies
  */
-import feedStreamFactory from 'lib/feed-stream-store';
-import { recordTrack } from 'reader/stats';
+import feedStreamFactory from 'client/lib/feed-stream-store';
+import { recordTrack } from 'client/reader/stats';
 import {
 	ensureStoreLoading,
 	trackPageLoad,
 	trackUpdatesLoaded,
 	trackScrollPage,
-} from 'reader/controller-helper';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import AsyncLoad from 'components/async-load';
-import { TAG_PAGE } from 'reader/follow-button/follow-sources';
+} from 'client/reader/controller-helper';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import AsyncLoad from 'client/components/async-load';
+import { TAG_PAGE } from 'client/reader/follow-button/follow-sources';
 
 const analyticsPageTitle = 'Reader';
 

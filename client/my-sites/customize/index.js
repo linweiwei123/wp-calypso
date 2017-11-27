@@ -9,7 +9,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { siteSelection, sites, navigation } from 'my-sites/controller';
+import { siteSelection, sites, navigation } from 'client/my-sites/controller';
 import { customize } from './controller';
 import config from 'config';
 

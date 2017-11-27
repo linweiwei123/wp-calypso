@@ -16,10 +16,10 @@ import Gridicon from 'gridicons';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import { ga } from 'lib/analytics';
-import { userCan } from 'lib/posts/utils';
-import { isPublicizeEnabled } from 'state/selectors';
-import { getSiteSlug, isSitePreviewable } from 'state/sites/selectors';
+import { ga } from 'client/lib/analytics';
+import { userCan } from 'client/lib/posts/utils';
+import { isPublicizeEnabled } from 'client/state/selectors';
+import { getSiteSlug, isSitePreviewable } from 'client/state/sites/selectors';
 
 const edit = () => ga.recordEvent( 'Posts', 'Clicked Edit Post' );
 const copy = () => ga.recordEvent( 'Posts', 'Clicked Copy Post' );

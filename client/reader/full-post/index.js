@@ -8,7 +8,7 @@ import page from 'page';
  * Internal dependencies
  */
 import { blogPost, feedPost } from './controller';
-import { updateLastRoute, unmountSidebar } from 'reader/controller';
+import { updateLastRoute, unmountSidebar } from 'client/reader/controller';
 
 export default function() {
 	// Feed full post

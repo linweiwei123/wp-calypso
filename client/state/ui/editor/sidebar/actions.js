@@ -7,8 +7,8 @@ import {
 	composeAnalytics,
 	recordGoogleEvent,
 	withAnalytics,
-} from 'state/analytics/actions';
-import { setLayoutFocus } from 'state/ui/layout-focus/actions';
+} from 'client/state/analytics/actions';
+import { setLayoutFocus } from 'client/state/ui/layout-focus/actions';
 
 export const openEditorSidebar = () => dispatch =>
 	dispatch(

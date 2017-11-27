@@ -9,7 +9,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { jetpackModuleActive, navigation, sites, siteSelection } from 'my-sites/controller';
+import { jetpackModuleActive, navigation, sites, siteSelection } from 'client/my-sites/controller';
 import { buttons, connections, layout } from './controller';
 
 export default function() {

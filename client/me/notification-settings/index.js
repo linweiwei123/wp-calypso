@@ -9,7 +9,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import meController from 'me/controller';
+import meController from 'client/me/controller';
 import controller from './controller';
 
 export default function() {

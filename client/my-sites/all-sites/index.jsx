@@ -14,10 +14,10 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import AllSitesIcon from 'my-sites/all-sites-icon';
-import Count from 'components/count';
-import { getSites } from 'state/selectors';
-import userLib from 'lib/user';
+import AllSitesIcon from 'client/my-sites/all-sites-icon';
+import Count from 'client/components/count';
+import { getSites } from 'client/state/selectors';
+import userLib from 'client/lib/user';
 
 const user = userLib();
 

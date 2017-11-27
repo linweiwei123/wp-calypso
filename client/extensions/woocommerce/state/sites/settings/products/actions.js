@@ -12,7 +12,7 @@ import {
 	WOOCOMMERCE_SETTINGS_PRODUCTS_UPDATE_REQUEST_SUCCESS,
 	WOOCOMMERCE_SETTINGS_PRODUCTS_REQUEST,
 	WOOCOMMERCE_SETTINGS_PRODUCTS_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 import { areSettingsProductsLoaded, areSettingsProductsLoading } from './selectors';
 
 export const fetchSettingsProducts = siteId => ( dispatch, getState ) => {

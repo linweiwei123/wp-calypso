@@ -20,8 +20,8 @@ import {
 /**
  * Internal dependencies
  */
-import PostQueryManager from 'lib/query-manager/post';
-import { combineReducers, createReducer, isValidStateWithSchema } from 'state/utils';
+import PostQueryManager from 'client/lib/query-manager/post';
+import { combineReducers, createReducer, isValidStateWithSchema } from 'client/state/utils';
 import {
 	EDITOR_START,
 	EDITOR_STOP,
@@ -42,7 +42,7 @@ import {
 	POSTS_REQUEST_FAILURE,
 	SERIALIZE,
 	DESERIALIZE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 import counts from './counts/reducer';
 import likes from './likes/reducer';
 import revisions from './revisions/reducer';

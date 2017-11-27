@@ -8,9 +8,9 @@ import page from 'page';
  * Internal dependencies
  */
 import config from 'config';
-import { navigation, siteSelection, sites } from 'my-sites/controller';
-import controller from 'my-sites/site-settings/controller';
-import settingsController from 'my-sites/site-settings/settings-controller';
+import { navigation, siteSelection, sites } from 'client/my-sites/controller';
+import controller from 'client/my-sites/site-settings/controller';
+import settingsController from 'client/my-sites/site-settings/settings-controller';
 import { reasonComponents as reasons } from './disconnect-site';
 
 export default function() {

@@ -21,9 +21,9 @@ import {
 	Next,
 	Quit,
 	Link,
-} from 'layout/guided-tours/config-elements';
-import { hasSelectedSitePremiumOrBusinessPlan } from 'state/ui/guided-tours/contexts';
-import { isDesktop } from 'lib/viewport';
+} from 'client/layout/guided-tours/config-elements';
+import { hasSelectedSitePremiumOrBusinessPlan } from 'client/state/ui/guided-tours/contexts';
+import { isDesktop } from 'client/lib/viewport';
 
 export const SimplePaymentsEndOfYearGuide = makeTour(
 	<Tour

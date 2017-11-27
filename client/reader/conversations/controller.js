@@ -7,12 +7,16 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import route from 'lib/route';
-import { recordTrack } from 'reader/stats';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import AsyncLoad from 'components/async-load';
-import { trackPageLoad, trackScrollPage, ensureStoreLoading } from 'reader/controller-helper';
-import feedStreamStore from 'lib/feed-stream-store';
+import route from 'client/lib/route';
+import { recordTrack } from 'client/reader/stats';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import AsyncLoad from 'client/components/async-load';
+import {
+	trackPageLoad,
+	trackScrollPage,
+	ensureStoreLoading,
+} from 'client/reader/controller-helper';
+import feedStreamStore from 'client/lib/feed-stream-store';
 
 export function conversations( context ) {
 	const basePath = route.sectionify( context.path );

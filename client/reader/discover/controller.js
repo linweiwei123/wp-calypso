@@ -8,17 +8,17 @@ import React from 'react';
  * Internal dependencies
  */
 import config from 'config';
-import route from 'lib/route';
-import feedStreamFactory from 'lib/feed-stream-store';
-import { recordTrack } from 'reader/stats';
+import route from 'client/lib/route';
+import feedStreamFactory from 'client/lib/feed-stream-store';
+import { recordTrack } from 'client/reader/stats';
 import {
 	ensureStoreLoading,
 	trackPageLoad,
 	trackUpdatesLoaded,
 	trackScrollPage,
-} from 'reader/controller-helper';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import AsyncLoad from 'components/async-load';
+} from 'client/reader/controller-helper';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import AsyncLoad from 'client/components/async-load';
 
 const ANALYTICS_PAGE_TITLE = 'Reader';
 

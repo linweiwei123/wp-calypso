@@ -11,17 +11,17 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import AddressView from 'woocommerce/components/address-view';
-import Card from 'components/card';
-import { getOrderWithEdits } from 'woocommerce/state/ui/orders/selectors';
-import FormCheckbox from 'components/forms/form-checkbox';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormLabel from 'components/forms/form-label';
-import FormLegend from 'components/forms/form-legend';
-import FormPhoneMediaInput from 'components/forms/form-phone-media-input';
-import FormTextInput from 'components/forms/form-text-input';
+import AddressView from 'client/extensions/woocommerce/components/address-view';
+import Card from 'client/components/card';
+import { getOrderWithEdits } from 'client/extensions/woocommerce/state/ui/orders/selectors';
+import FormCheckbox from 'client/components/forms/form-checkbox';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormLabel from 'client/components/forms/form-label';
+import FormLegend from 'client/components/forms/form-legend';
+import FormPhoneMediaInput from 'client/components/forms/form-phone-media-input';
+import FormTextInput from 'client/components/forms/form-text-input';
 // @todo Update this to use our store countries list
-import countriesListBuilder from 'lib/countries-list';
+import countriesListBuilder from 'client/lib/countries-list';
 const countriesList = countriesListBuilder.forPayments();
 
 class OrderCustomerCard extends Component {

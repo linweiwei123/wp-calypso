@@ -10,8 +10,8 @@ import { get } from 'lodash';
  * Internal dependencies
  */
 import Gridicon from 'gridicons';
-import FoldableCard from 'components/foldable-card';
-import CompactCard from 'components/card/compact';
+import FoldableCard from 'client/components/foldable-card';
+import CompactCard from 'client/components/card/compact';
 import CredentialsForm from '../credentials-form/index';
 
 class CredentialsConfigured extends Component {

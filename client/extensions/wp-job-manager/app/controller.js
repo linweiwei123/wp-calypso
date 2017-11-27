@@ -10,10 +10,10 @@ import { get } from 'lodash';
 /**
  * Internal Dependencies
  */
-import analytics from 'lib/analytics';
+import analytics from 'client/lib/analytics';
 import titlecase from 'to-title-case';
-import { getSiteFragment, sectionify } from 'lib/route';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { getSiteFragment, sectionify } from 'client/lib/route';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import Settings from '../components/settings';
 import SetupWizard from '../components/setup';
 

@@ -12,27 +12,27 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import Card from 'components/card';
-import LoggedOutFormLinks from 'components/logged-out-form/links';
-import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
+import LoggedOutFormLinks from 'client/components/logged-out-form/links';
+import LoggedOutFormLinkItem from 'client/components/logged-out-form/link-item';
 import JetpackConnectNotices from './jetpack-connect-notices';
 import SiteUrlInput from './site-url-input';
 import {
 	getGlobalSelectedPlan,
 	getConnectingSite,
 	getJetpackSiteByUrl,
-} from 'state/jetpack-connect/selectors';
-import { isRequestingSites } from 'state/sites/selectors';
+} from 'client/state/jetpack-connect/selectors';
+import { isRequestingSites } from 'client/state/sites/selectors';
 import JetpackInstallStep from './install-step';
-import versionCompare from 'lib/version-compare';
-import LocaleSuggestions from 'components/locale-suggestions';
-import { recordTracksEvent } from 'state/analytics/actions';
+import versionCompare from 'client/lib/version-compare';
+import LocaleSuggestions from 'client/components/locale-suggestions';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 import MainWrapper from './main-wrapper';
-import FormattedHeader from 'components/formatted-header';
+import FormattedHeader from 'client/components/formatted-header';
 import HelpButton from './help-button';
 import JetpackConnectHappychatButton from './happychat-button';
-import untrailingslashit from 'lib/route/untrailingslashit';
+import untrailingslashit from 'client/lib/route/untrailingslashit';
 import {
 	confirmJetpackInstallStatus,
 	dismissUrl,
@@ -41,7 +41,7 @@ import {
 	goToPlans,
 	goToPluginActivation,
 	checkUrl,
-} from 'state/jetpack-connect/actions';
+} from 'client/state/jetpack-connect/actions';
 
 /**
  * Constants

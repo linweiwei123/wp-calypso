@@ -22,7 +22,7 @@ import {
 	SITE_REQUEST_FAILURE,
 	SERIALIZE,
 	DESERIALIZE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 import { isStale } from '../utils';
 import { JETPACK_CONNECT_AUTHORIZE_TTL } from '../constants';
 

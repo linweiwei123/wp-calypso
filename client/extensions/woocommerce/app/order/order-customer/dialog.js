@@ -11,20 +11,20 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import AddressView from 'woocommerce/components/address-view';
-import Button from 'components/button';
-import Dialog from 'components/dialog';
-import FormCheckbox from 'components/forms/form-checkbox';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormInputValidation from 'components/forms/form-input-validation';
-import FormLabel from 'components/forms/form-label';
-import FormLegend from 'components/forms/form-legend';
-import FormPhoneMediaInput from 'components/forms/form-phone-media-input';
-import FormTextInput from 'components/forms/form-text-input';
-import getAddressViewFormat from 'woocommerce/lib/get-address-view-format';
+import AddressView from 'client/extensions/woocommerce/components/address-view';
+import Button from 'client/components/button';
+import Dialog from 'client/components/dialog';
+import FormCheckbox from 'client/components/forms/form-checkbox';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormInputValidation from 'client/components/forms/form-input-validation';
+import FormLabel from 'client/components/forms/form-label';
+import FormLegend from 'client/components/forms/form-legend';
+import FormPhoneMediaInput from 'client/components/forms/form-phone-media-input';
+import FormTextInput from 'client/components/forms/form-text-input';
+import getAddressViewFormat from 'client/extensions/woocommerce/lib/get-address-view-format';
 
 // @todo Update this to use our store countries list
-import countriesListBuilder from 'lib/countries-list';
+import countriesListBuilder from 'client/lib/countries-list';
 const countriesList = countriesListBuilder.forPayments();
 
 class CustomerAddressDialog extends Component {

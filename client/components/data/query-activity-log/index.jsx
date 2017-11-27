@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { activityLogRequest as activityLogRequestAction } from 'state/activity-log/actions';
+import { activityLogRequest as activityLogRequestAction } from 'client/state/activity-log/actions';
 
 class QueryActivityLog extends PureComponent {
 	static propTypes = {

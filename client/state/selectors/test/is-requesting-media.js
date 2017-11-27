@@ -9,7 +9,7 @@ import { expect } from 'chai';
  * Internal dependencies
  */
 import { isRequestingMedia } from '../';
-import MediaQueryManager from 'lib/query-manager/media';
+import MediaQueryManager from 'client/lib/query-manager/media';
 
 describe( 'isRequestingMedia()', () => {
 	const query = {

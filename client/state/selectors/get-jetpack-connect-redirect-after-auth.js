@@ -7,7 +7,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getAuthorizationRemoteQueryData } from 'state/jetpack-connect/selectors';
+import { getAuthorizationRemoteQueryData } from 'client/state/jetpack-connect/selectors';
 
 /**
  * Returns redirect_after_auth provided as part of Jetpack Connect authorization.

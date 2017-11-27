@@ -6,7 +6,7 @@
 
 import config from 'config';
 import { login, magicLogin, magicLoginUse } from './controller';
-import { makeLayout, redirectLoggedIn, setUpLocale } from 'controller';
+import { makeLayout, redirectLoggedIn, setUpLocale } from 'client/controller';
 
 export default router => {
 	if ( config.isEnabled( 'login/magic-login' ) ) {

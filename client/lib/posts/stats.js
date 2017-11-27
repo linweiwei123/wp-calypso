@@ -12,10 +12,10 @@ import { noop } from 'lodash';
  * Internal dependencies
  */
 import config from 'config';
-import analytics from 'lib/analytics';
-import PostEditStore from 'lib/posts/post-edit-store';
-import utils from 'lib/posts/utils';
-import SitesList from 'lib/sites-list';
+import analytics from 'client/lib/analytics';
+import PostEditStore from 'client/lib/posts/post-edit-store';
+import utils from 'client/lib/posts/utils';
+import SitesList from 'client/lib/sites-list';
 
 /*
  * Module variables

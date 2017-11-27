@@ -14,9 +14,9 @@ import { localize } from 'i18n-calypso';
  */
 import ActivityActor from './activity-actor';
 import ActivityIcon from './activity-icon';
-import EllipsisMenu from 'components/ellipsis-menu';
-import FoldableCard from 'components/foldable-card';
-import PopoverMenuItem from 'components/popover/menu-item';
+import EllipsisMenu from 'client/components/ellipsis-menu';
+import FoldableCard from 'client/components/foldable-card';
+import PopoverMenuItem from 'client/components/popover/menu-item';
 
 const stopPropagation = event => event.stopPropagation();
 

@@ -13,8 +13,8 @@ import { match } from 'sinon';
  * Internal dependencies
  */
 import sitesSync from '../enhancer';
-import { SITES_UPDATE, SITE_RECEIVE } from 'state/action-types';
-import { userState } from 'state/selectors/test/fixtures/user-state';
+import { SITES_UPDATE, SITE_RECEIVE } from 'client/state/action-types';
+import { userState } from 'client/state/selectors/test/fixtures/user-state';
 import { useSandbox } from 'test/helpers/use-sinon';
 
 /* eslint-disable no-restricted-modules */

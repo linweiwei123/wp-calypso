@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { filter, isNil, keyBy, map, omit, orderBy, slice } from 'lodash';
-import { createPlaceholderComment } from 'state/data-layer/wpcom/comments';
+import { createPlaceholderComment } from 'client/state/data-layer/wpcom/comments';
 
 const COMMENTS_PER_PAGE = 2;
 

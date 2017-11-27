@@ -10,7 +10,7 @@ import React from 'react';
  * Internal Dependencies
  */
 
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import ChecklistShow from '../checklist-show';
 
 export function show( context ) {

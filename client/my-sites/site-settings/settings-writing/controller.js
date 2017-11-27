@@ -9,9 +9,9 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { renderWithReduxStore } from 'lib/react-helpers';
-import WritingMain from 'my-sites/site-settings/settings-writing/main';
-import Taxonomies from 'my-sites/site-settings/taxonomies';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import WritingMain from 'client/my-sites/site-settings/settings-writing/main';
+import Taxonomies from 'client/my-sites/site-settings/taxonomies';
 
 export default {
 	writing( context ) {

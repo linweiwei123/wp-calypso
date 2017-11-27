@@ -8,7 +8,7 @@ import page from 'page';
  * Internal dependencies
  */
 import controller from './controller';
-import { siteSelection } from 'my-sites/controller';
+import { siteSelection } from 'client/my-sites/controller';
 
 export default function() {
 	page(

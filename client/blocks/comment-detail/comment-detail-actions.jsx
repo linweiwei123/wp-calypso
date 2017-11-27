@@ -13,8 +13,8 @@ import { includes } from 'lodash';
 /**
  * Internal dependencies
  */
-import ButtonGroup from 'components/button-group';
-import Button from 'components/button';
+import ButtonGroup from 'client/components/button-group';
+import Button from 'client/components/button';
 
 const commentActions = {
 	unapproved: [ 'like', 'approve', 'edit', 'reply', 'spam', 'trash' ],

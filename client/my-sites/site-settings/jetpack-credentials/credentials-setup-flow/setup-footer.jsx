@@ -7,9 +7,9 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import CompactCard from 'components/card/compact';
+import CompactCard from 'client/components/card/compact';
 import Gridicon from 'gridicons';
-import Popover from 'components/popover';
+import Popover from 'client/components/popover';
 
 class SetupFooter extends Component {
 	componentWillMount() {

@@ -5,7 +5,7 @@
  */
 
 import getPaymentMethodDetails from '../../../lib/get-payment-method-details';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import request from '../request';
 import { setError } from '../status/wc-api/actions';
 import {
@@ -13,7 +13,7 @@ import {
 	WOOCOMMERCE_PAYMENT_METHOD_UPDATE_SUCCESS,
 	WOOCOMMERCE_PAYMENT_METHODS_REQUEST,
 	WOOCOMMERCE_PAYMENT_METHODS_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 import { arePaymentMethodsLoaded, arePaymentMethodsLoading } from './selectors';
 
 const addPaymentMethodDetails = method => {

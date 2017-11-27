@@ -26,8 +26,8 @@ import {
 	PLAN_WPCOM_ENTERPRISE,
 	PLAN_CHARGEBACK,
 	PLAN_MONTHLY_PERIOD,
-} from 'lib/plans/constants';
-import { isTransfer } from 'lib/cart-values/cart-items';
+} from 'client/lib/plans/constants';
+import { isTransfer } from 'client/lib/cart-values/cart-items';
 
 import schema from './schema.json';
 

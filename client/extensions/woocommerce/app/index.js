@@ -13,12 +13,12 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { canCurrentUser } from 'state/selectors';
+import { canCurrentUser } from 'client/state/selectors';
 import config from 'config';
-import DocumentHead from 'components/data/document-head';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { isSiteAutomatedTransfer, hasSitePendingAutomatedTransfer } from 'state/selectors';
-import route from 'lib/route';
+import DocumentHead from 'client/components/data/document-head';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { isSiteAutomatedTransfer, hasSitePendingAutomatedTransfer } from 'client/state/selectors';
+import route from 'client/lib/route';
 
 class App extends Component {
 	static propTypes = {

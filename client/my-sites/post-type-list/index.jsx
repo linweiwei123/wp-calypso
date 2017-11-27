@@ -13,17 +13,17 @@ import { isEqual, range, throttle } from 'lodash';
 /**
  * Internal dependencies
  */
-import QueryPosts from 'components/data/query-posts';
-import { DEFAULT_POST_QUERY } from 'lib/query-manager/post/constants';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import QueryPosts from 'client/components/data/query-posts';
+import { DEFAULT_POST_QUERY } from 'client/lib/query-manager/post/constants';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import {
 	isRequestingSitePostsForQueryIgnoringPage,
 	getSitePostsForQueryIgnoringPage,
 	getSitePostsFoundForQuery,
 	getSitePostsLastPageForQuery,
-} from 'state/posts/selectors';
-import ListEnd from 'components/list-end';
-import PostItem from 'blocks/post-item';
+} from 'client/state/posts/selectors';
+import ListEnd from 'client/components/list-end';
+import PostItem from 'client/blocks/post-item';
 import PostTypeListEmptyContent from './empty-content';
 import PostTypeListMaxPagesNotice from './max-pages-notice';
 

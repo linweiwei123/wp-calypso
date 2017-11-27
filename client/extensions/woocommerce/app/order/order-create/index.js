@@ -10,17 +10,17 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import ActionHeader from 'woocommerce/components/action-header';
-import Button from 'components/button';
-import Card from 'components/card';
-import { editOrder } from 'woocommerce/state/ui/orders/actions';
-import { getSelectedSiteWithFallback } from 'woocommerce/state/sites/selectors';
-import { getLink } from 'woocommerce/lib/nav-utils';
-import Main from 'components/main';
+import ActionHeader from 'client/extensions/woocommerce/components/action-header';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
+import { editOrder } from 'client/extensions/woocommerce/state/ui/orders/actions';
+import { getSelectedSiteWithFallback } from 'client/extensions/woocommerce/state/sites/selectors';
+import { getLink } from 'client/extensions/woocommerce/lib/nav-utils';
+import Main from 'client/components/main';
 import OrderCustomerCard from './customer-card';
-import ProductSearch from 'woocommerce/components/product-search';
-import { ProtectFormGuard } from 'lib/protect-form';
-import SectionHeader from 'components/section-header';
+import ProductSearch from 'client/extensions/woocommerce/components/product-search';
+import { ProtectFormGuard } from 'client/lib/protect-form';
+import SectionHeader from 'client/components/section-header';
 
 class OrderCreate extends Component {
 	editOrder = order => {

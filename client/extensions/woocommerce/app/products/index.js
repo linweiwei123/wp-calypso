@@ -15,21 +15,21 @@ import { trim } from 'lodash';
 /**
  * Internal dependencies
  */
-import ActionHeader from 'woocommerce/components/action-header';
-import Button from 'components/button';
-import { fetchProducts } from 'woocommerce/state/sites/products/actions';
-import { getLink } from 'woocommerce/lib/nav-utils';
-import { getSelectedSiteWithFallback } from 'woocommerce/state/sites/selectors';
+import ActionHeader from 'client/extensions/woocommerce/components/action-header';
+import Button from 'client/components/button';
+import { fetchProducts } from 'client/extensions/woocommerce/state/sites/products/actions';
+import { getLink } from 'client/extensions/woocommerce/lib/nav-utils';
+import { getSelectedSiteWithFallback } from 'client/extensions/woocommerce/state/sites/selectors';
 import {
 	getTotalProducts,
 	areProductsLoaded,
 	areProductsLoading,
-} from 'woocommerce/state/sites/products/selectors';
-import Main from 'components/main';
+} from 'client/extensions/woocommerce/state/sites/products/selectors';
+import Main from 'client/components/main';
 import ProductsList from './products-list';
 import ProductsListSearchResults from './products-list-search-results';
-import SidebarNavigation from 'my-sites/sidebar-navigation';
-import SearchCard from 'components/search-card';
+import SidebarNavigation from 'client/my-sites/sidebar-navigation';
+import SearchCard from 'client/components/search-card';
 
 class Products extends Component {
 	static propTypes = {

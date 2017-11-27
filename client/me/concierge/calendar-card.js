@@ -19,12 +19,12 @@ import { localize, moment } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import FoldableCard from 'components/foldable-card';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormLabel from 'components/forms/form-label';
-import FormSelect from 'components/forms/form-select';
-import FormSettingExplanation from 'components/forms/form-setting-explanation';
+import Button from 'client/components/button';
+import FoldableCard from 'client/components/foldable-card';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormLabel from 'client/components/forms/form-label';
+import FormSelect from 'client/components/forms/form-select';
+import FormSettingExplanation from 'client/components/forms/form-setting-explanation';
 
 class CalendarCard extends Component {
 	static propTypes = {

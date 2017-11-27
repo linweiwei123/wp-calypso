@@ -11,22 +11,22 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import Emojify from 'components/emojify';
-import ExternalLink from 'components/external-link';
-import InfoPopover from 'components/info-popover';
-import { urlToDomainAndPath } from 'lib/url';
-import { getSite } from 'state/sites/selectors';
-import { saveSiteSettings } from 'state/site-settings/actions';
-import { successNotice } from 'state/notices/actions';
-import { canCurrentUser } from 'state/selectors';
-import { getCurrentUserEmail } from 'state/current-user/selectors';
+import Button from 'client/components/button';
+import Emojify from 'client/components/emojify';
+import ExternalLink from 'client/components/external-link';
+import InfoPopover from 'client/components/info-popover';
+import { urlToDomainAndPath } from 'client/lib/url';
+import { getSite } from 'client/state/sites/selectors';
+import { saveSiteSettings } from 'client/state/site-settings/actions';
+import { successNotice } from 'client/state/notices/actions';
+import { canCurrentUser } from 'client/state/selectors';
+import { getCurrentUserEmail } from 'client/state/current-user/selectors';
 import {
 	bumpStat,
 	composeAnalytics,
 	recordTracksEvent,
 	withAnalytics,
-} from 'state/analytics/actions';
+} from 'client/state/analytics/actions';
 
 export class CommentDetailAuthorMoreInfo extends Component {
 	showBlockUser = () =>

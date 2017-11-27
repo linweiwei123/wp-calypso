@@ -14,7 +14,7 @@ import { get, has } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getPostRevision, getPostRevisionChanges } from 'state/selectors';
+import { getPostRevision, getPostRevisionChanges } from 'client/state/selectors';
 import EditorDiffChanges from './changes';
 
 class EditorDiffViewer extends PureComponent {

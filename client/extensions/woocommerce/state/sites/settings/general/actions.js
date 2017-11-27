@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import request from '../../request';
 import { setError } from '../../status/wc-api/actions';
 import {
@@ -13,7 +13,7 @@ import {
 	WOOCOMMERCE_CURRENCY_UPDATE,
 	WOOCOMMERCE_CURRENCY_UPDATE_SUCCESS,
 	WOOCOMMERCE_SETTINGS_GENERAL_REQUEST,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 
 export const fetchSettingsGeneral = siteId => {
 	return {

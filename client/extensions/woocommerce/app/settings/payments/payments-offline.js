@@ -10,7 +10,7 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import ExtendedHeader from 'woocommerce/components/extended-header';
+import ExtendedHeader from 'client/extensions/woocommerce/components/extended-header';
 import PaymentMethodList from './payment-method-list';
 
 class SettingsPaymentsOffline extends Component {

@@ -12,9 +12,9 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import AutoDirection from 'components/auto-direction';
-import Gravatar from 'components/gravatar';
-import { getCurrentUser } from 'state/current-user/selectors';
+import AutoDirection from 'client/components/auto-direction';
+import Gravatar from 'client/components/gravatar';
+import { getCurrentUser } from 'client/state/current-user/selectors';
 
 const TEXTAREA_HEIGHT_COLLAPSED = 47; // 1 line
 const TEXTAREA_HEIGHT_FOCUSED = 68; // 2 lines

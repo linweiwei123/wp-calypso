@@ -7,9 +7,9 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { noSite, siteSelection } from 'my-sites/controller';
+import { noSite, siteSelection } from 'client/my-sites/controller';
 import checkoutController from './controller';
-import SiftScience from 'lib/siftscience';
+import SiftScience from 'client/lib/siftscience';
 
 export default function() {
 	SiftScience.recordUser();

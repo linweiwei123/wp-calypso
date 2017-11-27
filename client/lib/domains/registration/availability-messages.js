@@ -10,9 +10,9 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { getTld } from 'lib/domains';
-import support from 'lib/url/support';
-import { domainAvailability } from 'lib/domains/constants';
+import { getTld } from 'client/lib/domains';
+import support from 'client/lib/url/support';
+import { domainAvailability } from 'client/lib/domains/constants';
 
 function getAvailabilityNotice( domain, error ) {
 	let message,

@@ -15,18 +15,21 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import EditorPublishDate from 'post-editor/editor-publish-date';
-import EditorVisibility from 'post-editor/editor-visibility';
-import FormCheckbox from 'components/forms/form-checkbox';
-import FormLabel from 'components/forms/form-label';
+import Button from 'client/components/button';
+import EditorPublishDate from 'client/post-editor/editor-publish-date';
+import EditorVisibility from 'client/post-editor/editor-visibility';
+import FormCheckbox from 'client/components/forms/form-checkbox';
+import FormLabel from 'client/components/forms/form-label';
 import EditorConfirmationSidebarHeader from './header';
-import { editPost } from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/ui/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { getPublishButtonStatus } from 'post-editor/editor-publish-button';
-import { isEditedPostPrivate, isPrivateEditedPostPasswordValid } from 'state/posts/selectors';
+import { editPost } from 'client/state/posts/actions';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getEditorPostId } from 'client/state/ui/editor/selectors';
+import { getEditedPost } from 'client/state/posts/selectors';
+import { getPublishButtonStatus } from 'client/post-editor/editor-publish-button';
+import {
+	isEditedPostPrivate,
+	isPrivateEditedPostPasswordValid,
+} from 'client/state/posts/selectors';
 
 class EditorConfirmationSidebar extends React.Component {
 	static propTypes = {

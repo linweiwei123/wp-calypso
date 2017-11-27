@@ -12,10 +12,10 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Gravatar from 'components/gravatar';
-import QueryPostLikes from 'components/data/query-post-likes';
-import { isRequestingPostLikes, getPostLikes, countPostLikes } from 'state/selectors';
-import { recordGoogleEvent } from 'state/analytics/actions';
+import Gravatar from 'client/components/gravatar';
+import QueryPostLikes from 'client/components/data/query-post-likes';
+import { isRequestingPostLikes, getPostLikes, countPostLikes } from 'client/state/selectors';
+import { recordGoogleEvent } from 'client/state/analytics/actions';
 
 export const PostLikes = props => {
 	const { countLikes, isRequesting, likes, postId, postType, siteId, translate } = props;

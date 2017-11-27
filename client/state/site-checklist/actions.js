@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import { SITE_CHECKLIST_REQUEST } from 'state/action-types';
+import { SITE_CHECKLIST_REQUEST } from 'client/state/action-types';
 
 /**
  * Action creator function: SITE_CHECKLIST_REQUEST

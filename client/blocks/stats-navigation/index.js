@@ -9,16 +9,16 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import SectionNav from 'components/section-nav';
-import NavItem from 'components/section-nav/item';
-import NavTabs from 'components/section-nav/tabs';
+import SectionNav from 'client/components/section-nav';
+import NavItem from 'client/components/section-nav/item';
+import NavTabs from 'client/components/section-nav/tabs';
 import Intervals from './intervals';
-import FollowersCount from 'blocks/followers-count';
-import { isPluginActive } from 'state/selectors';
-import { isJetpackSite } from 'state/sites/selectors';
+import FollowersCount from 'client/blocks/followers-count';
+import { isPluginActive } from 'client/state/selectors';
+import { isJetpackSite } from 'client/state/sites/selectors';
 import { navItems, intervals as intervalConstants } from './constants';
-import { getJetpackSites } from 'state/selectors';
-import QueryJetpackPlugins from 'components/data/query-jetpack-plugins';
+import { getJetpackSites } from 'client/state/selectors';
+import QueryJetpackPlugins from 'client/components/data/query-jetpack-plugins';
 import config from 'config';
 
 class StatsNavigation extends Component {

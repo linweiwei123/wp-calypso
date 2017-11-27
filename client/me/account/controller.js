@@ -11,10 +11,10 @@ import i18n from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import analytics from 'lib/analytics';
-import userSettings from 'lib/user-settings';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import analytics from 'client/lib/analytics';
+import userSettings from 'client/lib/user-settings';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const ANALYTICS_PAGE_TITLE = 'Me';
 

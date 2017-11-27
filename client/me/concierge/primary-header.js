@@ -8,8 +8,8 @@ import React, { Component } from 'react';
 /**
  * Internal dependencies
  */
-import Card from 'components/card';
-import FormattedHeader from 'components/formatted-header';
+import Card from 'client/components/card';
+import FormattedHeader from 'client/components/formatted-header';
 
 class PrimaryHeader extends Component {
 	render() {

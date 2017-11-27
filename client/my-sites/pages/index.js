@@ -7,7 +7,7 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { navigation, siteSelection } from 'my-sites/controller';
+import { navigation, siteSelection } from 'client/my-sites/controller';
 import pagesController from './controller';
 import config from 'config';
 

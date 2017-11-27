@@ -15,24 +15,28 @@ import qs from 'qs';
 /**
  * Internal dependencies
  */
-import { checkDomainAvailability, getFixedDomainSearch, getTld } from 'lib/domains';
-import { domainAvailability } from 'lib/domains/constants';
-import { getAvailabilityNotice } from 'lib/domains/registration/availability-messages';
-import DomainRegistrationSuggestion from 'components/domains/domain-registration-suggestion';
-import { getCurrentUser } from 'state/current-user/selectors';
+import { checkDomainAvailability, getFixedDomainSearch, getTld } from 'client/lib/domains';
+import { domainAvailability } from 'client/lib/domains/constants';
+import { getAvailabilityNotice } from 'client/lib/domains/registration/availability-messages';
+import DomainRegistrationSuggestion from 'client/components/domains/domain-registration-suggestion';
+import { getCurrentUser } from 'client/state/current-user/selectors';
 import {
 	recordAddDomainButtonClickInMapDomain,
 	recordFormSubmitInMapDomain,
 	recordInputFocusInMapDomain,
 	recordGoButtonClickInMapDomain,
-} from 'state/domains/actions';
-import Notice from 'components/notice';
-import Card from 'components/card';
-import { composeAnalytics, recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
-import { getSelectedSite } from 'state/ui/selectors';
-import FormTextInputWithAffixes from 'components/forms/form-text-input-with-affixes';
+} from 'client/state/domains/actions';
+import Notice from 'client/components/notice';
+import Card from 'client/components/card';
+import {
+	composeAnalytics,
+	recordGoogleEvent,
+	recordTracksEvent,
+} from 'client/state/analytics/actions';
+import { getSelectedSite } from 'client/state/ui/selectors';
+import FormTextInputWithAffixes from 'client/components/forms/form-text-input-with-affixes';
 import TransferDomainPrecheck from './transfer-domain-precheck';
-import support from 'lib/url/support';
+import support from 'client/lib/url/support';
 
 class TransferDomainStep extends React.Component {
 	static propTypes = {

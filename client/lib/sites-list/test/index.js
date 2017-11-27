@@ -15,7 +15,7 @@ import sinon from 'sinon';
  */
 import SitesList from '../list';
 import { original, updated } from './fixtures/data';
-import Site from 'lib/site';
+import Site from 'client/lib/site';
 
 jest.mock( 'lib/user', () => () => {} );
 

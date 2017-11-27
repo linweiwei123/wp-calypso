@@ -9,12 +9,12 @@ import { isEmpty, keys, merge, noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import { decodeEntities } from 'lib/formatting';
-import { http } from 'state/data-layer/wpcom-http/actions';
-import { dispatchRequest } from 'state/data-layer/wpcom-http/utils';
-import { getUnsavedUserSettings } from 'state/selectors';
-import { updateUserSettings, clearUnsavedUserSettings } from 'state/user-settings/actions';
-import { USER_SETTINGS_REQUEST, USER_SETTINGS_SAVE } from 'state/action-types';
+import { decodeEntities } from 'client/lib/formatting';
+import { http } from 'client/state/data-layer/wpcom-http/actions';
+import { dispatchRequest } from 'client/state/data-layer/wpcom-http/utils';
+import { getUnsavedUserSettings } from 'client/state/selectors';
+import { updateUserSettings, clearUnsavedUserSettings } from 'client/state/user-settings/actions';
+import { USER_SETTINGS_REQUEST, USER_SETTINGS_SAVE } from 'client/state/action-types';
 
 /*
  * Decodes entities in those specific user settings properties

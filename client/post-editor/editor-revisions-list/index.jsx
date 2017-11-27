@@ -15,9 +15,9 @@ import { findIndex, get, head, isEmpty, map } from 'lodash';
  */
 import EditorRevisionsListHeader from './header';
 import EditorRevisionsListItem from './item';
-import { selectPostRevision } from 'state/posts/revisions/actions';
-import { getPostRevision, getPostRevisionsSelectedRevisionId } from 'state/selectors';
-import KeyboardShortcuts from 'lib/keyboard-shortcuts';
+import { selectPostRevision } from 'client/state/posts/revisions/actions';
+import { getPostRevision, getPostRevisionsSelectedRevisionId } from 'client/state/selectors';
+import KeyboardShortcuts from 'client/lib/keyboard-shortcuts';
 
 class EditorRevisionsList extends PureComponent {
 	static propTypes = {

@@ -8,7 +8,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import ConciergeMain from './main';
 
 const concierge = context => {

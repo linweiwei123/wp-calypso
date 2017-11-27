@@ -6,9 +6,9 @@ import {
 	JETPACK_CONNECT_CHECK_URL,
 	JETPACK_CONNECT_COMPLETE_FLOW,
 	JETPACK_CONNECT_SELECT_PLAN_IN_ADVANCE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 import { jetpackConnectSelectedPlansSchema } from './schema';
-import { urlToSlug } from 'lib/url';
+import { urlToSlug } from 'client/lib/url';
 
 export default function jetpackConnectSelectedPlans( state = {}, action ) {
 	switch ( action.type ) {

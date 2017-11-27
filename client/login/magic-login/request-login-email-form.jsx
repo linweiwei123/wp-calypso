@@ -15,23 +15,23 @@ import { get } from 'lodash';
 import {
 	fetchMagicLoginRequestEmail,
 	hideMagicLoginRequestNotice,
-} from 'state/login/magic-login/actions';
+} from 'client/state/login/magic-login/actions';
 import {
 	isFetchingMagicLoginEmail,
 	getMagicLoginCurrentView,
 	getMagicLoginRequestEmailError,
 	getMagicLoginRequestedEmailSuccessfully,
-} from 'state/selectors';
-import { CHECK_YOUR_EMAIL_PAGE } from 'state/login/magic-login/constants';
+} from 'client/state/selectors';
+import { CHECK_YOUR_EMAIL_PAGE } from 'client/state/login/magic-login/constants';
 
 import EmailedLoginLinkSuccessfully from './emailed-login-link-successfully';
-import FormButton from 'components/forms/form-button';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormTextInput from 'components/forms/form-text-input';
-import LoggedOutForm from 'components/logged-out-form';
-import Notice from 'components/notice';
+import FormButton from 'client/components/forms/form-button';
+import FormFieldset from 'client/components/forms/form-fieldset';
+import FormTextInput from 'client/components/forms/form-text-input';
+import LoggedOutForm from 'client/components/logged-out-form';
+import Notice from 'client/components/notice';
 import { localize } from 'i18n-calypso';
-import { getCurrentUser } from 'state/current-user/selectors';
+import { getCurrentUser } from 'client/state/current-user/selectors';
 
 class RequestLoginEmailForm extends React.Component {
 	static propTypes = {

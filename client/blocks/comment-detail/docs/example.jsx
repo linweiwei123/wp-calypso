@@ -10,8 +10,8 @@ import { map } from 'lodash';
 /**
  * Internal dependencies
  */
-import CommentDetail from 'blocks/comment-detail';
-import CommentDetailPlaceholder from 'blocks/comment-detail/comment-detail-placeholder';
+import CommentDetail from 'client/blocks/comment-detail';
+import CommentDetailPlaceholder from 'client/blocks/comment-detail/comment-detail-placeholder';
 import CommentFaker from './comment-faker';
 
 // Mock data

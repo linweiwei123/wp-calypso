@@ -2,7 +2,7 @@
 /**
  * Internal dependencies
  */
-import { withoutHttp } from 'lib/url';
+import { withoutHttp } from 'client/lib/url';
 
 /**
  * Marks collisions between .com sites and Jetpack sites that have the same URL

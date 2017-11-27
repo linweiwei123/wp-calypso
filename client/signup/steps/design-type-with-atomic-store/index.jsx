@@ -11,25 +11,25 @@ import { includes, invoke } from 'lodash';
  * Internal dependencies
  */
 import config from 'config';
-import StepWrapper from 'signup/step-wrapper';
-import Card from 'components/card';
+import StepWrapper from 'client/signup/step-wrapper';
+import Card from 'client/components/card';
 import { localize } from 'i18n-calypso';
-import { recordTracksEvent } from 'state/analytics/actions';
+import { recordTracksEvent } from 'client/state/analytics/actions';
 import {
 	BlogImage,
 	PageImage,
 	GridImage,
 	StoreImage,
 } from '../design-type-with-atomic-store/type-images';
-import { abtest } from 'lib/abtest';
-import SignupActions from 'lib/signup/actions';
-import { setDesignType } from 'state/signup/steps/design-type/actions';
-import { DESIGN_TYPE_STORE } from 'signup/constants';
+import { abtest } from 'client/lib/abtest';
+import SignupActions from 'client/lib/signup/actions';
+import { setDesignType } from 'client/state/signup/steps/design-type/actions';
+import { DESIGN_TYPE_STORE } from 'client/signup/constants';
 import PressableStoreStep from '../design-type-with-store/pressable-store';
-import QueryGeo from 'components/data/query-geo';
-import { getGeoCountryShort } from 'state/geo/selectors';
-import { getCurrentUserCountryCode } from 'state/current-user/selectors';
-import { getThemeForDesignType } from 'signup/utils';
+import QueryGeo from 'client/components/data/query-geo';
+import { getGeoCountryShort } from 'client/state/geo/selectors';
+import { getCurrentUserCountryCode } from 'client/state/current-user/selectors';
+import { getThemeForDesignType } from 'client/signup/utils';
 
 class DesignTypeWithAtomicStoreStep extends Component {
 	state = {

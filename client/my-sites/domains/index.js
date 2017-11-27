@@ -7,10 +7,10 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { jetPackWarning, navigation, siteSelection, sites } from 'my-sites/controller';
+import { jetPackWarning, navigation, siteSelection, sites } from 'client/my-sites/controller';
 import domainsController from './controller';
 import domainManagementController from './domain-management/controller';
-import SiftScience from 'lib/siftscience';
+import SiftScience from 'client/lib/siftscience';
 import config from 'config';
 import paths from './paths';
 

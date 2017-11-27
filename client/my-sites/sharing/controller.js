@@ -11,15 +11,15 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal Dependencies
  */
-import notices from 'notices';
-import { pageView } from 'lib/analytics';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import { sectionify } from 'lib/route';
+import notices from 'client/notices';
+import { pageView } from 'client/lib/analytics';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import { sectionify } from 'client/lib/route';
 import Sharing from './main';
 import SharingButtons from './buttons/buttons';
 import SharingConnections from './connections/connections';
-import sites from 'lib/sites-list';
-import utils from 'lib/site/utils';
+import sites from 'client/lib/sites-list';
+import utils from 'client/lib/site/utils';
 
 const analyticsPageTitle = 'Sharing';
 

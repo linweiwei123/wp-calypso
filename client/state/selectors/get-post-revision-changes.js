@@ -10,9 +10,9 @@ import { findIndex, get, isUndefined, map, omitBy, reduce } from 'lodash';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import createSelector from 'lib/create-selector';
-import { countDiffWords, diffWords } from 'lib/text-utils';
-import getPostRevisions from 'state/selectors/get-post-revisions';
+import createSelector from 'client/lib/create-selector';
+import { countDiffWords, diffWords } from 'client/lib/text-utils';
+import getPostRevisions from 'client/state/selectors/get-post-revisions';
 
 const MAX_DIFF_CONTENT_LENGTH = 20000;
 

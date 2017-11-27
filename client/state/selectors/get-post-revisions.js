@@ -9,8 +9,8 @@ import { get, map, orderBy } from 'lodash';
 /**
  * Internal dependencies
  */
-import createSelector from 'lib/create-selector';
-import { hydrateRevision, normalizeRevision } from 'state/selectors/utils/revisions';
+import createSelector from 'client/lib/create-selector';
+import { hydrateRevision, normalizeRevision } from 'client/state/selectors/utils/revisions';
 
 const getPostRevisions = createSelector(
 	( state, siteId, postId, normalizerName = null ) =>

@@ -13,8 +13,8 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import CommentDetailAuthor from './comment-detail-author';
-import AutoDirection from 'components/auto-direction';
-import Emojify from 'components/emojify';
+import AutoDirection from 'client/components/auto-direction';
+import Emojify from 'client/components/emojify';
 
 export class CommentDetailComment extends Component {
 	static propTypes = {

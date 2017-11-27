@@ -4,7 +4,7 @@
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import addQueryArgs from 'lib/route/add-query-args';
+import addQueryArgs from 'client/lib/route/add-query-args';
 import debugModule from 'debug';
 import Gridicon from 'gridicons';
 import page from 'page';
@@ -16,35 +16,35 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import AuthFormHeader from './auth-form-header';
-import Button from 'components/button';
-import Card from 'components/card';
-import FormLabel from 'components/forms/form-label';
-import FormSettingExplanation from 'components/forms/form-setting-explanation';
-import Gravatar from 'components/gravatar';
+import Button from 'client/components/button';
+import Card from 'client/components/card';
+import FormLabel from 'client/components/forms/form-label';
+import FormSettingExplanation from 'client/components/forms/form-setting-explanation';
+import Gravatar from 'client/components/gravatar';
 import HelpButton from './help-button';
 import JetpackConnectHappychatButton from './happychat-button';
 import JetpackConnectNotices from './jetpack-connect-notices';
-import LoggedOutFormFooter from 'components/logged-out-form/footer';
-import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
-import LoggedOutFormLinks from 'components/logged-out-form/links';
-import Notice from 'components/notice';
-import NoticeAction from 'components/notice/notice-action';
-import Spinner from 'components/spinner';
-import userUtilities from 'lib/user/utils';
-import { decodeEntities } from 'lib/formatting';
-import { externalRedirect } from 'lib/route/path';
-import { getCurrentUser } from 'state/current-user/selectors';
-import { getJetpackConnectRedirectAfterAuth } from 'state/selectors';
-import { isRequestingSite, isRequestingSites } from 'state/sites/selectors';
-import { login } from 'lib/paths';
-import { recordTracksEvent as recordTracksEventAction } from 'state/analytics/actions';
-import { urlToSlug } from 'lib/url';
+import LoggedOutFormFooter from 'client/components/logged-out-form/footer';
+import LoggedOutFormLinkItem from 'client/components/logged-out-form/link-item';
+import LoggedOutFormLinks from 'client/components/logged-out-form/links';
+import Notice from 'client/components/notice';
+import NoticeAction from 'client/components/notice/notice-action';
+import Spinner from 'client/components/spinner';
+import userUtilities from 'client/lib/user/utils';
+import { decodeEntities } from 'client/lib/formatting';
+import { externalRedirect } from 'client/lib/route/path';
+import { getCurrentUser } from 'client/state/current-user/selectors';
+import { getJetpackConnectRedirectAfterAuth } from 'client/state/selectors';
+import { isRequestingSite, isRequestingSites } from 'client/state/sites/selectors';
+import { login } from 'client/lib/paths';
+import { recordTracksEvent as recordTracksEventAction } from 'client/state/analytics/actions';
+import { urlToSlug } from 'client/lib/url';
 import {
 	authorize as authorizeAction,
 	goBackToWpAdmin as goBackToWpAdminAction,
 	goToXmlrpcErrorFallbackUrl as goToXmlrpcErrorFallbackUrlAction,
 	retryAuth as retryAuthAction,
-} from 'state/jetpack-connect/actions';
+} from 'client/state/jetpack-connect/actions';
 import {
 	getAuthAttempts,
 	getAuthorizationData,
@@ -55,7 +55,7 @@ import {
 	hasXmlrpcError as hasXmlrpcErrorSelector,
 	isCalypsoStartedConnection,
 	isRemoteSiteOnSitesList,
-} from 'state/jetpack-connect/selectors';
+} from 'client/state/jetpack-connect/selectors';
 
 /**
  * Constants

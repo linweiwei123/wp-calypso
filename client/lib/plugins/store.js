@@ -12,17 +12,17 @@ import { assign, isArray, sortBy, uniq, compact, values, find } from 'lodash';
 /**
  * Internal dependencies
  */
-import Dispatcher from 'dispatcher';
-import emitter from 'lib/mixins/emitter';
+import Dispatcher from 'client/dispatcher';
+import emitter from 'client/lib/mixins/emitter';
 /* eslint-disable no-restricted-imports */
-import sitesListFactory from 'lib/sites-list';
+import sitesListFactory from 'client/lib/sites-list';
 const sitesList = sitesListFactory();
 /* eslint-enable no-restricted-imports */
-import PluginsActions from 'lib/plugins/actions';
-import versionCompare from 'lib/version-compare';
-import PluginUtils from 'lib/plugins/utils';
-import JetpackSite from 'lib/site/jetpack';
-import Site from 'lib/site';
+import PluginsActions from 'client/lib/plugins/actions';
+import versionCompare from 'client/lib/version-compare';
+import PluginUtils from 'client/lib/plugins/utils';
+import JetpackSite from 'client/lib/site/jetpack';
+import Site from 'client/lib/site';
 
 /*
  * Constants

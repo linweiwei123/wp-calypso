@@ -12,9 +12,9 @@ import { isEmpty } from 'lodash';
  * Internal dependencies
  */
 import ActivityLogBanner from './index';
-import Button from 'components/button';
-import TrackComponentView from 'lib/analytics/track-component-view';
-import { dismissRewindRestoreProgress as dismissRewindRestoreProgressAction } from 'state/activity-log/actions';
+import Button from 'client/components/button';
+import TrackComponentView from 'client/lib/analytics/track-component-view';
+import { dismissRewindRestoreProgress as dismissRewindRestoreProgressAction } from 'client/state/activity-log/actions';
 
 class ErrorBanner extends PureComponent {
 	static propTypes = {

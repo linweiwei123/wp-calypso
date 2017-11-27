@@ -16,9 +16,9 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import eventRecorder from 'me/event-recorder';
-import { errorNotice } from 'state/notices/actions';
-import Button from 'components/button';
+import eventRecorder from 'client/me/event-recorder';
+import { errorNotice } from 'client/state/notices/actions';
+import Button from 'client/components/button';
 
 const ApplicationPasswordsItem = createReactClass( {
 	displayName: 'ApplicationPasswordsItem',

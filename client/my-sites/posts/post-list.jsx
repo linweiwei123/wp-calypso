@@ -14,22 +14,22 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import QueryPosts from 'components/data/query-posts';
+import QueryPosts from 'client/components/data/query-posts';
 import Post from './post';
 import PostPlaceholder from './post-placeholder';
-import { preload } from 'sections-preload';
-import EmptyContent from 'components/empty-content';
-import InfiniteList from 'components/infinite-list';
-import NoResults from 'my-sites/no-results';
-import { mapPostStatus as mapStatus, sectionify } from 'lib/route';
-import ListEnd from 'components/list-end';
-import UpgradeNudge from 'my-sites/upgrade-nudge';
-import { hasInitializedSites } from 'state/selectors';
+import { preload } from 'client/sections-preload';
+import EmptyContent from 'client/components/empty-content';
+import InfiniteList from 'client/components/infinite-list';
+import NoResults from 'client/my-sites/no-results';
+import { mapPostStatus as mapStatus, sectionify } from 'client/lib/route';
+import ListEnd from 'client/components/list-end';
+import UpgradeNudge from 'client/my-sites/upgrade-nudge';
+import { hasInitializedSites } from 'client/state/selectors';
 import {
 	getSitePostsForQueryIgnoringPage,
 	isRequestingSitePostsForQuery,
 	isSitePostsLastPageForQuery,
-} from 'state/posts/selectors';
+} from 'client/state/posts/selectors';
 
 const debug = debugFactory( 'calypso:my-sites:posts' );
 

@@ -7,11 +7,11 @@ import { pickBy } from 'lodash';
 /**
  * Internal dependencies
  */
-import { DESERIALIZE, JETPACK_CONNECT_CHECK_URL, SERIALIZE } from 'state/action-types';
-import { isValidStateWithSchema } from 'state/utils';
+import { DESERIALIZE, JETPACK_CONNECT_CHECK_URL, SERIALIZE } from 'client/state/action-types';
+import { isValidStateWithSchema } from 'client/state/utils';
 import { jetpackConnectSessionsSchema } from './schema';
 import { isStale } from '../utils';
-import { urlToSlug } from 'lib/url';
+import { urlToSlug } from 'client/lib/url';
 
 function buildUrlSessionObj( url, flowType ) {
 	const slug = urlToSlug( url );

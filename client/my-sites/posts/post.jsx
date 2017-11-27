@@ -17,25 +17,25 @@ import { partial, noop } from 'lodash';
  * Internal dependencies
  */
 import { isEnabled } from 'config';
-import Card from 'components/card';
+import Card from 'client/components/card';
 import PostControls from './post-controls';
-import PostFormat from 'components/post-format';
+import PostFormat from 'client/components/post-format';
 import PostHeader from './post-header';
 import PostImage from '../post/post-image';
-import PostExcerpt from 'components/post-excerpt';
-import updatePostStatus from 'components/update-post-status';
-import utils from 'lib/posts/utils';
+import PostExcerpt from 'client/components/post-excerpt';
+import updatePostStatus from 'client/components/update-post-status';
+import utils from 'client/lib/posts/utils';
 import config from 'config';
-import { recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
-import { setPreviewUrl } from 'state/ui/preview/actions';
-import { setLayoutFocus } from 'state/ui/layout-focus/actions';
-import { getPostPreviewUrl } from 'state/posts/selectors';
-import { isSingleUserSite, isSitePreviewable } from 'state/sites/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPath } from 'state/ui/editor/selectors';
-import Comments from 'blocks/comments';
-import PostShare from 'blocks/post-share';
-import PostActions from 'blocks/post-actions';
+import { recordGoogleEvent, recordTracksEvent } from 'client/state/analytics/actions';
+import { setPreviewUrl } from 'client/state/ui/preview/actions';
+import { setLayoutFocus } from 'client/state/ui/layout-focus/actions';
+import { getPostPreviewUrl } from 'client/state/posts/selectors';
+import { isSingleUserSite, isSitePreviewable } from 'client/state/sites/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
+import { getEditorPath } from 'client/state/ui/editor/selectors';
+import Comments from 'client/blocks/comments';
+import PostShare from 'client/blocks/post-share';
+import PostActions from 'client/blocks/post-actions';
 
 const recordEvent = partial( recordGoogleEvent, 'Posts' );
 

@@ -11,7 +11,7 @@ const debug = debugFactory( 'calypso:me:form-base' );
 /**
  * Internal dependencies
  */
-import notices from 'notices';
+import notices from 'client/notices';
 
 export default {
 	componentDidMount: function() {

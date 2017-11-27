@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { requestConciergeShifts } from 'state/concierge/actions';
+import { requestConciergeShifts } from 'client/state/concierge/actions';
 
 class QueryConciergeShifts extends Component {
 	componentWillMount() {

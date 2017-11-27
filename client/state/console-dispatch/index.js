@@ -23,7 +23,7 @@ import { matchesProperty } from 'lodash';
 /**
  * Internal dependencies
  */
-import * as actionTypes from 'state/action-types';
+import * as actionTypes from 'client/state/action-types';
 
 const state = {
 	actionHistory: [],

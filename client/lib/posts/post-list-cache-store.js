@@ -10,9 +10,9 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import sitesFactory from 'lib/sites-list';
-import Dispatcher from 'dispatcher';
-import { cacheIndex } from 'lib/wp/sync-handler/cache-index';
+import sitesFactory from 'client/lib/sites-list';
+import Dispatcher from 'client/dispatcher';
+import { cacheIndex } from 'client/lib/wp/sync-handler/cache-index';
 
 let cache = {};
 const _canonicalCache = {};

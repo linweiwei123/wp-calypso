@@ -13,15 +13,10 @@ import { find, get, isEmpty } from 'lodash';
  */
 import ShippingRates from './list';
 import StepContainer from '../step-container';
-import { hasNonEmptyLeaves } from 'woocommerce/woocommerce-services/lib/utils/tree';
-import { toggleStep, updateRate } from 'woocommerce/woocommerce-services/state/shipping-label/actions';
-import {
-	getShippingLabel,
-	isLoaded,
-	getFormErrors,
-	getRatesTotal,
-} from 'woocommerce/woocommerce-services/state/shipping-label/selectors';
-import { getAllPackageDefinitions } from 'woocommerce/woocommerce-services/state/packages/selectors';
+import { hasNonEmptyLeaves } from 'client/extensions/woocommerce/woocommerce-services/lib/utils/tree';
+import { toggleStep, updateRate } from 'client/extensions/woocommerce/woocommerce-services/state/shipping-label/actions';
+import { getShippingLabel, isLoaded, getFormErrors, getRatesTotal } from 'client/extensions/woocommerce/woocommerce-services/state/shipping-label/selectors';
+import { getAllPackageDefinitions } from 'client/extensions/woocommerce/woocommerce-services/state/packages/selectors';
 
 const ratesSummary = ( selectedRates, availableRates, total, currencySymbol, packagesSaved, translate ) => {
 	if ( ! packagesSaved ) {

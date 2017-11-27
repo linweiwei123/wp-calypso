@@ -10,8 +10,8 @@ import { isEmpty } from 'lodash';
 /**
  * Internal dependencies
  */
-import EmailVerificationCard from 'my-sites/domains/domain-management/components/email-verification';
-import { checkInboundTransferStatus, resendInboundTransferEmail } from 'lib/domains';
+import EmailVerificationCard from 'client/my-sites/domains/domain-management/components/email-verification';
+import { checkInboundTransferStatus, resendInboundTransferEmail } from 'client/lib/domains';
 
 class InboundTransferEmailVerificationCard extends React.Component {
 	static propTypes = {

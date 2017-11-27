@@ -4,11 +4,11 @@
  * Internal dependencies
  */
 
-import { dispatchWithProps } from 'woocommerce/state/helpers';
-import { post } from 'woocommerce/state/data-layer/request/actions';
-import { setError } from 'woocommerce/state/sites/status/wc-api/actions';
-import { productCategoryUpdated } from 'woocommerce/state/sites/product-categories/actions';
-import { WOOCOMMERCE_PRODUCT_CATEGORY_CREATE } from 'woocommerce/state/action-types';
+import { dispatchWithProps } from 'client/extensions/woocommerce/state/helpers';
+import { post } from 'client/extensions/woocommerce/state/data-layer/request/actions';
+import { setError } from 'client/extensions/woocommerce/state/sites/status/wc-api/actions';
+import { productCategoryUpdated } from 'client/extensions/woocommerce/state/sites/product-categories/actions';
+import { WOOCOMMERCE_PRODUCT_CATEGORY_CREATE } from 'client/extensions/woocommerce/state/action-types';
 
 export function handleProductCategoryCreate( store, action ) {
 	const { siteId, category, successAction, failureAction } = action;

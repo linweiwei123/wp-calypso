@@ -9,7 +9,7 @@ import { expect } from 'chai';
  * Internal dependencies
  */
 import { getMediaUrl } from '../';
-import MediaQueryManager from 'lib/query-manager/media';
+import MediaQueryManager from 'client/lib/query-manager/media';
 
 describe( 'getMediaUrl()', () => {
 	const url = 'https://example.files.wordpress.com/2014/06/flower.gif';

@@ -9,7 +9,7 @@ import { get, isEmpty, omit } from 'lodash';
 /**
  * Internal dependencies
  */
-import { combineReducers, createReducer } from 'state/utils';
+import { combineReducers, createReducer } from 'client/state/utils';
 import magicLogin from './magic-login/reducer';
 import {
 	LOGIN_FORM_UPDATE,
@@ -43,8 +43,8 @@ import {
 	TWO_FACTOR_AUTHENTICATION_SEND_SMS_CODE_REQUEST_SUCCESS,
 	TWO_FACTOR_AUTHENTICATION_UPDATE_NONCE,
 	USER_RECEIVE,
-} from 'state/action-types';
-import { login } from 'lib/paths';
+} from 'client/state/action-types';
+import { login } from 'client/lib/paths';
 
 export const isRequesting = createReducer( false, {
 	[ LOGIN_REQUEST ]: () => true,

@@ -14,7 +14,7 @@ import {
 	SERIALIZE,
 	DESERIALIZE,
 	NOTIFICATIONS_PANEL_TOGGLE,
-} from 'state/action-types';
+} from 'client/state/action-types';
 
 describe( 'reducer', () => {
 	test( 'should include expected keys in return value', () => {

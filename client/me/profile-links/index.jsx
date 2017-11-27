@@ -12,14 +12,14 @@ import { times } from 'lodash';
 /**
  * Internal dependencies
  */
-import ProfileLink from 'me/profile-link';
-import observe from 'lib/mixins/data-observe';
-import AddProfileLinksButtons from 'me/profile-links/add-buttons';
-import SectionHeader from 'components/section-header';
-import Card from 'components/card';
-import Notice from 'components/notice';
-import ProfileLinksAddWordPress from 'me/profile-links-add-wordpress';
-import ProfileLinksAddOther from 'me/profile-links-add-other';
+import ProfileLink from 'client/me/profile-link';
+import observe from 'client/lib/mixins/data-observe';
+import AddProfileLinksButtons from 'client/me/profile-links/add-buttons';
+import SectionHeader from 'client/components/section-header';
+import Card from 'client/components/card';
+import Notice from 'client/components/notice';
+import ProfileLinksAddWordPress from 'client/me/profile-links-add-wordpress';
+import ProfileLinksAddOther from 'client/me/profile-links-add-other';
 
 const ProfileLinks = createReactClass( {
 	displayName: 'ProfileLinks',

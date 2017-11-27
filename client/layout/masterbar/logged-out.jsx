@@ -14,7 +14,7 @@ import { localize } from 'i18n-calypso';
  */
 import Item from './item';
 import config from 'config';
-import { login } from 'lib/paths';
+import { login } from 'client/lib/paths';
 
 function getLoginUrl( redirectUri ) {
 	const params = {};

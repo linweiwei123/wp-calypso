@@ -8,7 +8,7 @@ import { expect } from 'chai';
 /**
  * Internal dependencies
  */
-import { PLAN_BUSINESS, PLAN_FREE } from 'lib/plans/constants';
+import { PLAN_BUSINESS, PLAN_FREE } from 'client/lib/plans/constants';
 import { userHasAnyPaidPlans } from '../';
 
 describe( 'userHasAnyPaidPlans()', () => {

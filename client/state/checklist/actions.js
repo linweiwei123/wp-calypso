@@ -3,7 +3,7 @@
 /**
  * Internal dependencies
  */
-import { SITE_CHECKLIST_RECEIVE } from 'state/action-types';
+import { SITE_CHECKLIST_RECEIVE } from 'client/state/action-types';
 
 export function receiveSiteChecklist( siteId, checklist ) {
 	return {

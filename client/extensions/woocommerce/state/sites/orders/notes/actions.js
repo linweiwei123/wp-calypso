@@ -5,7 +5,7 @@
  */
 
 import { areOrderNotesLoaded, areOrderNotesLoading } from './selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import request from '../../request';
 import {
 	WOOCOMMERCE_ORDER_NOTE_CREATE,
@@ -14,7 +14,7 @@ import {
 	WOOCOMMERCE_ORDER_NOTES_REQUEST,
 	WOOCOMMERCE_ORDER_NOTES_REQUEST_FAILURE,
 	WOOCOMMERCE_ORDER_NOTES_REQUEST_SUCCESS,
-} from 'woocommerce/state/action-types';
+} from 'client/extensions/woocommerce/state/action-types';
 
 export const fetchNotes = ( siteId, orderId, refresh = false ) => ( dispatch, getState ) => {
 	const state = getState();

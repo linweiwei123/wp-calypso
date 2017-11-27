@@ -5,12 +5,12 @@
  */
 
 import debugFactory from 'debug';
-import wpcom from 'lib/wp';
+import wpcom from 'client/lib/wp';
 
 /**
  * Internal dependencies
  */
-import * as ActionTypes from 'state/action-types';
+import * as ActionTypes from 'client/state/action-types';
 import * as customizationSaveFunctions from './save-functions';
 
 const debug = debugFactory( 'calypso:preview-actions' );

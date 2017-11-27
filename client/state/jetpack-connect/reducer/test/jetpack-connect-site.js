@@ -9,7 +9,7 @@ import {
 	JETPACK_CONNECT_CONFIRM_JETPACK_STATUS,
 	JETPACK_CONNECT_DISMISS_URL_STATUS,
 	JETPACK_CONNECT_REDIRECT,
-} from 'state/action-types';
+} from 'client/state/action-types';
 
 describe( '#jetpackConnectSite()', () => {
 	test( 'should default to an empty object', () => {

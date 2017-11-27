@@ -9,7 +9,7 @@ import { trim } from 'lodash';
 /**
  * Internal dependencies
  */
-import { isHttps, withoutHttp } from 'lib/url';
+import { isHttps, withoutHttp } from 'client/lib/url';
 import config from 'config';
 
 export default function( site ) {

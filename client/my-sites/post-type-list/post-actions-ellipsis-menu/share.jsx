@@ -11,13 +11,13 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import PopoverMenuItem from 'components/popover/menu-item';
-import { bumpStat as bumpAnalyticsStat } from 'state/analytics/actions';
+import PopoverMenuItem from 'client/components/popover/menu-item';
+import { bumpStat as bumpAnalyticsStat } from 'client/state/analytics/actions';
 import { bumpStatGenerator } from './utils';
-import { getPost } from 'state/posts/selectors';
-import { toggleSharePanel } from 'state/ui/post-type-list/actions';
-import { isPublicizeEnabled } from 'state/selectors';
-import { abtest } from 'lib/abtest';
+import { getPost } from 'client/state/posts/selectors';
+import { toggleSharePanel } from 'client/state/ui/post-type-list/actions';
+import { isPublicizeEnabled } from 'client/state/selectors';
+import { abtest } from 'client/lib/abtest';
 import config from 'config';
 
 class PostActionsEllipsisMenuShare extends Component {

@@ -9,12 +9,12 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { closeEditorSidebar } from 'state/ui/editor/sidebar/actions';
-import EditorDrawer from 'post-editor/editor-drawer';
+import { closeEditorSidebar } from 'client/state/ui/editor/sidebar/actions';
+import EditorDrawer from 'client/post-editor/editor-drawer';
 import EditorSidebarHeader from './header';
-import SidebarFooter from 'layout/sidebar/footer';
-import EditorActionBar from 'post-editor/editor-action-bar';
-import EditorDeletePost from 'post-editor/editor-delete-post';
+import SidebarFooter from 'client/layout/sidebar/footer';
+import EditorActionBar from 'client/post-editor/editor-action-bar';
+import EditorDeletePost from 'client/post-editor/editor-delete-post';
 
 export class EditorSidebar extends Component {
 	static propTypes = {

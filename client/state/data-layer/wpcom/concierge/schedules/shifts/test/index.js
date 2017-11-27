@@ -3,15 +3,15 @@
 /**
  * Internal dependencies
  */
-import { http } from 'state/data-layer/wpcom-http/actions';
+import { http } from 'client/state/data-layer/wpcom-http/actions';
 import {
 	conciergeShiftsFetchError,
 	fetchConciergeShifts,
 	storeFetchedConciergeShifts,
 	showConciergeShiftsFetchError,
 } from '../';
-import { updateConciergeShifts } from 'state/concierge/actions';
-import { CONCIERGE_SHIFTS_REQUEST } from 'state/action-types';
+import { updateConciergeShifts } from 'client/state/concierge/actions';
+import { CONCIERGE_SHIFTS_REQUEST } from 'client/state/action-types';
 
 // we are mocking impure-lodash here, so that conciergeShiftsFetchError() will contain the expected id in the tests
 jest.mock( 'lib/impure-lodash', () => ( {

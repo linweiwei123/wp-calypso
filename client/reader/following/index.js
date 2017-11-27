@@ -8,7 +8,7 @@ import page from 'page';
  * Internal dependencies
  */
 import { followingManage } from './controller';
-import { initAbTests, updateLastRoute, sidebar } from 'reader/controller';
+import { initAbTests, updateLastRoute, sidebar } from 'client/reader/controller';
 
 export default function() {
 	page( '/following/*', initAbTests );

@@ -7,7 +7,10 @@ import { forEach, isEmpty, isNumber, omit, omitBy } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getCurrencyFormatDecimal, getCurrencyFormatString } from 'woocommerce/lib/currency';
+import {
+	getCurrencyFormatDecimal,
+	getCurrencyFormatString,
+} from 'client/extensions/woocommerce/lib/currency';
 
 export const DEFAULT_QUERY = {
 	page: 1,

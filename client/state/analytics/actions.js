@@ -16,7 +16,7 @@ import {
 	ANALYTICS_STAT_BUMP,
 	ANALYTICS_TRACKING_ON,
 	ANALYTICS_TRACKS_ANONID_SET,
-} from 'state/action-types';
+} from 'client/state/action-types';
 
 const mergedMetaData = ( a, b ) => [
 	...get( a, 'meta.analytics', [] ),

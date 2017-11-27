@@ -10,12 +10,18 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getAuthorizationData, isRemoteSiteOnSitesList } from 'state/jetpack-connect/selectors';
-import { getCurrentUser } from 'state/current-user/selectors';
-import FormattedHeader from 'components/formatted-header';
+import {
+	getAuthorizationData,
+	isRemoteSiteOnSitesList,
+} from 'client/state/jetpack-connect/selectors';
+import { getCurrentUser } from 'client/state/current-user/selectors';
+import FormattedHeader from 'client/components/formatted-header';
 import SiteCard from './site-card';
-import versionCompare from 'lib/version-compare';
-import { getJetpackConnectJetpackVersion, getJetpackConnectPartnerId } from 'state/selectors';
+import versionCompare from 'client/lib/version-compare';
+import {
+	getJetpackConnectJetpackVersion,
+	getJetpackConnectPartnerId,
+} from 'client/state/selectors';
 
 class AuthFormHeader extends Component {
 	getState() {

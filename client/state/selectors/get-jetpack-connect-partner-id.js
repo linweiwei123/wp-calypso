@@ -7,7 +7,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getAuthorizationRemoteQueryData } from 'state/jetpack-connect/selectors';
+import { getAuthorizationRemoteQueryData } from 'client/state/jetpack-connect/selectors';
 
 /**
  * Returns the partner ID provided as part of Jetpack Connect authorization.

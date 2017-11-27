@@ -11,9 +11,9 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import Dialog from 'components/dialog';
-import FormTextInput from 'components/forms/form-text-input';
+import Button from 'client/components/button';
+import Dialog from 'client/components/dialog';
+import FormTextInput from 'client/components/forms/form-text-input';
 
 /*
  * Shows the URL of am embed and allows it to be edited.

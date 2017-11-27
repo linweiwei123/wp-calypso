@@ -10,12 +10,12 @@ import i18n from 'i18n-calypso';
 /**
  * Internal Dependencies
  */
-import route from 'lib/route';
-import analytics from 'lib/analytics';
+import route from 'client/lib/route';
+import analytics from 'client/lib/analytics';
 import titlecase from 'to-title-case';
-import trackScrollPage from 'lib/track-scroll-page';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
-import { renderWithReduxStore } from 'lib/react-helpers';
+import trackScrollPage from 'client/lib/track-scroll-page';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const controller = {
 	pages: function( context ) {

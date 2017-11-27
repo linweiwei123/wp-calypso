@@ -10,11 +10,11 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import CompactCard from 'components/card/compact';
-import QuerySitePlans from 'components/data/query-site-plans';
-import SectionHeader from 'components/section-header';
-import { isSiteOnPaidPlan } from 'state/selectors';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
+import CompactCard from 'client/components/card/compact';
+import QuerySitePlans from 'client/components/data/query-site-plans';
+import SectionHeader from 'client/components/section-header';
+import { isSiteOnPaidPlan } from 'client/state/selectors';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'client/state/ui/selectors';
 
 const DisconnectSurvey = ( { confirmHref, isPaidPlan, siteId, siteSlug, translate } ) => (
 	<div className="disconnect-site__survey main">

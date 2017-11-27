@@ -12,21 +12,21 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal Dependencies
  */
-import analytics from 'lib/analytics';
-import CheckoutData from 'components/data/checkout';
-import i18nUtils from 'lib/i18n-utils';
+import analytics from 'client/lib/analytics';
+import CheckoutData from 'client/components/data/checkout';
+import i18nUtils from 'client/lib/i18n-utils';
 import JetpackConnect from './main';
 import JetpackConnectAuthorizeForm from './authorize-form';
 import JetpackNewSite from './jetpack-new-site/index';
 import jetpackSSOForm from './sso';
 import Plans from './plans';
 import PlansLanding from './plans-landing';
-import route from 'lib/route';
-import userFactory from 'lib/user';
-import { JETPACK_CONNECT_QUERY_SET } from 'state/action-types';
-import { renderWithReduxStore } from 'lib/react-helpers';
-import { setDocumentHeadTitle as setTitle } from 'state/document-head/actions';
-import { setSection } from 'state/ui/actions';
+import route from 'client/lib/route';
+import userFactory from 'client/lib/user';
+import { JETPACK_CONNECT_QUERY_SET } from 'client/state/action-types';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
+import { setDocumentHeadTitle as setTitle } from 'client/state/document-head/actions';
+import { setSection } from 'client/state/ui/actions';
 
 /**
  * Module variables

@@ -4,7 +4,7 @@
  * Internal dependencies
  */
 
-import * as ActionTypes from 'state/action-types';
+import * as ActionTypes from 'client/state/action-types';
 import { previewSchema } from './schema';
 
 const siteInitialState = {

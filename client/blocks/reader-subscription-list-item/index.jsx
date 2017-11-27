@@ -11,20 +11,20 @@ import moment from 'moment';
 /**
  * Internal Dependencies
  */
-import ReaderAvatar from 'blocks/reader-avatar';
-import FollowButton from 'reader/follow-button';
-import { getStreamUrl } from 'reader/route';
-import EmailSettings from 'blocks/reader-email-settings';
+import ReaderAvatar from 'client/blocks/reader-avatar';
+import FollowButton from 'client/reader/follow-button';
+import { getStreamUrl } from 'client/reader/route';
+import EmailSettings from 'client/blocks/reader-email-settings';
 import {
 	getSiteName,
 	getSiteDescription,
 	getSiteAuthorName,
 	getFeedUrl,
 	getSiteUrl,
-} from 'reader/get-helpers';
-import untrailingslashit from 'lib/route/untrailingslashit';
-import ReaderSubscriptionListItemPlaceholder from 'blocks/reader-subscription-list-item/placeholder';
-import { recordTrack, recordTrackWithRailcar } from 'reader/stats';
+} from 'client/reader/get-helpers';
+import untrailingslashit from 'client/lib/route/untrailingslashit';
+import ReaderSubscriptionListItemPlaceholder from 'client/blocks/reader-subscription-list-item/placeholder';
+import { recordTrack, recordTrackWithRailcar } from 'client/reader/stats';
 
 /**
  * Takes in a string and removes the starting https, www., and removes a trailing slash

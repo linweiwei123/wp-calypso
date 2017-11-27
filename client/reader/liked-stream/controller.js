@@ -7,16 +7,16 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import route from 'lib/route';
-import feedStreamFactory from 'lib/feed-stream-store';
+import route from 'client/lib/route';
+import feedStreamFactory from 'client/lib/feed-stream-store';
 import {
 	ensureStoreLoading,
 	trackPageLoad,
 	trackUpdatesLoaded,
 	trackScrollPage,
-} from 'reader/controller-helper';
-import LikedPostsStream from 'reader/liked-stream/main';
-import { renderWithReduxStore } from 'lib/react-helpers';
+} from 'client/reader/controller-helper';
+import LikedPostsStream from 'client/reader/liked-stream/main';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 
 const analyticsPageTitle = 'Reader';
 

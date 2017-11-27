@@ -12,7 +12,7 @@ import shallowEqual from 'react-pure-render/shallowEqual';
 /**
  * Internal dependencies
  */
-import { requestUsers } from 'state/users/actions';
+import { requestUsers } from 'client/state/users/actions';
 
 class QueryUsers extends Component {
 	static propTypes = {

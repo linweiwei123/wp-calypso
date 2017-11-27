@@ -10,7 +10,7 @@ import deepFreeze from 'deep-freeze';
  * Internal dependencies
  */
 import { isBusinessPlanUser } from '../';
-import { PLAN_BUSINESS } from 'lib/plans/constants';
+import { PLAN_BUSINESS } from 'client/lib/plans/constants';
 
 describe( 'isBusinessPlanUser()', () => {
 	test( 'should return true if any purchase is a business plan.', () => {

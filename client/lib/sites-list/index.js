@@ -4,11 +4,11 @@
  * Internal dependencies
  */
 
-import { action as InvitesActionTypes } from 'lib/invites/constants';
-import { JETPACK_CONNECT_AUTHORIZE_RECEIVE_SITE_LIST } from 'state/action-types';
+import { action as InvitesActionTypes } from 'client/lib/invites/constants';
+import { JETPACK_CONNECT_AUTHORIZE_RECEIVE_SITE_LIST } from 'client/state/action-types';
 import SitesList from './list';
-import PollerPool from 'lib/data-poller';
-import Dispatcher from 'dispatcher';
+import PollerPool from 'client/lib/data-poller';
+import Dispatcher from 'client/dispatcher';
 let _sites;
 
 export default function() {

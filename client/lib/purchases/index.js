@@ -11,7 +11,7 @@ import i18n from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { isJetpackPlan, isDomainRegistration, isPlan, isTheme } from 'lib/products-values';
+import { isJetpackPlan, isDomainRegistration, isPlan, isTheme } from 'client/lib/products-values';
 
 function getIncludedDomain( purchase ) {
 	return purchase.includedDomain;

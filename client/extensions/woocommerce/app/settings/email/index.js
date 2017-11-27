@@ -12,15 +12,15 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { getLink } from 'woocommerce/lib/nav-utils';
-import { getSelectedSiteWithFallback } from 'woocommerce/state/sites/selectors';
-import { mailChimpSaveSettings } from 'woocommerce/state/sites/settings/mailchimp/actions';
-import { isSavingSettings } from 'woocommerce/state/sites/settings/mailchimp/selectors';
-import ActionHeader from 'woocommerce/components/action-header';
-import Button from 'components/button';
+import { getLink } from 'client/extensions/woocommerce/lib/nav-utils';
+import { getSelectedSiteWithFallback } from 'client/extensions/woocommerce/state/sites/selectors';
+import { mailChimpSaveSettings } from 'client/extensions/woocommerce/state/sites/settings/mailchimp/actions';
+import { isSavingSettings } from 'client/extensions/woocommerce/state/sites/settings/mailchimp/selectors';
+import ActionHeader from 'client/extensions/woocommerce/components/action-header';
+import Button from 'client/components/button';
 import EmailSettings from './email-settings';
 import MailChimp from './mailchimp';
-import Main from 'components/main';
+import Main from 'client/components/main';
 import SettingsNavigation from '../navigation';
 
 const SettingsEmail = ( { site, translate, className, params, isSaving, mailChimpSaveSettings: saveSettings } ) => {

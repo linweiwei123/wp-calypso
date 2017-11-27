@@ -12,21 +12,21 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { getSelectedSite } from 'state/ui/selectors';
-import Popover from 'components/popover';
-import Count from 'components/count';
-import { getMyPostCounts } from 'state/posts/counts/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSite } from 'client/state/ui/selectors';
+import Popover from 'client/components/popover';
+import Count from 'client/components/count';
+import { getMyPostCounts } from 'client/state/posts/counts/selectors';
+import { getSelectedSiteId } from 'client/state/ui/selectors';
 import {
 	getSitePostsForQueryIgnoringPage,
 	isRequestingSitePostsForQuery,
-} from 'state/posts/selectors';
-import Draft from 'my-sites/draft';
-import QueryPosts from 'components/data/query-posts';
-import QueryPostCounts from 'components/data/query-post-counts';
-import Button from 'components/button';
-import Site from 'blocks/site';
-import { getCurrentUserId } from 'state/current-user/selectors';
+} from 'client/state/posts/selectors';
+import Draft from 'client/my-sites/draft';
+import QueryPosts from 'client/components/data/query-posts';
+import QueryPostCounts from 'client/components/data/query-post-counts';
+import Button from 'client/components/button';
+import Site from 'client/blocks/site';
+import { getCurrentUserId } from 'client/state/current-user/selectors';
 
 class MasterbarDrafts extends Component {
 	static propTypes = {

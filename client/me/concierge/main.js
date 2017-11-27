@@ -23,10 +23,10 @@ import { connect } from 'react-redux';
 import CalendarStep from './calendar-step';
 import ConfirmationStep from './confirmation-step';
 import InfoStep from './info-step';
-import Main from 'components/main';
+import Main from 'client/components/main';
 import Skeleton from './skeleton';
-import QueryConciergeShifts from 'components/data/query-concierge-shifts';
-import { getConciergeShifts } from 'state/selectors';
+import QueryConciergeShifts from 'client/components/data/query-concierge-shifts';
+import { getConciergeShifts } from 'client/state/selectors';
 
 const STEP_COMPONENTS = [ InfoStep, CalendarStep, ConfirmationStep ];
 

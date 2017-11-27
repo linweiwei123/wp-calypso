@@ -9,7 +9,7 @@ import React from 'react';
 /**
  * Internal Dependencies
  */
-import { renderWithReduxStore } from 'lib/react-helpers';
+import { renderWithReduxStore } from 'client/lib/react-helpers';
 import PaladinComponent from './main';
 
 export default {

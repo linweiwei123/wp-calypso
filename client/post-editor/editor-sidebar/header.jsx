@@ -10,8 +10,8 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-import Button from 'components/button';
-import EditorPostType from 'post-editor/editor-post-type';
+import Button from 'client/components/button';
+import EditorPostType from 'client/post-editor/editor-post-type';
 
 const EditorSidebarHeader = ( { closeSidebar, translate } ) => (
 	<div className="editor-sidebar__header">
