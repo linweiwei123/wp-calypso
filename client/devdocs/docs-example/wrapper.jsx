@@ -11,6 +11,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import Gridicon from 'gridicons';
+import DocsExampleError from 'devdocs/docs-example/error';
 
 const renderTitle = ( unique, name, url ) =>
 	unique ? (
@@ -29,6 +30,14 @@ class DocsExampleWrapper extends Component {
 		url: PropTypes.string.isRequired,
 	};
 
+	state = {
+		hasError: false,
+	};
+
+	componentDidCatch() {
+		this.setState( { hasError: true } );
+	}
+
 	render() {
 		const { children, name, unique, url } = this.props;
 
@@ -39,7 +48,7 @@ class DocsExampleWrapper extends Component {
 				} ) }
 			>
 				<h2 className="docs-example__wrapper-header">{ renderTitle( unique, name, url ) }</h2>
-				{ children }
+				{ this.state.hasError ? <DocsExampleError /> : children }
 			</div>
 		);
 	}
