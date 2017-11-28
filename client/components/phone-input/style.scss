@@ -65,7 +65,7 @@ select.phone-input__country-select {
 .phone-input {
 	position: relative;
 	width: 100%;
-	input {
+	input[type='tel'] {
 		padding-left: 70px;
 	}
 }

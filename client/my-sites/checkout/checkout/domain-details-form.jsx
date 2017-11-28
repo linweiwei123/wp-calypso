@@ -1,15 +1,3 @@
-/*eslint-disable*/
-/*
-
-
-
-
-Notes:
-- inputFocus on Error
-
-
-
- */
 /**
  * External dependencies
  *
@@ -21,22 +9,7 @@ import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
 import debugFactory from 'debug';
-import {
-	camelCase,
-	deburr,
-	first,
-	head,
-	includes,
-	indexOf,
-	intersection,
-	isEqual,
-	kebabCase,
-	last,
-	map,
-	omit,
-	pick,
-	reduce,
-} from 'lodash';
+import { first, includes, indexOf, intersection, isEqual, last, map } from 'lodash';
 
 /**
  * Internal dependencies
@@ -44,11 +17,9 @@ import {
 import { getContactDetailsCache } from 'state/selectors';
 import { updateContactDetailsCache } from 'state/domains/management/actions';
 import QueryContactDetailsCache from 'components/data/query-contact-details-cache';
-import { CountrySelect, Input, HiddenInput } from 'my-sites/domains/components/form';
 import PrivacyProtection from './privacy-protection';
 import PaymentBox from './payment-box';
 import { cartItems } from 'lib/cart-values';
-import { forDomainRegistrations as countriesListForDomainRegistrations } from 'lib/countries-list';
 import analytics from 'lib/analytics';
 
 import {
@@ -58,8 +29,6 @@ import {
 	addGoogleAppsRegistrationData,
 } from 'lib/upgrades/actions';
 import FormButton from 'components/forms/form-button';
-import { countries } from 'components/phone-input/data';
-import { toIcannFormat } from 'components/phone-input/phone-number';
 import SecurePaymentFormPlaceholder from './secure-payment-form-placeholder.jsx';
 import wp from 'lib/wp';
 import ExtraInfoForm, {
@@ -69,20 +38,18 @@ import config from 'config';
 import ContactDetailsFormFields from 'components/contact-details-form-fields';
 
 const debug = debugFactory( 'calypso:my-sites:upgrades:checkout:domain-details' );
-const wpcom = wp.undocumented(),
-	countriesList = countriesListForDomainRegistrations();
+const wpcom = wp.undocumented();
 
 export class DomainDetailsForm extends PureComponent {
 	constructor( props, context ) {
 		super( props, context );
-
 
 		const steps = [ 'mainForm', ...this.getRequiredExtraSteps() ];
 		debug( 'steps:', steps );
 
 		this.state = {
 			steps,
-			currentStep: first( steps )
+			currentStep: first( steps ),
 		};
 	}
 
@@ -112,26 +79,18 @@ export class DomainDetailsForm extends PureComponent {
 	}
 
 	validate = ( fieldValues, onComplete ) => {
-
 		const validationHandler = ( error, data ) => {
 			const messages = ( data && data.messages ) || {};
 			onComplete( error, messages );
 		};
 
 		if ( this.needsOnlyGoogleAppsDetails() ) {
-			wpcom.validateGoogleAppsContactInformation(
-				fieldValues,
-				validationHandler
-			);
+			wpcom.validateGoogleAppsContactInformation( fieldValues, validationHandler );
 			return;
 		}
 
 		const domainNames = map( cartItems.getDomainRegistrations( this.props.cart ), 'meta' );
-		wpcom.validateDomainContactInformation(
-			fieldValues,
-			domainNames,
-			validationHandler
-		);
+		wpcom.validateDomainContactInformation( fieldValues, domainNames, validationHandler );
 	};
 
 	hasAnotherStep() {
@@ -151,6 +110,9 @@ export class DomainDetailsForm extends PureComponent {
 		);
 	}
 
+	getNumberOfDomainRegistrations() {
+		return cartItems.getDomainRegistrations( this.props.cart ).length;
+	}
 
 	// if `domains/cctlds` is `true` in the config,
 	// for every domain that requires additional steps, add it to this.state.steps
@@ -202,14 +164,24 @@ export class DomainDetailsForm extends PureComponent {
 		);
 	}
 
-	handleContactDetailsChange = ( name, value ) => {
-		this.props.updateContactDetailsCache( {
-			[ name ]: value,
-		} );
+	handleContactDetailsChange = newContactDetailsValues => {
+		this.props.updateContactDetailsCache( newContactDetailsValues );
 	};
 
 	renderDomainContactDetailsFields() {
 		const { contactDetails, translate } = this.props;
+		const labelTexts = {
+			submitButton: this.hasAnotherStep()
+				? translate( 'Continue' )
+				: translate( 'Continue to Checkout' ),
+			organization: translate(
+				'Registering this domain for a company? + Add Organization Name',
+				'Registering these domains for a company? + Add Organization Name',
+				{
+					count: this.getNumberOfDomainRegistrations(),
+				}
+			),
+		};
 		return (
 			<ContactDetailsFormFields
 				contactDetails={ contactDetails }
@@ -219,18 +191,13 @@ export class DomainDetailsForm extends PureComponent {
 				onSubmit={ this.handleSubmitButtonClick }
 				eventFormName="Checkout Form"
 				onValidate={ this.validate }
-				submitText={ this.hasAnotherStep()
-					? translate( 'Continue' )
-					: translate( 'Continue to Checkout' ) }
-			/> );
+				labelTexts={ labelTexts }
+			/>
+		);
 	}
 
 	renderDetailsForm() {
-		return (
-			<form>
-				{ this.renderDomainContactDetailsFields() }
-			</form>
-		);
+		return <form>{ this.renderDomainContactDetailsFields() }</form>;
 	}
 
 	renderExtraDetailsForm( tld ) {
@@ -290,8 +257,8 @@ export class DomainDetailsForm extends PureComponent {
 		return (
 			<div>
 				{ cartItems.hasDomainRegistration( this.props.cart ) &&
-				this.allDomainRegistrationsSupportPrivacy() &&
-				this.renderPrivacySection() }
+					this.allDomainRegistrationsSupportPrivacy() &&
+					this.renderPrivacySection() }
 				<PaymentBox currentPage={ this.state.currentStep } classSet={ classSet } title={ title }>
 					{ this.renderCurrentForm() }
 				</PaymentBox>

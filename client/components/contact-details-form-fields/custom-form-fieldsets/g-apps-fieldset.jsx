@@ -30,7 +30,7 @@ export class GAppsFieldset extends Component {
 	render() {
 		const { getFieldProps, translate } = this.props;
 		return (
-			<div className="domain-form-fieldsets__address-fields g-apps-fieldset">
+			<div className="custom-form-fieldsets__address-fields g-apps-fieldset">
 				<CountrySelect
 					label={ translate( 'Country' ) }
 					countriesList={ countriesList }

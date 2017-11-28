@@ -3,19 +3,21 @@
  *
  * @format
  */
-
 import PropTypes from 'prop-types';
 import React, { Component, createElement } from 'react';
 import { connect } from 'react-redux';
-import noop from 'lodash/noop';
-import get from 'lodash/get';
-import deburr from 'lodash/deburr';
-import kebabCase from 'lodash/kebabCase';
-import pick from 'lodash/pick';
-import head from 'lodash/head';
-import isEqual from 'lodash/isEqual';
-import isEmpty from 'lodash/isEmpty';
-import camelCase from 'lodash/camelCase';
+import {
+	noop,
+	get,
+	deburr,
+	kebabCase,
+	pick,
+	head,
+	isEqual,
+	isEmpty,
+	camelCase,
+	identity,
+} from 'lodash';
 import { localize } from 'i18n-calypso';
 
 /**
@@ -33,8 +35,8 @@ import formState from 'lib/form-state';
 import analytics from 'lib/analytics';
 import { toIcannFormat } from 'components/phone-input/phone-number';
 import NoticeErrorMessage from 'my-sites/checkout/checkout/notice-error-message';
-import GAppsFieldset from 'my-sites/domains/components/domain-form-fieldsets/g-apps-fieldset';
-import RegionAddressFieldsets from 'my-sites/domains/components/domain-form-fieldsets/region-address-fieldsets';
+import GAppsFieldset from './custom-form-fieldsets/g-apps-fieldset';
+import RegionAddressFieldsets from './custom-form-fieldsets/region-address-fieldsets';
 import notices from 'notices';
 import support from 'lib/url/support';
 
@@ -63,10 +65,12 @@ export class ContactDetailsFormFields extends Component {
 		onSubmit: PropTypes.func,
 		onValidate: PropTypes.func,
 		onSanitize: PropTypes.func,
-		submitText: PropTypes.string,
+		labelTexts: PropTypes.object,
 		onCancel: PropTypes.func,
 		disableSubmitButton: PropTypes.bool,
 		className: PropTypes.string,
+		needsOnlyGoogleAppsDetails: PropTypes.bool,
+		hasCountryStates: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -91,10 +95,13 @@ export class ContactDetailsFormFields extends Component {
 		onSubmit: noop,
 		onValidate: noop,
 		onSanitize: null,
-		submitText: null,
+		labelTexts: {},
 		onCancel: null,
 		disableSubmitButton: false,
 		className: '',
+		needsOnlyGoogleAppsDetails: false,
+		hasCountryStates: false,
+		translate: identity,
 	};
 
 	constructor() {
@@ -126,35 +133,30 @@ export class ContactDetailsFormFields extends Component {
 	}
 
 	shouldComponentUpdate( nextProps, nextState ) {
-		if ( ! isEqual( nextState.form, this.state.form ) ) {
-			return true;
-		}
-
-		if (
-			nextProps.needsFax !== this.props.needsFax ||
-			nextProps.submitText !== this.props.submitText ||
-			nextProps.disableSubmitButton !== this.props.disableSubmitButton ||
-			nextProps.needsOnlyGoogleAppsDetails !== this.props.needsOnlyGoogleAppsDetails
-		) {
-			return true;
-		}
-
-		return false;
+		return (
+			! isEqual( nextState.form, this.state.form ) ||
+			! isEqual( nextProps.labelTexts, this.props.labelTexts ) ||
+			( nextProps.needsFax !== this.props.needsFax ||
+				nextProps.disableSubmitButton !== this.props.disableSubmitButton ||
+				nextProps.needsOnlyGoogleAppsDetails !== this.props.needsOnlyGoogleAppsDetails )
+		);
 	}
 
 	componentWillMount() {
 		this.formStateController = formState.Controller( {
-			initialFields: pick( this.props.contactDetails, this.fieldNames ),
+			fieldNames: this.fieldNames,
+			loadFunction: this.loadFormState,
 			sanitizerFunction: this.sanitize,
 			validatorFunction: this.validate,
 			onNewState: this.setFormState,
 			onError: this.handleFormControllerError,
-		} );
-
-		this.setState( {
-			form: this.formStateController.getInitialState(),
+			debounceWait: 500,
 		} );
 	}
+
+	loadFormState = fn => {
+		fn( null, pick( this.props.contactDetails, this.fieldNames ) );
+	};
 
 	getMainFieldValues() {
 		const mainFieldValues = formState.getAllFieldValues( this.state.form );
@@ -165,7 +167,9 @@ export class ContactDetailsFormFields extends Component {
 	}
 
 	setFormState = form => {
-		this.setState( { form } );
+		this.setState( { form }, () => {
+			this.props.onFieldChange( this.getMainFieldValues() );
+		} );
 	};
 
 	handleFormControllerError = error => {
@@ -274,7 +278,7 @@ export class ContactDetailsFormFields extends Component {
 
 	handleFieldChange = event => {
 		const { name, value } = event.target;
-		const { onFieldChange, contactDetails } = this.props;
+		const { contactDetails } = this.props;
 
 		if ( name === 'country-code' ) {
 			this.formStateController.handleFieldChange( {
@@ -295,13 +299,9 @@ export class ContactDetailsFormFields extends Component {
 			name,
 			value,
 		} );
-
-		onFieldChange( name, value );
 	};
 
 	handlePhoneChange = ( { value, countryCode } ) => {
-		const { onFieldChange } = this.props;
-
 		this.formStateController.handleFieldChange( {
 			name: 'phone',
 			value,
@@ -310,8 +310,6 @@ export class ContactDetailsFormFields extends Component {
 		this.setState( {
 			phoneCountryCode: countryCode,
 		} );
-
-		onFieldChange( 'phone', value );
 	};
 
 	getFieldProps = ( name, needsChildRef = false ) => {
@@ -358,18 +356,18 @@ export class ContactDetailsFormFields extends Component {
 	}
 
 	renderContactDetailsFields() {
-		const { translate, needsFax, hasCountryStates } = this.props;
+		const { translate, needsFax, hasCountryStates, labelTexts } = this.props;
 		const countryCode = this.getCountryCode();
 		const { phoneCountryCode } = this.state;
 
 		return (
-			<div className="contact-details-form-fields__container">
+			<div className="contact-details-form-fields__contact-details">
 				{ this.createField(
 					'organization',
 					HiddenInput,
 					{
 						label: translate( 'Organization' ),
-						text: translate( "+ Add your organization's name" ),
+						text: labelTexts.organization || translate( '+ Add organization name' ),
 					},
 					true
 				) }
@@ -413,7 +411,7 @@ export class ContactDetailsFormFields extends Component {
 	}
 
 	render() {
-		const { translate, onCancel, submitText, disableSubmitButton } = this.props;
+		const { translate, onCancel, disableSubmitButton, labelTexts } = this.props;
 		const countryCode = this.getCountryCode();
 
 		return (
@@ -433,7 +431,7 @@ export class ContactDetailsFormFields extends Component {
 					this.renderContactDetailsFields()
 				) }
 
-				{ this.props.children }
+				<div className="contact-details-form-fields__extra-fields">{ this.props.children }</div>
 
 				<FormFooter>
 					<FormButton
@@ -441,7 +439,7 @@ export class ContactDetailsFormFields extends Component {
 						disabled={ ! countryCode || disableSubmitButton }
 						onClick={ this.handleSubmitButtonClick }
 					>
-						{ submitText || translate( 'Submit' ) }
+						{ labelTexts.submitText || translate( 'Submit' ) }
 					</FormButton>
 					{ onCancel && (
 						<FormButton type="button" isPrimary={ false } disabled={ false } onClick={ onCancel }>
